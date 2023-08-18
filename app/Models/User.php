@@ -59,4 +59,8 @@ class User extends Authenticatable
     public function certificates() : HasMany {
         return  $this->hasMany(Certificate::class);
     }
+
+    public function applications() : HasMany {
+        return $this->hasMany(Application::class);
+    }
 }
