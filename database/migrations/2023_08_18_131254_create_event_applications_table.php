@@ -28,6 +28,7 @@ return new class extends Migration
             $table->string('video_url')->nullable();
             $table->string('message')->nullable();
             $table->timestamps();
+            $table->softDeletes();
         });
     }
 

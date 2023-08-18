@@ -26,6 +26,7 @@ return new class extends Migration
             $table->foreignIdFor(Event::class);
             $table->string('duty');
             $table->timestamps();
+            $table->softDeletes();
         });
     }
 
