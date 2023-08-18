@@ -44,7 +44,7 @@ class User extends Authenticatable
         'password' => 'hashed',
     ];
 
-    public function  isStaff() : bool {
+    public function isStaff() : bool {
         return $this->role === 'STAFF';
     }
 
@@ -54,5 +54,9 @@ class User extends Authenticatable
 
     public function events() : HasMany {
         return $this->hasMany(Event::class);
+    }
+
+    public function certificates() : HasMany {
+        return  $this->hasMany(Certificate::class);
     }
 }
