@@ -13,7 +13,7 @@ return new class extends Migration
     * Run the migrations.
     */
 
-    //  EventApplication
+    //  Application
     //  User_ID (FK)
     //  Event_ID (FK)
     //  Video_URL #String
