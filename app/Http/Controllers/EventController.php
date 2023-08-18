@@ -32,7 +32,7 @@ class EventController extends Controller
      */
     public function createApplication()
     {
-        return view('events.applications.create');
+        return view('events.create-application');
     }
 
     /**

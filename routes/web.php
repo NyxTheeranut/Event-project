@@ -26,7 +26,11 @@ Route::get('/about', function () {
 Route::get('/events', [EventController::class, 'index'])
     ->name('events.index');
 
-Route::get('/events/{event}/apply',
+//Route::get('/events/{event}/apply',
+//    [EventController::class, 'createApplication']
+//)->name('events.applications.create');
+
+Route::get('/events/apply',
     [EventController::class, 'createApplication']
 )->name('events.applications.create');
 
