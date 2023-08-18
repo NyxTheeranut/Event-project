@@ -11,7 +11,7 @@
 
 <td align="center">
     <a href = "https://github.com/0akkung">
-        <img src = "https://avatars.githubusercontent.com/u/98578165?s=50"/><br>
+        <img src = "https://avatars.githubusercontent.com/u/98578165?s=50" size="50"/><br>
         <sub><b> 0akkung </b> </sub>
     </a>
     <br>
@@ -19,7 +19,7 @@
 
 <td align="center">
     <a href = "https://github.com/NyxTheeranut">
-        <img src = "https://avatars.githubusercontent.com/u/98580582?s=50"/><br>
+        <img src = "https://avatars.githubusercontent.com/u/98580582?s=50" size="50"/><br>
         <sub><b> Nyx_Nyx </b> </sub>
     </a>
     <br>
@@ -27,7 +27,7 @@
 
 <td align="center">
     <a href = "https://github.com/carry212121">
-        <img src = "https://avatars.githubusercontent.com/u/98574257?s=50"/><br>
+        <img src = "https://avatars.githubusercontent.com/u/98574257?s=50" size="50" /><br>
         <sub><b> carry212121 </b> </sub>
     </a>
     <br>
