@@ -61,19 +61,19 @@
             <ul class="flex flex-col mt-4 font-semibold lg:flex-row lg:space-x-8 lg:mt-0">
                 <li>
                     <a href="{{ url('/') }}"
-                       class="nav-menu {{ request()->is('/') ? 'active' : '' }}">
+                       class="nav-menu {{ request()->is('/') ? 'active hover-button' : 'hover-button' }}">
                         หน้าหลัก
                     </a>
                 </li>
                 <li>
                     <a href="{{ route('events.index') }}"
-                       class="nav-menu {{ Route::currentRouteName() === 'events.index' ? 'active' : '' }}">
+                       class="nav-menu {{ Route::currentRouteName() === 'events.index' ? 'active hover-button' : 'hover-button' }}">
                         กิจกรรม
                     </a>
                 </li>
                 <li>
                     <a href="{{ route('about.index') }}"
-                       class="nav-menu {{ Route::currentRouteName() === 'about.index' ? 'active' : '' }}">
+                       class="nav-menu {{ Route::currentRouteName() === 'about.index' ? 'active hover-button' : 'hover-button' }}">
                         เกี่ยวกับเรา
                     </a>
                 </li>

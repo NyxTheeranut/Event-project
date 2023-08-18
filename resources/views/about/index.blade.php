@@ -1,7 +1,7 @@
 @extends('layouts.main')
 
 @section('content')
-    <div class="container mx-auto px-40 py-10">
+    <div class="container mx-auto px-40 ">
         <h2 class="mb-12 text-5xl font-bold leading-tight tracking-tight md:text-6xl xl:text-5xl">
             About Us
         </h2>
@@ -9,7 +9,6 @@
             <p class="leading-7">
                 การบ้านเยอะมาก เครียด
             </p>
-
         </div>
     </div>
 @endsection
