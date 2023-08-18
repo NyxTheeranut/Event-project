@@ -13,29 +13,29 @@
             <div class="flex items-center">
 
                 @if(Auth::check())
-{{--                    <div class="mx-4 font-semibold">--}}
-{{--                        {{ Auth::user()->name }}--}}
-{{--                    </div>--}}
-{{--                    <div class="mx-4 font-semibold">--}}
+                    <div class="mx-4 font-semibold">
+                        {{ Auth::user()->nickname }}
+                    </div>
+                    <div class="mx-4 font-semibold">
 
-{{--                        <form action="{{ route('logout') }}" method="POST">--}}
-{{--                            @csrf--}}
-{{--                            <button type="submit">--}}
-{{--                                Logout--}}
-{{--                            </button>--}}
-{{--                        </form>--}}
-{{--                    </div>--}}
+                        <form action="{{ route('logout') }}" method="POST">
+                            @csrf
+                            <button type="submit">
+                                ออกจากระบบ
+                            </button>
+                        </form>
+                    </div>
 
                 @else
                     <div class="mx-4 font-semibold">
-{{--                        <a href="{{ route('login') }}">--}}
+                        <a href="{{ route('login') }}">
                             เข้าสู่ระบบ
-{{--                        </a>--}}
+                        </a>
                     </div>
                     <div class="mx-4 font-semibold">
-{{--                        <a href="{{ route('register') }}">--}}
+                        <a href="{{ route('register') }}">
                             สมัคร
-{{--                        </a>--}}
+                        </a>
                     </div>
 
                 @endif

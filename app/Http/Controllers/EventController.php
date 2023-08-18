@@ -28,6 +28,14 @@ class EventController extends Controller
     }
 
     /**
+     * Show the form for creating a new application.
+     */
+    public function createApplication()
+    {
+        return view('events.applications.create');
+    }
+
+    /**
      * Store a newly created resource in storage.
      */
     public function store(Request $request)
