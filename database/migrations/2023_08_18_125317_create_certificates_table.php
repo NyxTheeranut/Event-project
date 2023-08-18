@@ -18,7 +18,7 @@ return new class extends Migration
     //  User_ID (FK)
     //  Event_ID (FK)
     //  Description #String
-    
+
     public function up(): void
     {
         Schema::create('certificates', function (Blueprint $table) {
@@ -27,6 +27,7 @@ return new class extends Migration
             $table->foreignIdFor(Event::class);
             $table->string('description');
             $table->timestamps();
+            $table->softDeletes();
         });
     }
 

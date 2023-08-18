@@ -13,7 +13,7 @@ return new class extends Migration
     * Run the migrations.
     */
 
-    //  EventApplication
+    //  Application
     //  User_ID (FK)
     //  Event_ID (FK)
     //  Video_URL #String
@@ -28,6 +28,7 @@ return new class extends Migration
             $table->string('video_url')->nullable();
             $table->string('message')->nullable();
             $table->timestamps();
+            $table->softDeletes();
         });
     }
 

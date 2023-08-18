@@ -25,6 +25,7 @@ return new class extends Migration
             $table->string('status')->default('PENDING');
             $table->string('reason');
             $table->timestamps();
+            $table->softDeletes();
         });
     }
 
