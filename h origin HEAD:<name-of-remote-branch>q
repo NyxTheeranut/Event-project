@@ -1,0 +1,228 @@
+[33mcommit bbbbf616541354728fe7c3ddcdf217b2c2361689[m[33m ([m[1;36mHEAD[m[33m)[m
+Author: OteEnded <ratnaritjumnong@gmail.com>
+Date:   Sun Aug 20 00:05:04 2023 +0700
+
+    fix conflic
+
+[33mcommit bf6281faf92ca5ac092bfa02eb1208056a34e7d3[m[33m ([m[1;31morigin/main[m[33m, [m[1;31morigin/HEAD[m[33m)[m
+Author: Nyx <theeranut.s@ku.th>
+Date:   Sat Aug 19 23:57:52 2023 +0700
+
+    button alignment2
+
+[33mcommit a9586b3c5caaa3a5484426065a48d00af2a4fcf6[m
+Author: Nyx <theeranut.s@ku.th>
+Date:   Sat Aug 19 23:39:35 2023 +0700
+
+    button style
+
+[33mcommit b2e809c1a666170ce4622d555d47dd1832e747a6[m
+Author: Nyx <theeranut.s@ku.th>
+Date:   Sat Aug 19 23:36:32 2023 +0700
+
+    button alignment
+
+[33mcommit 49e82630e7921aef1325244cf4aa4d33fac8dfa4[m
+Author: Nyx <theeranut.s@ku.th>
+Date:   Sat Aug 19 23:23:16 2023 +0700
+
+    fix already register
+
+[33mcommit 8f3c8051c2e33dfb6ef6e9582d7e319cc06a70d8[m
+Author: Nyx <theeranut.s@ku.th>
+Date:   Sat Aug 19 23:18:58 2023 +0700
+
+    add scrypt
+
+[33mcommit 5380f96d5710c347ac4c2dff2892e1b565364ca3[m
+Author: OteEnded <ratnaritjumnong@gmail.com>
+Date:   Sat Aug 19 23:15:14 2023 +0700
+
+    add seeder and make it read eventable
+
+[33mcommit a134ff2c27980f6f5280b16620528582053f5b07[m
+Author: Nyx <theeranut.s@ku.th>
+Date:   Sat Aug 19 23:13:10 2023 +0700
+
+    register pop up
+
+[33mcommit c2fbd77aea81ddb95951e1ca141b819e0b4ae5c4[m
+Author: carry212121 <harris.m@ku.th>
+Date:   Sat Aug 19 22:23:24 2023 +0700
+
+    create default event register page
+
+[33mcommit d69320c8f703d6b667f54912039edaacbfb087e0[m
+Author: carry212121 <harris.m@ku.th>
+Date:   Sat Aug 19 22:10:17 2023 +0700
+
+    create default event register page
+
+[33mcommit eeb7ea985235a3c4d829a23b963eead623069b72[m
+Author: OteEnded <ratnaritjumnong@gmail.com>
+Date:   Sat Aug 19 22:02:52 2023 +0700
+
+    make it loginable and registerable
+
+[33mcommit 79360dc144d1d0e69273d6269f1524e9851e8a04[m
+Author: Nyx <theeranut.s@ku.th>
+Date:   Sat Aug 19 22:03:27 2023 +0700
+
+    log in pop up
+
+[33mcommit efef4dc56267dd8242772a407577df5cd4402d7b[m
+Author: Nyx <theeranut.s@ku.th>
+Date:   Sat Aug 19 21:13:42 2023 +0700
+
+    data in pop up
+
+[33mcommit e16e544756b06173fff9b845191e9ce8ffb24ceb[m
+Author: Nyx <theeranut.s@ku.th>
+Date:   Sat Aug 19 21:00:53 2023 +0700
+
+    pop up
+
+[33mcommit cc7dee2cd4bc9e60ffbbe54dba155baf630881f6[m
+Author: Nyx <theeranut.s@ku.th>
+Date:   Sat Aug 19 20:33:33 2023 +0700
+
+    hover effect
+
+[33mcommit 70ba40b611bd1dd71571ccc3010c15f0439b628f[m
+Author: Pawat-P <pawat.put@ku.th>
+Date:   Sat Aug 19 12:38:31 2023 +0700
+
+    Update EventController and add more empty views
+
+[33mcommit 754ac2037c330fd1f8aa989586d95ba13e7ea0f2[m
+Author: Pawat-P <pawat.put@ku.th>
+Date:   Sat Aug 19 11:23:41 2023 +0700
+
+    Add registration fields but still can't register
+
+[33mcommit ed3494f5df47817ac89b68b0f556cc51cc99c658[m
+Author: Nyx <theeranut.s@ku.th>
+Date:   Sat Aug 19 00:31:43 2023 +0700
+
+    under-line button
+
+[33mcommit b315a04a051699d65ad5a3fb3dd58e5a867bf011[m
+Author: OteEnded <ratnaritjumnong@gmail.com>
+Date:   Fri Aug 18 23:30:34 2023 +0700
+
+    add edit env for event apply
+
+[33mcommit 0e442c4bd3e19d4784e6692dbe51469293d60ae6[m
+Author: Pawat-P <pawat.put@ku.th>
+Date:   Fri Aug 18 23:20:23 2023 +0700
+
+    Modify Model classes
+
+[33mcommit 0730cb70ef0c1a833765dfd62a7cc2d8efe418f6[m
+Author: OteEnded <ratnaritjumnong@gmail.com>
+Date:   Fri Aug 18 23:18:42 2023 +0700
+
+    no hash
+
+[33mcommit da076102af35cac92b51d51a58a75de4cb345bda[m
+Author: OteEnded <ratnaritjumnong@gmail.com>
+Date:   Fri Aug 18 23:08:42 2023 +0700
+
+    amogus
+
+[33mcommit f15b7faaef157a990cdffd99b84bc87604a5c916[m
+Author: Pawat-P <pawat.put@ku.th>
+Date:   Fri Aug 18 22:48:39 2023 +0700
+
+    Add even more relationships
+
+[33mcommit 747a3c5bc5c1f5143e295944edc41db8bf07d2be[m
+Merge: 2e39e29 f748514
+Author: Pawat-P <pawat.put@ku.th>
+Date:   Fri Aug 18 22:34:30 2023 +0700
+
+    Merge branch 'backend'
+
+[33mcommit f7485147d7ebed77f3e0f61b33b5469480e897ec[m[33m ([m[1;31morigin/backend[m[33m)[m
+Author: Pawat-P <pawat.put@ku.th>
+Date:   Fri Aug 18 22:33:28 2023 +0700
+
+    Add relationship to Model classes
+
+[33mcommit 2e39e292219ba162694e5f44ff883538a9bc58e1[m
+Author: Nyx <theeranut.s@ku.th>
+Date:   Fri Aug 18 21:58:31 2023 +0700
+
+    hover button
+
+[33mcommit 882ccabcdaa82e2ff853f88749847a7cc7cad6d3[m
+Author: OteEnded <ratnaritjumnong@gmail.com>
+Date:   Fri Aug 18 21:38:10 2023 +0700
+
+    edit user model
+
+[33mcommit 0f899b0f00aa2d21a74de26d8957756e5dfa32bf[m
+Author: OteEnded <ratnaritjumnong@gmail.com>
+Date:   Fri Aug 18 21:26:38 2023 +0700
+
+    edit readme
+
+[33mcommit cb35b7c71bf0c9047e596eaecc68b450a9deafd7[m
+Author: Pawat-P <pawat.put@ku.th>
+Date:   Fri Aug 18 21:22:41 2023 +0700
+
+    Modify Model classes
+
+[33mcommit 1d2401ecefca407fa92db098b4709e23b422f07d[m
+Author: OteEnded <ratnaritjumnong@gmail.com>
+Date:   Fri Aug 18 21:20:25 2023 +0700
+
+    Edit README
+
+[33mcommit ce7d27d6cf4d5a0058912c637bea88f73eefdf9d[m
+Author: OteEnded <ratnaritjumnong@gmail.com>
+Date:   Fri Aug 18 21:02:32 2023 +0700
+
+    add migration and model
+
+[33mcommit fdc8bbcebc3765c4f77a0c99ce576760e4ef6b31[m
+Author: Pawat-P <pawat.put@ku.th>
+Date:   Fri Aug 11 20:33:07 2023 +0700
+
+    Modify event view
+
+[33mcommit 5f1a0e78bd518c135b2fe0e2b7877c13a4f5162c[m
+Author: Pawat-P <pawat.put@ku.th>
+Date:   Fri Aug 11 00:50:24 2023 +0700
+
+    Add Event MVC and migration
+
+[33mcommit ff92663a6588ae355a7e8d06e5651b9916aed550[m
+Author: Pawat-P <pawat.put@ku.th>
+Date:   Wed Aug 9 21:25:57 2023 +0700
+
+    Return .gitignore to life
+
+[33mcommit fd30b553fd93f4d585ea0ed49aadb31d23fbcc90[m
+Author: Pawat-P <pawat.put@ku.th>
+Date:   Wed Aug 9 09:03:39 2023 +0700
+
+    Add home page and more empty pages
+
+[33mcommit 7d3d06b859769b19576030db2dd2de60fe3a1770[m
+Author: OteEnded <ratnaritjumnong@gmail.com>
+Date:   Tue Aug 8 19:38:36 2023 +0700
+
+    fix broke file
+
+[33mcommit 6baa17e247e500fd77b1515b505b7bd8e8e12399[m
+Author: OteEnded <ratnaritjumnong@gmail.com>
+Date:   Tue Aug 8 12:06:09 2023 +0700
+
+    delete fail file
+
+[33mcommit 67170b8670dee0ed635c7ecec2f47e759b081d71[m
+Author: Ote <ratnaritjumnong@gmail.com>
+Date:   Tue Aug 8 11:37:26 2023 +0700
+
+    init commit

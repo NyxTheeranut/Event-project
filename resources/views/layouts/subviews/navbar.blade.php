@@ -14,7 +14,9 @@
 
                 @if(Auth::check())
                     <div class="mx-4 font-semibold">
+                        <a href=" {{ route("profile.index")}} ">
                         {{ Auth::user()->nickname }}
+                        </a>
                     </div>
                     <div class="mx-4 font-semibold">
 

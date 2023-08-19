@@ -31,6 +31,7 @@ class UserSeeder extends Seeder
         $user->nickname = 'หมิว';
         $user->email = 'mute@example.com';
         $user->password = "mute";
+        $user->role = User::ROLE_MEMBER;
         $user->save();
 
         $user = new User();
@@ -39,6 +40,7 @@ class UserSeeder extends Seeder
         $user->nickname = 'สมาร์ท';
         $user->email = 'smart@example.com';
         $user->password = "smart";
+        $user->role = User::ROLE_STAFF;
         $user->save();
 
         $user = new User();
@@ -47,6 +49,7 @@ class UserSeeder extends Seeder
         $user->nickname = 'รสริน';
         $user->email = 'roserin@example.com';
         $user->password = "roserin";
+        $user->role = User::ROLE_ACCOUNTANT;
         $user->save();
 
     }
