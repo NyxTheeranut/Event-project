@@ -20,11 +20,11 @@ class EventController extends Controller
     }
 
     /**
-     * Show the form for creating a new resource.
+     * Show the form for creating a new event.
      */
     public function create()
     {
-        //
+        return view('events.create');
     }
 
     /**
@@ -40,15 +40,25 @@ class EventController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $event = new Event();
+        $event->title = $request->get('title');
+        $event->description = $request->get('description');
+        $event->start_date_time = $request->get('start_date_time');
+        $event->end_date_time = $request->get('end_date_time');
+        $event->budget = $request->get('budget');
+
+        $event->save();
+        return redirect()->route('events.index');
     }
 
     /**
-     * Display the specified resource.
+     * Display the event detail.
      */
     public function show(Event $event)
     {
-        //
+        return view('events.show', [
+            'event' => $event
+        ]);
     }
 
     /**
@@ -64,7 +74,16 @@ class EventController extends Controller
      */
     public function update(Request $request, Event $event)
     {
-        //
+        $event->title = $request->get('title');
+        $event->description = $request->get('description');
+        $event->start_date_time = $request->get('start_date_time');
+        $event->end_date_time = $request->get('end_date_time');
+        $event->budget = $request->get('budget');
+
+        $event->save();
+        return redirect()->route('events.show', [
+            'event' => $event
+        ]);
     }
 
     /**
@@ -72,6 +91,7 @@ class EventController extends Controller
      */
     public function destroy(Event $event)
     {
-        //
+        $event->delete();
+        return redirect()->route('events.index');
     }
 }

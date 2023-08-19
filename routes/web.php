@@ -23,8 +23,7 @@ Route::get('/about', function () {
     return view('about.index');
 })->name('about.index');
 
-Route::get('/events', [EventController::class, 'index'])
-    ->name('events.index');
+Route::resource('/events', EventController::class);
 
 //Route::get('/events/{event}/apply',
 //    [EventController::class, 'createApplication']
