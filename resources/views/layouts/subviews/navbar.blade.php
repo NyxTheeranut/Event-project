@@ -197,7 +197,6 @@
                                 </a>
                             </div>
                             <div class="flex items-center justify-middle mt-4">
-
                                 <button id="closeRegisterPopupButton" class="mr-9 btn">Close</button>
                                 <button class="ml-9 btn">
                                     {{ __('สมัครสมาชิก') }}
@@ -206,8 +205,6 @@
                         </form>
                     </div>
                 </div>
-
-
                 @endif
             </div>
 
