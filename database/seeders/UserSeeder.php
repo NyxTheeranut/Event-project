@@ -22,6 +22,8 @@ class UserSeeder extends Seeder
 //             'email' => 'test@example.com',
 //         ]);
 
+        //edit git
+
         if (User::count() > 0) {
             return;
         }
