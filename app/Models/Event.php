@@ -2,6 +2,7 @@
 
 namespace App\Models;
 
+use Faker\Provider\tr_TR\DateTime;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
@@ -36,6 +37,9 @@ class Event extends Model
     public function getDurationToStringAttribute() : string {
         $startDateTime = $this->start_date_time;
         $endDateTime = $this->end_date_time;
+        return $startDateTime;
+        echo $startDateTime;
+        echo $endDateTime;
         $duration = $startDateTime->diff($endDateTime);
         return $duration->format('%d วัน %H ชั่วโมง');
     }

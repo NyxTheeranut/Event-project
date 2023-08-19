@@ -36,7 +36,7 @@
                             </div>
                             <button id="closePopupButton" class="mt-4 btn">Close</button>
                             <button id="submitPopupButton" class="mt-4 btn">Submit</button>
-                            
+
                         </div>
                     </div>
 
@@ -58,14 +58,17 @@
             @endif
 
             @foreach ($events as $event)
+                <a href="{{ route("events.show", ["event" => $event]) }}">
                 <li class="flex items-center py-4 px-6 hover:bg-gray-50">
                     <span class="text-gray-700 text-lg font-medium mr-4">{{ $loop->iteration }}.</span>
                     <div class="flex-1">
-                        <h3 class="text-lg font-medium text-gray-800">{{ $event->name }}</h3>
-                        <p class="text-gray-600 text-base">{{ $event->date }}</p>
+                        <h3 class="text-lg font-medium text-gray-800">{{ $event->title }}</h3>
+                        <p class="text-gray-600 text-base">{{ $event->start_date_time }}</p>
                     </div>
-                    <span class="text-gray-400">{{ $event->duration }}</span>
+
+                    <span class="text-gray-400">{{ $event->getDurationToStringAttribute() }}</span>
                 </li>
+                </a>
             @endforeach
 
         </ul>
@@ -74,11 +77,11 @@
         const popupButton = document.getElementById('popupButton');
         const popupModal = document.getElementById('popupModal');
         const closePopupButton = document.getElementById('closePopupButton');
-    
+
         popupButton.addEventListener('click', function() {
             popupModal.classList.remove('hidden');
         });
-    
+
         closePopupButton.addEventListener('click', function() {
             popupModal.classList.add('hidden');
         });

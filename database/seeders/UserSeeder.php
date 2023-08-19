@@ -21,6 +21,10 @@ class UserSeeder extends Seeder
 //             'email' => 'test@example.com',
 //         ]);
 
+        if (User::count() > 0) {
+            return;
+        }
+
         $user = new User();
         $user->firstname = 'หมิวหมิว';
         $user->lastname = 'หมิวหมิว';

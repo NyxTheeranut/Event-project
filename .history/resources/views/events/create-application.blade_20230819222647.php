@@ -15,11 +15,11 @@
                     <span style="--i:6; color: #000000;">R</span>
                     <span style="--i:7; color: #000000;">e</span>
                     <span style="--i:8; color: #000000;">g</span>
-                    <span style="--i:9; color: #000000;">i</span>
-                    <span style="--i:10; color: #000000;">s</span>
-                    <span style="--i:11; color: #000000;">t</span>
-                    <span style="--i:12; color: #000000;">e</span>
-                    <span style="--i:13; color: #000000;">r</span>
+                    <span style="--i:9; color: #FF8000;">i</span>
+                    <span style="--i:10; color: #00FF80;">s</span>
+                    <span style="--i:11; color: #8000FF;">t</span>
+                    <span style="--i:12; color: #80FF00;">e</span>
+                    <span style="--i:13; color: #0080FF;">r</span>
                 </div>
                     <div class="mb-5">
                         <label for="name" class="block mb-3 font-bold text-blue-600">Event Name</label>
