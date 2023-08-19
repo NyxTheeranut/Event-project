@@ -74,18 +74,19 @@
                                     <span class="ml-2 text-sm text-gray-600 dark:text-black-400">{{ __('Remember me') }}</span>
                                 </label>
                             </div>
-
-                            <div class="flex items-center justify-end mt-4">
-                                    <a id="changePopupButtonToRegister" class="underline block font-medium text-sm text-gray-700 dark:text-black-300">
-                                        {{ __('ยังไม่มีบัญชี? ไปสมัครเลย') }}
-                                    </a>
-
-                                <x-primary-button class="ml-3">
+                            <div>
+                                <a id="changePopupButtonToRegister" class="underline text-sm text-gray-600 dark:text-black-400 hover:text-black-900 rounded-md focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500 dark:focus:ring-offset-gray-800">
+                                    {{ __('ยังไม่มีบัญชี? ไปสมัครเลย') }}
+                                </a>
+                            </div>
+                            <div class="flex items-center justify-center mt-4">
+                                <button id="closeLoginPopupButton" class="mr-14 btn">Close</button>
+                                <button class="ml-14 btn">
                                     {{ __('Log in') }}
-                                </x-primary-button>
+                                </button>
                             </div>
                         </form>
-                        <button id="closeLoginPopupButton" class="mt-4 btn">Close</button>
+                        
                         </form>
 
 
@@ -192,7 +193,7 @@
                                 <x-input-error :messages="$errors->get('password_confirmation')" class="mt-2" />
                             </div>
                             <div class="mt-2">
-                                <a id="changePopupButtonToLogin" class="underline text-sm text-gray-600 dark:text-black-400 hover:text-black-900 dark:hover:text-gray-100 rounded-md focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500 dark:focus:ring-offset-gray-800">
+                                <a id="changePopupButtonToLogin" class="underline text-sm text-gray-600 dark:text-black-400 hover:text-black-900 rounded-md focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500 dark:focus:ring-offset-gray-800">
                                     {{ __('เคยสมัครแล้ว? ไปเข้าสู่ระบบเลย') }}
                                 </a>
                             </div>
