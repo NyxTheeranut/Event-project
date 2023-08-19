@@ -14,11 +14,19 @@ nav {
   }
 
   .nav-menu.active {
-    border-bottom: 2px solid #3182ce; /* Change this color as needed */
+    border-bottom: 2px solid #3182ce;
 }
 
 .nav-menu:hover {
-  border-bottom: 2px solid #4a5568; /* Change this color as needed */
+  border-bottom: 2px solid #4a5568;
+}
+
+.no-select {
+  user-select: none;
+}
+
+#popupModal {
+  z-index: 1000; /* Adjust the value as needed */
 }
 
 
