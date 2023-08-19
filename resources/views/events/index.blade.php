@@ -20,14 +20,19 @@
                     <div id="popupModal" class="fixed top-0 left-0 w-full h-full bg-black bg-opacity-50 flex items-center justify-center hidden">
                         <div class="bg-white rounded-lg p-8">
                             <div class="container mx-auto px-40">
-                                <h2 class="mt-12 mb-12 text-5xl font-bold leading-tight tracking-tight md:text-6xl xl:text-5xl text-gray-800">
+                                <h2 class="header">
                                     Create Event Page
+                                </h2>
+
+
 
 
                                     <!--ใส่เนื้อหา Create Events-->
 
 
-                                </h2>
+
+
+
                             </div>
                             <button id="closePopupButton" class="mt-4 bg-gray-300 hover:bg-gray-400 px-3 py-2 rounded-lg">Close</button>
                         </div>
