@@ -20,14 +20,14 @@ return new class extends Migration
     //  BirthDate #Date
     //  Role <'Member', 'Staff', 'Accountant'>
     //  ProfilePicture_Path #String
-    
+
     public function up(): void
     {
         Schema::create('users', function (Blueprint $table) {
             $table->id();
-            $table->string('nickname');
             $table->string('firstname');
             $table->string('lastname');
+            $table->string('nickname');
             $table->string('email')->unique();
             $table->timestamp('email_verified_at')->nullable();
             $table->string('password');
