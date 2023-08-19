@@ -39,19 +39,30 @@
                     
                             <!-- Email Address -->
                             <div>
-                                <x-input-label for="email" :value="__('Email')" />
-                                <x-text-input id="email" class="block mt-1 w-full" type="email" name="email" :value="old('email')" required autofocus autocomplete="username" />
+                                <label class="block font-medium text-sm text-gray-700 dark:text-black-300" for="email" :value="__('Email')">
+                                    Email
+                                </label>
+                                <input  class="border-gray-300 dark:border-gray-700 rounded-md shadow-sm block mt-1 w-full" 
+                                        id="email" 
+                                        type="email" 
+                                        name="email" :value="old('email')" 
+                                        required autofocus 
+                                        autocomplete="username">
                                 <x-input-error :messages="$errors->get('email')" class="mt-2" />
                             </div>
+                            
                     
                             <!-- Password -->
                             <div class="mt-4">
-                                <x-input-label for="password" :value="__('Password')" />
-                    
-                                <x-text-input id="password" class="block mt-1 w-full"
-                                                type="password"
-                                                name="password"
-                                                required autocomplete="current-password" />
+                                <label class="block font-medium text-sm text-gray-700 dark:text-black-300" for="password" :value="__('Password')">
+                                    Password
+                                </label>    
+                                <input  class="border-gray-300 dark:border-gray-700 rounded-md shadow-sm block mt-1 w-full" 
+                                        id="password"
+                                        type="password"
+                                        name="password"
+                                        required 
+                                        autocomplete="current-password" />
                     
                                 <x-input-error :messages="$errors->get('password')" class="mt-2" />
                             </div>
@@ -59,14 +70,14 @@
                             <!-- Remember Me -->
                             <div class="block mt-4">
                                 <label for="remember_me" class="inline-flex items-center">
-                                    <input id="remember_me" type="checkbox" class="rounded dark:bg-gray-900 border-gray-300 dark:border-gray-700 text-indigo-600 shadow-sm focus:ring-indigo-500 dark:focus:ring-indigo-600 dark:focus:ring-offset-gray-800" name="remember">
-                                    <span class="ml-2 text-sm text-gray-600 dark:text-gray-400">{{ __('Remember me') }}</span>
+                                    <input id="remember_me" type="checkbox" class="rounded bg-white-900 border-gray-300 border-gray-700 text-indigo-600" name="remember">
+                                    <span class="ml-2 text-sm text-gray-600 dark:text-black-400">{{ __('Remember me') }}</span>
                                 </label>
                             </div>
                     
                             <div class="flex items-center justify-end mt-4">
                                 @if (Route::has('password.request'))
-                                    <a class="underline text-sm text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-gray-100 rounded-md focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500 dark:focus:ring-offset-gray-800" href="{{ route('password.request') }}">
+                                    <a class="underline block font-medium text-sm text-gray-700 dark:text-black-300" href="{{ route('password.request') }}">
                                         {{ __('Forgot your password?') }}
                                     </a>
                                 @endif
@@ -81,11 +92,122 @@
                     </div>
                 </div>
                 
-                    <div class="mx-4 font-semibold">
-                        <a href="{{ route('register') }}">
-                            สมัคร
-                        </a>
+                <div class="mx-4 font-semibold">
+                    <button id="registerPopupButton">สมัคร</button>
+                </div>
+
+                <!-- Popup Modal for Registration (Hidden by default) -->
+                <div id="registerPopupModal" class="fixed top-0 left-0 w-full h-full bg-black bg-opacity-50 flex items-center justify-center hidden">
+                    <div class="bg-white rounded-lg p-8">
+                        <form method="POST" action="{{ route('register') }}">
+                            @csrf
+                    
+                            <!-- Firstname -->
+                            <div>
+                                <label  class="block font-medium text-sm text-gray-700 dark:text-black-300" for="first_name" :value="__('ชื่อจริง')">
+                                    Firstname
+                                </label>
+                                <input  class="border-gray-300 dark:border-gray-700 rounded-md shadow-sm block mt-1 w-full"
+                                        id="first_name" 
+                                        type="text" 
+                                        name="first_name" :value="old('first_name')" 
+                                        required autofocus 
+                                        autocomplete="first_name" />
+                                <x-input-error :messages="$errors->get('first_name')" class="mt-2" />
+                            </div>
+                    
+                            <!-- Lastname -->
+                            <div class="mt-4">
+                                <label  class="block font-medium text-sm text-gray-700 dark:text-black-300" for="last_name" :value="__('นามสกุล')">
+                                    Surname
+                                </label>
+                                <input  class="border-gray-300 dark:border-gray-700 rounded-md shadow-sm block mt-1 w-full"
+                                        id="last_name" 
+                                        type="text" 
+                                        name="last_name" :value="old('last_name')" 
+                                        required autofocus 
+                                        autocomplete="name" />
+                                <x-input-error :messages="$errors->get('last_name')" class="mt-2" />
+                            </div>
+                    
+                            <!-- Nickname -->
+                            <div class="mt-4">
+                                <label  class="block font-medium text-sm text-gray-700 dark:text-black-300" for="nickname" :value="__('ชื่อเล่น')">
+                                    Nickname
+                                </label>
+                                <input  class="border-gray-300 dark:border-gray-700 rounded-md shadow-sm block mt-1 w-full"
+                                        id="nickname" 
+                                        type="text" 
+                                        name="nickname" :value="old('nickname')" 
+                                        required autofocus 
+                                        autocomplete="name" />
+                                <x-input-error :messages="$errors->get('nickname')" class="mt-2" />
+                            </div>
+                    
+                            <!-- Email Address -->
+                            <div class="mt-4">
+                                <label  class="block font-medium text-sm text-gray-700 dark:text-black-300" for="email" :value="__('อีเมล')">
+                                    Email
+                                </label>
+                                <input  class="border-gray-300 dark:border-gray-700 rounded-md shadow-sm block mt-1 w-full"
+                                        id="email" 
+                                        type="email" 
+                                        name="email" :value="old('email')" 
+                                        required 
+                                        autocomplete="username" />
+                                <x-input-error :messages="$errors->get('email')" class="mt-2" />
+                            </div>
+                    
+                            <!-- Password -->
+                            <div class="mt-4">
+                                <label  class="block font-medium text-sm text-gray-700 dark:text-black-300" for="password" :value="__('รหัสผ่าน')">
+                                    Password
+                                </label>
+                    
+                                <input  class="border-gray-300 dark:border-gray-700 rounded-md shadow-sm block mt-1 w-full"
+                                        id="password" 
+                                        class="block mt-1 w-full"
+                                        type="password"
+                                        name="password"
+                                        required 
+                                        autocomplete="new-password" />
+                    
+                                <x-input-error :messages="$errors->get('password')" class="mt-2" />
+                            </div>
+                    
+                            <!-- Confirm Password -->
+                            <div class="mt-4">
+                                <label  class="block font-medium text-sm text-gray-700 dark:text-black-300" for="password_confirmation" :value="__('ยืนยันรหัสผ่าน')">
+                                    Password Confirmation
+                                </label>
+                    
+                                <input  class="border-gray-300 dark:border-gray-700 rounded-md shadow-sm block mt-1 w-full"
+                                        id="password_confirmation" 
+                                        class="block mt-1 w-full"
+                                        type="password"
+                                        name="password_confirmation" 
+                                        required 
+                                        autocomplete="new-password" />
+                    
+                                <x-input-error :messages="$errors->get('password_confirmation')" class="mt-2" />
+                            </div>
+                    
+                            <div class="flex items-center justify-end mt-4">
+                                <button id="loginPopupModal" class="underline block font-medium text-sm text-gray-700 dark:text-black-300">
+                                    {{ __('เคยสมัครแล้ว? ไปเข้าสู่ระบบเลย') }}
+                                </button>
+                    
+                                <x-primary-button class="ml-4">
+                                    {{ __('สมัครสมาชิก') }}
+                                </x-primary-button>
+                            </div>
+                        </form>
+                        
+                        
+                        <button id="closeRegisterPopupButton" class="mt-4 btn">Close</button>
                     </div>
+                </div>
+
 
                 @endif
             </div>
@@ -143,4 +265,17 @@
     closeLoginPopupButton.addEventListener('click', function() {
     loginPopupModal.classList.add('hidden');
     });
+    
+    const registerPopupButton = document.getElementById('registerPopupButton');
+    const registerPopupModal = document.getElementById('registerPopupModal');
+    const closeRegisterPopupButton = document.getElementById('closeRegisterPopupButton');
+
+    registerPopupButton.addEventListener('click', function() {
+        registerPopupModal.classList.remove('hidden');
+    });
+
+    closeRegisterPopupButton.addEventListener('click', function() {
+        registerPopupModal.classList.add('hidden');
+    });
+
 </script>
