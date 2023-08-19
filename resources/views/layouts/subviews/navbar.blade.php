@@ -193,14 +193,14 @@
                             </div>
                     
                             <div class="flex items-center justify-end mt-4">
-                                <button id="changePopupModal" class="underline block font-medium text-sm text-gray-700 dark:text-black-300">
+                                <a id="changePopupButton" class="underline text-sm text-gray-600 dark:text-black-400 hover:text-black-900 dark:hover:text-gray-100 rounded-md focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500 dark:focus:ring-offset-gray-800">
                                     {{ __('เคยสมัครแล้ว? ไปเข้าสู่ระบบเลย') }}
-                                </button>
+                                </a>
                     
                                 <x-primary-button class="ml-4">
                                     {{ __('สมัครสมาชิก') }}
                                 </x-primary-button>
-                            </div>
+                            </div>  
                         </form>
                         
                         
