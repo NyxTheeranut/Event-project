@@ -38,23 +38,13 @@ class RegisteredUserController extends Controller
 //            'password' => ['required', 'confirmed', Rules\Password::defaults()],
         ]);
 
-        $user = new User();
-        $user->firstname = $request->firstname;
-        $user->lastname = $request->lastname;
-        $user->nickname = $request->nickname;
-        $user->email = $request->email;
-        $user->password = $request->password;
-        $user->role = User::ROLE_MEMBER;
-
-        $user->save();
-
-//        $user = User::create([
-//            'firstname' => $request->firstname,
-//            'lastname' => $request->lastname,
-//            'nickname' => $request->nickname,
-//            'email' => $request->email,
-//            'password' => $request->password,
-//        ]);
+        $user = User::create([
+            'firstname' => $request->firstname,
+            'lastname' => $request->lastname,
+            'nickname' => $request->nickname,
+            'email' => $request->email,
+            'password' => $request->password,
+        ]);
 
         event(new Registered($user));
 

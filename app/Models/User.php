@@ -2,6 +2,7 @@
 
 namespace App\Models;
 
+
 // use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Relations\HasMany;
@@ -13,14 +14,18 @@ class User extends Authenticatable
 {
     use HasApiTokens, HasFactory, Notifiable;
 
+    public const ROLE_MEMBER = 'MEMBER';
+    public const ROLE_STAFF = 'STAFF';
+    public const ROLE_ACCOUNTANT = 'ACCOUNTANT';
+
     /**
      * The attributes that are mass assignable.
      *
      * @var array<int, string>
      */
     protected $fillable = [
-        'first_name',
-        'last_name',
+        'firstname',
+        'lastname',
         'nickname',
         'email',
         'password',
@@ -42,16 +47,31 @@ class User extends Authenticatable
      * @var array<string, string>
      */
     protected $casts = [
-        'email_verified_at' => 'datetime',
-        'password' => 'hashed',
+        'email_verified_at' => 'datetime'
     ];
 
+//    public static function create(array $array)
+//    {
+//        $user = new User();
+//        $user->firstname = $array['firstname'];
+//        $user->lastname = $array['lastname'];
+//        $user->nickname = $array['nickname'];
+//        $user->email = $array['email'];
+//        $user->password = $array['password'];
+//        $user->role = User::ROLE_MEMBER;
+//
+//        $user->save();
+//
+//        return $user;
+//
+//    }
+
     public function isStaff() : bool {
-        return $this->role === 'STAFF';
+        return $this->role === User::ROLE_STAFF;
     }
 
     public function  isAccountant() : bool {
-        return $this->role === 'ACCOUNTANT';
+        return $this->role === User::ROLE_ACCOUNTANT;
     }
 
     public function events() : HasMany {

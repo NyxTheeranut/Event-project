@@ -35,7 +35,7 @@ class Password implements Rule, DataAwareRule, ValidatorAwareRule
      *
      * @var int
      */
-    protected $min = 8;
+    protected $min = 2;
 
     /**
      * If the password requires at least one uppercase and one lowercase letter.

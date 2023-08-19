@@ -18,7 +18,7 @@ return new class extends Migration
     //  Email #String
     //  Password {Hash} #String
     //  BirthDate #Date
-    //  Role <'MEMBER', 'STAFF', 'ACCOUNTANT'>
+    //  Role <'Member', 'Staff', 'Accountant'>
     //  ProfilePicture_Path #String
 
     public function up(): void
@@ -32,7 +32,7 @@ return new class extends Migration
             $table->timestamp('email_verified_at')->nullable();
             $table->string('password');
             $table->date('birthdate')->nullable();
-            $table->string('role')->default('MEMBER');
+            $table->enum('role', ['Member', 'Staff', 'Accountant'])->default('Member');
             $table->string('profilepicture_path')->nullable();
 
             $table->rememberToken();

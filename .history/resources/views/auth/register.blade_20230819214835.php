@@ -15,9 +15,9 @@
 
         <!-- Lastname -->
         <div class="mt-4">
-            <x-input-label for="lastname" :value="__('นามสกุล')" />
-            <x-text-input id="lastname" class="block mt-1 w-full" type="text" name="lastname" :value="old('lastname')" required autofocus autocomplete="name" />
-            <x-input-error :messages="$errors->get('lastname')" class="mt-2" />
+            <x-input-label for="last_name" :value="__('นามสกุล')" />
+            <x-text-input id="last_name" class="block mt-1 w-full" type="text" name="last_name" :value="old('last_name')" required autofocus autocomplete="name" />
+            <x-input-error :messages="$errors->get('last_name')" class="mt-2" />
         </div>
 
         <!-- Nickname -->
