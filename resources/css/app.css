@@ -21,12 +21,8 @@ nav {
   border-bottom: 2px solid #4a5568;
 }
 
-.no-select {
-  user-select: none;
-}
-
 #popupModal {
-  z-index: 1000; /* Adjust the value as needed */
+  z-index: 1000; 
 }
 
 .header {
@@ -35,6 +31,41 @@ nav {
   font-size: 50px;
   font-weight: bold;
 }
+
+
+.btn {
+  background-color: #4a5568;
+  color: white;
+  border: none;
+  padding: 8px 16px;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  user-select: none; /* Prevent text selection on the button text */
+}
+
+.btn:hover {
+  background-color: #2d3748;
+}
+
+#submitPopupButton {
+  margin-left: 590px;
+}
+#loginPopupButton {
+  margin-left: 590px;
+}
+
+#loginPopupModal {
+  align-items: center;
+  justify-content: center;
+  display: hidden;
+}
+
+#loginPopupModal .bg-white {
+  padding: 20px; /* Adjust this value as needed */
+}
+
+
 
 
 

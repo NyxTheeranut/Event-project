@@ -12,9 +12,9 @@
                     </h2>
 
                     <!-- Event Create (Auth coming soon) -->
-                    <a id="popupButton" class="inline-block text-white bg-purple-700 hover:bg-purple-800 focus:ring-4 focus:ring-purple-300 font-medium rounded-lg text-sm px-4 lg:px-5 py-2 lg:py-2.5 sm:mr-2 lg:mr-0 focus:outline-none no-select">
+                    <button id="popupButton" class="inline-block text-white bg-purple-700 hover:bg-purple-800 focus:ring-4 focus:ring-purple-300 font-medium rounded-lg text-sm px-4 lg:px-5 py-2 lg:py-2.5 sm:mr-2 lg:mr-0 focus:outline-none">
                         สร้างกิจกรรม
-                    </a>
+                    </button>
 
                     <!-- Popup Modal (Hidden by default) -->
                     <div id="popupModal" class="fixed top-0 left-0 w-full h-full bg-black bg-opacity-50 flex items-center justify-center hidden">
@@ -34,7 +34,9 @@
 
 
                             </div>
-                            <button id="closePopupButton" class="mt-4 bg-gray-300 hover:bg-gray-400 px-3 py-2 rounded-lg">Close</button>
+                            <button id="closePopupButton" class="mt-4 btn">Close</button>
+                            <button id="submitPopupButton" class="mt-4 btn">Submit</button>
+                            
                         </div>
                     </div>
 
