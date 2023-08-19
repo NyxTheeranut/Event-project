@@ -76,13 +76,13 @@
                             </div>
                     
                             <div class="flex items-center justify-middle mt-4">
-                                <x-primary-button id="closeLoginPopupButton" class="mr-4 btn">
+                                <button id="closeLoginPopupButton" class="mr-4 btn">
                                     Close
-                                </x-primary-button>
+                                </button>
                     
-                                <x-primary-button class="ml-10">
+                                <button class="ml-10 btn">
                                     {{ __('Log in') }}
-                                </x-primary-button>
+                                </button>
                             </div>
                         </form>
                         
