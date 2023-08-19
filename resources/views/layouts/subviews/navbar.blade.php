@@ -193,7 +193,7 @@
                             </div>
                     
                             <div class="flex items-center justify-end mt-4">
-                                <button id="loginPopupModal" class="underline block font-medium text-sm text-gray-700 dark:text-black-300">
+                                <button id="changePopupModal" class="underline block font-medium text-sm text-gray-700 dark:text-black-300">
                                     {{ __('เคยสมัครแล้ว? ไปเข้าสู่ระบบเลย') }}
                                 </button>
                     
@@ -276,6 +276,11 @@
 
     closeRegisterPopupButton.addEventListener('click', function() {
         registerPopupModal.classList.add('hidden');
+    });
+
+    changePopupButton.addEventListener('click', function() {
+        registerPopupModal.classList.add('hidden');
+        loginPopupModal.classList.remove('hidden');
     });
 
 </script>
