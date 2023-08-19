@@ -189,20 +189,22 @@
                     
                                 <x-input-error :messages="$errors->get('password_confirmation')" class="mt-2" />
                             </div>
-                    
-                            <div class="flex items-center justify-end mt-4">
+                            <div class="mt-2">
                                 <a id="changePopupButton" class="underline text-sm text-gray-600 dark:text-black-400 hover:text-black-900 dark:hover:text-gray-100 rounded-md focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500 dark:focus:ring-offset-gray-800">
                                     {{ __('เคยสมัครแล้ว? ไปเข้าสู่ระบบเลย') }}
                                 </a>
-                    
-                                <x-primary-button class="ml-4">
+                            </div>
+                            <div class="flex items-center justify-middle mt-4">
+                                
+                                <button id="closeRegisterPopupButton" class="mr-9 btn">Close</button>
+                                <button class="ml-9 btn">
                                     {{ __('สมัครสมาชิก') }}
-                                </x-primary-button>
+                                </button>
                             </div>  
                         </form>
                         
                         
-                        <button id="closeRegisterPopupButton" class="mt-4 btn">Close</button>
+                        
                     </div>
                 </div>
 
