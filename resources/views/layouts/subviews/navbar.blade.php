@@ -60,24 +60,21 @@
         <div class="items-center justify-between w-full lg:flex lg:w-auto lg:order-1" id="mobile-menu-2">
             <ul class="flex flex-col mt-4 font-semibold lg:flex-row lg:space-x-8 lg:mt-0">
                 <li>
-                    <a href="{{ url('/') }}"
-                        class="nav-menu {{ request()->is('/') ? 'active' : '' }}">
+                    <a href="{{ url('/') }}" class="nav-menu {{ request()->is('/') ? 'active hover-button' : '' }}">
                         หน้าหลัก
                     </a>
                 </li>
                 <li>
-                    <a href="{{ route('events.index') }}"
-                        class="nav-menu {{ Route::currentRouteName() === 'events.index' ? 'active' : '' }}">
+                    <a href="{{ route('events.index') }}" class="nav-menu {{ Route::currentRouteName() === 'events.index' ? 'active hover-button' : '' }}">
                         กิจกรรม
                     </a>
                 </li>
                 <li>
-                    <a href="{{ route('about.index') }}"
-                        class="nav-menu {{ Route::currentRouteName() === 'about.index' ? 'active' : '' }}">
+                    <a href="{{ route('about.index') }}" class="nav-menu {{ Route::currentRouteName() === 'about.index' ? 'active hover-button' : '' }}">
                         เกี่ยวกับเรา
                     </a>
                 </li>
             </ul>
-        </div>
+        </div>        
     </div>
 </nav>

@@ -17,9 +17,8 @@ nav {
     border-bottom: 2px solid #3182ce; /* Change this color as needed */
 }
 
-/* Add underline to hovered menu item */
-.hover-button:hover {
-    border-bottom: 2px solid #4a5568; /* Change this color as needed */
+.nav-menu:hover {
+  border-bottom: 2px solid #4a5568; /* Change this color as needed */
 }
 
 
