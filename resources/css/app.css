@@ -65,6 +65,29 @@ nav {
   padding: 20px; /* Adjust this value as needed */
 }
 
+.waviy {
+  position: relative;
+  display: flex;
+  align-items: flex-start; 
+  justify-content: center; 
+  height: 8vh; 
+}
+.waviy span {
+  position: relative;
+  display: inline-block;
+  font-size: 40px;
+  color: #020202;
+  text-transform: uppercase;
+  animation: flip 2s infinite;
+  animation-delay: calc(.2s * var(--i))
+}
+@keyframes flip {
+  0%,80% {
+    transform: rotateY(360deg) 
+  }
+}
+
+
 
 
 

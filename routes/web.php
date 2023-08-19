@@ -19,14 +19,20 @@ Route::get('/', function () {
     return view('welcome');
 });
 
+Route::get('/events/apply', function () {
+    return view('events.applications.create');
+})->name('events.applications.create');
+
 Route::get('/about', function () {
     return view('about.index');
 })->name('about.index');
 
 Route::resource('/events', EventController::class);
 
+//Route::resource('/events/apply', EventController::class);
+
 //Route::get('/events/{event}/apply',
-//    [EventController::class, 'createApplication']
+    //[EventController::class, 'createApplication']
 //)->name('events.applications.create');
 
 Route::get('/events/apply',
@@ -43,4 +49,7 @@ Route::middleware('auth')->group(function () {
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 });
 
+//Route::get('/events/apply', 'EventController@createApplication')->name('events.apply');
+
 require __DIR__.'/auth.php';
+
