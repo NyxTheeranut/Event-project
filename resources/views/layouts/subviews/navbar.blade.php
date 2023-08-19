@@ -75,19 +75,17 @@
                                 </label>
                             </div>
                     
-                            <div class="flex items-center justify-end mt-4">
-                                @if (Route::has('password.request'))
-                                    <a class="underline block font-medium text-sm text-gray-700 dark:text-black-300" href="{{ route('password.request') }}">
-                                        {{ __('Forgot your password?') }}
-                                    </a>
-                                @endif
+                            <div class="flex items-center justify-middle mt-4">
+                                <x-primary-button id="closeLoginPopupButton" class="mr-4 btn">
+                                    Close
+                                </x-primary-button>
                     
-                                <x-primary-button class="ml-3">
+                                <x-primary-button class="ml-10">
                                     {{ __('Log in') }}
                                 </x-primary-button>
                             </div>
                         </form>
-                        <button id="closeLoginPopupButton" class="mt-4 btn">Close</button>
+                        
 
                     </div>
                 </div>
