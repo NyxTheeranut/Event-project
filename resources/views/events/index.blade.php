@@ -32,7 +32,7 @@
 
 
 
-
+                                
                             </div>
                             <button id="closePopupButton" class="mt-4 btn">Close</button>
                             <button id="submitPopupButton" class="mt-4 btn">Submit</button>
@@ -67,10 +67,11 @@
                     </div>
 
                     <span class="text-gray-400">{{ $event->getDurationToStringAttribute() }}</span>
+                    
                 </li>
                 </a>
             @endforeach
-
+            
         </ul>
     </div>
     <script>
