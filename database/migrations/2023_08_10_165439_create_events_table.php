@@ -27,10 +27,10 @@ return new class extends Migration
         Schema::create('events', function (Blueprint $table) {
             $table->id();
             $table->string('title');
-            $table->string('description');
+            $table->string('description') -> nullable();
             $table->dateTime('start_date_time');
             $table->dateTime('end_date_time');
-            $table->double('budget');
+            $table->double('budget') -> nullable();
             $table->foreignIdFor(User::class, 'organizer');
             $table->string('status')->default('PLANNING');
             $table->timestamps();
