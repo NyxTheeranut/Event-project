@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\KanbanBoard;
+use App\Models\Work;
 use Illuminate\Http\Request;
 
 class KanbanBoardController extends Controller
@@ -12,7 +13,12 @@ class KanbanBoardController extends Controller
      */
     public function index()
     {
-        return view('kanbanboard.index');
+//        $works = KanbanBoard::find(1)->works()->get();
+        $works = Work::get();
+
+        return view('kanbanboard.index', [
+            'works' => $works
+        ]);
     }
 
     /**

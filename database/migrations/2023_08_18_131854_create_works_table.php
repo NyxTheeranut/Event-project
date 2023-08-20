@@ -24,7 +24,7 @@ return new class extends Migration
         Schema::create('works', function (Blueprint $table) {
             $table->id();
             $table->foreignIdFor(KanbanBoard::class);
-            $table->string('workname');
+            $table->string('title');
             $table->string('description');
             $table->string('status')->default('PLANNING');
             $table->timestamps();

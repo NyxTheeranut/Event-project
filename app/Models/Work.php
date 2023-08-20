@@ -14,4 +14,9 @@ class Work extends Model
     public function kanbanBoard() : BelongsTo {
         return $this->belongsTo(KanbanBoard::class);
     }
+
+    public function scopePlanning($query) {
+        return $query->where('status', 'PLANNING');
+    }
+
 }
