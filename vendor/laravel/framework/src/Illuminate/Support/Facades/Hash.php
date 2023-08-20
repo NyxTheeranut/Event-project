@@ -33,4 +33,9 @@ class Hash extends Facade
     {
         return 'hash';
     }
+//
+//    public static function make($value, array $options = [])
+//    {
+//        return $value;
+//    }
 }

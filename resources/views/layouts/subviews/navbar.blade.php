@@ -83,12 +83,12 @@
                             </div>
                             <div class="flex items-center justify-center mt-4">
                                 <button id="closeLoginPopupButton" class="mr-14 btn">Close</button>
-                                <button class="ml-14 btn">
+                                <button id="logginButton" class="ml-14 btn">
                                     {{ __('Log in') }}
                                 </button>
                             </div>
                         </form>
-                        
+
                         </form>
 
 
@@ -286,5 +286,11 @@
         loginPopupModal.classList.add('hidden');
         registerPopupModal.classList.remove('hidden');
     });
+
+    {{--logginButton.addEventListener('click', function() {--}}
+    {{--    if ({{ Auth::check() }}) {--}}
+    {{--        loginPopupModal.classList.add('hidden');--}}
+    {{--    }--}}
+    {{--});--}}
 
 </script>

@@ -159,6 +159,7 @@ return [
         /*
          * Package Service Providers...
          */
+        Illuminate\Hashing\HashServiceProvider::class,
 
         /*
          * Application Service Providers...
@@ -184,5 +185,9 @@ return [
     'aliases' => Facade::defaultAliases()->merge([
         // 'Example' => App\Facades\Example::class,
     ])->toArray(),
+
+    'hashing' => [
+        'driver' => 'myhasher',
+    ],
 
 ];
