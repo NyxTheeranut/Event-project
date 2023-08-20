@@ -10,10 +10,11 @@ nav {
     position: fixed;
     top: 0;
     width: 100%;
-    z-index: 1000; 
+    z-index: 1000;
   }
 
-  .nav-menu.active {
+
+.nav-menu.active {
     border-bottom: 2px solid #3182ce;
 }
 
@@ -22,7 +23,7 @@ nav {
 }
 
 #popupModal {
-  z-index: 1000; 
+  z-index: 1000;
 }
 
 .header {
@@ -68,9 +69,9 @@ nav {
 .waviy {
   position: relative;
   display: flex;
-  align-items: flex-start; 
-  justify-content: center; 
-  height: 8vh; 
+  align-items: flex-start;
+  justify-content: center;
+  height: 8vh;
 }
 .waviy span {
   position: relative;
@@ -83,7 +84,7 @@ nav {
 }
 @keyframes flip {
   0%,80% {
-    transform: rotateY(360deg) 
+    transform: rotateY(360deg)
   }
 }
 
@@ -402,5 +403,6 @@ a:hover {
 #style-dpyEd.style-dpyEd {  
    width: 80px;  
 }  
+
 
 

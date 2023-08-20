@@ -17,14 +17,14 @@ return new class extends Migration
     //  Board_ID (FK)
     //  WorkName #String
     //  Description #String
-    //  Status <PlANNING, Ongoing, Review, Done>
+    //  Status <PlANNING, IN_PROGRESS, REVIEW, DONE>
 
     public function up(): void
     {
         Schema::create('works', function (Blueprint $table) {
             $table->id();
             $table->foreignIdFor(KanbanBoard::class);
-            $table->string('workname');
+            $table->string('title');
             $table->string('description');
             $table->string('status')->default('PLANNING');
             $table->timestamps();

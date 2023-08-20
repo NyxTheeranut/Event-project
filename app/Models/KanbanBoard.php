@@ -19,5 +19,4 @@ class KanbanBoard extends Model
     public function event() : BelongsTo {
         return $this->belongsTo(Event::class);
     }
-
 }
