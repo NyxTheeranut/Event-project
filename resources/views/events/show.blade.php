@@ -26,7 +26,11 @@
                         <span class="font-normal text-black-600">{{ $event->end_date_time }}</span>
                     </div>
                     <div class="mt-5">
-                        <button type="submit" class="block bg-blue-500 text-white font-bold p-4 rounded-lg transition duration-300 ease-in-out hover:bg-blue-700">Apply</button>
+                        <form method="GET" action="{{ route('events.applications.create', ['event' => $event]) }}">
+                            <button type="submit" class="block bg-blue-500 text-white font-bold p-4 rounded-lg transition duration-300 ease-in-out hover:bg-blue-700">
+                                Apply
+                            </button>
+                        </form>
                     </div>
                 </div>
                 <!-- smart (right side) -->
@@ -39,7 +43,7 @@
                         <label for="name" class="block font-bold text-blue-600">Staff List:</label>
                     </div>
                 <!-- loop ($staffs as $staff)
-                
+
                 /* staffs */
 
                 -->

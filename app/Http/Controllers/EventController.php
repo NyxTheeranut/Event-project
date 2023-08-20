@@ -30,9 +30,11 @@ class EventController extends Controller
     /**
      * Show the form for creating a new application.
      */
-    public function createApplication()
+    public function createApplication(Request $request)
     {
-        return view('events.create-application');
+        return view('events.create-application', [
+            'event' => $request->get('event')
+        ]);
     }
 
     /**

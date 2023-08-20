@@ -32,11 +32,7 @@ Route::resource('/events', EventController::class);
 
 //Route::resource('/events/apply', EventController::class);
 
-//Route::get('/events/{event}/apply',
-    //[EventController::class, 'createApplication']
-//)->name('events.applications.create');
-
-Route::get('/events/apply',
+Route::get('/events/{event}/apply',
     [EventController::class, 'createApplication']
 )->name('events.applications.create');
 

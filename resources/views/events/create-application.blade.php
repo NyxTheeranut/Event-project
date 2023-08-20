@@ -23,7 +23,7 @@
                 </div>
                     <div class="mb-5">
                         <label for="name" class="block mb-3 font-bold text-blue-600">Event Name</label>
-                        <span>event01</span>
+                        <span>{{ $event->title }}</span>
                     </div>
                     <div class="mb-5">
                         <label for="title" class="block mb-2 font-bold text-green-600">URL</label>
@@ -43,5 +43,5 @@
             </div>
         </div>
     </div>
-@endsection 
+@endsection
 
