@@ -19,4 +19,16 @@ class Work extends Model
         return $query->where('status', 'PLANNING');
     }
 
+    public function scopeInProgress($query) {
+        return $query->where('status', 'IN_PROGRESS');
+    }
+
+    public function scopeReview($query) {
+        return $query->where('status', 'REVIEW');
+    }
+
+    public function scopeDone($query) {
+        return $query->where('status', 'DONE');
+    }
+
 }

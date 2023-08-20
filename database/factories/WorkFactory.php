@@ -19,6 +19,7 @@ class WorkFactory extends Factory
         return [
             'title' => fake()->realTextBetween(10, 20),
             'description' => fake()->realTextBetween(15, 30),
+            'status' => fake()->randomElement(['PLANNING', 'IN_PROGRESS', 'REVIEW', 'DONE']),
             'kanban_board_id' => 1
         ];
     }
