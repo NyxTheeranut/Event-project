@@ -242,6 +242,18 @@
                     </a>
                 </li>
                 <li>
+                    <a href="{{ route('applications.index') }}"
+                       class="nav-menu {{ Route::currentRouteName() === 'applications.index' ? 'active' : '' }}">
+                        กิจกรรมที่ลงทะเบียน
+                    </a>
+                </li>
+                <li>
+                    <a href="{{ route('budget-requests.index') }}"
+                       class="nav-menu {{ Route::currentRouteName() === 'budget-requests.index' ? 'active' : '' }}">
+                        กิจกรรมที่รองบประมาณ
+                    </a>
+                </li>
+                <li>
                     <a href="{{ route('about.index') }}"
                         class="nav-menu {{ Route::currentRouteName() === 'about.index' ? 'active' : '' }}">
                         เกี่ยวกับเรา

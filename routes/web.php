@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\ApplicationController;
+use App\Http\Controllers\BudgetRequestController;
 use App\Http\Controllers\CertificateController;
 use App\Http\Controllers\EventController;
 use App\Http\Controllers\KanbanBoardController;
@@ -56,6 +57,9 @@ Route::middleware('auth')->group(function () {
 });
 
 Route::resource('/myprofile/certificates', CertificateController::class);
+
+Route::resource('/budget-requests', BudgetRequestController::class);
+
 
 
 //Route::get('/events/apply', 'EventController@createApplication')->name('events.apply');
