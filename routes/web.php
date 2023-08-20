@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\ApplicationController;
 use App\Http\Controllers\EventController;
 use App\Http\Controllers\KanbanBoardController;
 use App\Http\Controllers\ProfileController;
@@ -37,6 +38,9 @@ Route::get('/events/{event}/apply',
 )->name('events.applications.create');
 
 Route::resource('/events/{event}/kanban-board', KanbanBoardController::class);
+
+Route::get('/applications', [ApplicationController::class, 'index'])
+    ->name('applications.index');
 
 //Route::get('/dashboard', function () {
 //    return view('dashboard');
