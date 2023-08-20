@@ -4,7 +4,7 @@
 <section class="w-100 px-4 py-5 snipcss-ctMkc style-OmkDV mt-20" id="style-OmkDV">
     <div class="row d-flex justify-content-center snipcss0-0-0-1">
       <div class="col col-lg-7 mb-4 mb-lg-0 snipcss0-1-1-2">
-        <div class="card snipcss0-2-2-3 style-lMoj6" id="style-lMoj6">
+        <div class="card snipcss0-2-2-3 style-lMoj6 " id="style-lMoj6">
           <div class="row g-0 snipcss0-3-3-4">
             <div class="col-md-4 gradient-custom text-center text-white snipcss0-4-4-5 style-xqRek justify-center" id="style-xqRek">
                 <div class="d-flex justify-content-center align-items-center h-100"> {{-- Added d-flex and align-items-center classes --}}
@@ -63,6 +63,19 @@
                                         autofocus
                                         autocomplete="nickname" />
                                 <x-input-error :messages="$errors->get('nickname')" class="mt-2" />
+                            </div>
+
+                            <div class="mt-4">
+                                <label  class="block font-medium text-sm text-gray-700 dark:text-black-300 left-align-label" for="birthdate" :value="__('ชื่อเล่น')">
+                                    Birthdate
+                                </label>
+                                <input  class="border-gray-300 dark:border-gray-700 rounded-md shadow-sm block mt-1 w-full text-black"
+                                        id="birthdate"
+                                        type="date"
+                                        name="birthdate" :value="old('birthdate')"
+                                        autofocus
+                                        autocomplete="date" />
+                                <x-input-error :messages="$errors->get('birthdate')" class="mt-2" />
                             </div>
 
                             <!-- Email Address -->
