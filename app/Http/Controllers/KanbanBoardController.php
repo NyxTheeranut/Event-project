@@ -14,10 +14,16 @@ class KanbanBoardController extends Controller
     public function index()
     {
 //        $works = KanbanBoard::find(1)->works()->get();
-        $works = Work::get();
+        $planning = Work::planning()->get();
+        $in_progress = Work::inProgress()->get();
+        $review = Work::review()->get();
+        $done = Work::done()->get();
 
         return view('kanbanboard.index', [
-            'works' => $works
+            'planning' => $planning,
+            'in_progress' => $in_progress,
+            'review' => $review,
+            'done' => $done
         ]);
     }
 
