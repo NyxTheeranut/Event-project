@@ -19,24 +19,82 @@
                     <!-- Popup Modal (Hidden by default) -->
                     <div id="popupModal" class="fixed top-0 left-0 w-full h-full bg-black bg-opacity-50 flex items-center justify-center hidden">
                         <div class="bg-white rounded-lg p-8">
-                            <div class="container mx-auto px-40">
+                            <div class="container mx-auto px-10">
                                 <h2 class="header">
-                                    Create Event Page
+                                    หน้าสร้างอีเว้นต์
                                 </h2>
+                                    {{-- <form method="POST" action="{{ route('profile.update', ["user"=>$user]) }}"> --}}
+                                    @csrf
+        
+                                    <!-- Title -->
+                                    <div>
+                                        <label  class="block font-medium text-sm text-gray-700 dark:text-black-300 left-align-label" for="title" :value="__('ชื่อกิจกรรม')">
+                                            ชื่อกิจกรรม
+                                        </label>
+                                        <input  class="border-gray-300 dark:border-gray-700 rounded-md shadow-sm block mt-1 w-full text-black"
+                                                id="title"
+                                                type="text"
+                                                name="title" :value="old('title')"
+                                                {{-- value="{{ $user->firstname }}" --}}
+                                                autofocus
+                                                autocomplete="title"/>
+                                        <x-input-error :messages="$errors->get('title')" class="mt-2" />
+                                    </div>
+        
+                                    <!-- Description -->
+                                    <div class="mt-4">
+                                        <label  class="block font-medium text-sm text-gray-700 dark:text-black-300 left-align-label" for="description" :value="__('ข้อมูลกิจกรรม')">
+                                            ข้อมูลกิจกรรม
+                                        </label>
+                                        <input  class="border-gray-300 dark:border-gray-700 rounded-md shadow-sm block mt-1 w-full text-black"
+                                                id="description"
+                                                type="text"
+                                                name="description" :value="old('description')"
+                                                {{-- value="{{ $user->lastname }}" --}}
+                                                required
+                                                autofocus
+                                                autocomplete="description" />
+                                        <x-input-error :messages="$errors->get('lastname')" class="mt-2" />
+                                    </div>
+        
+                                    <!-- Start Date Time -->
+                                    <div class="mt-4">
+                                        <label  class="block font-medium text-sm text-gray-700 dark:text-black-300 left-align-label" for="start_date_time" :value="__('วันเริ่มกิจกรรม')">
+                                            วันเริ่มกิจกรรม
+                                        </label>
+                                        <input  class="border-gray-300 dark:border-gray-700 rounded-md shadow-sm block mt-1 w-full text-black"
+                                                id="start_date_time"
+                                                type="date"
+                                                name="start_date_time" :value="old('start_date_time')"
+                                                {{-- value="{{ $user->nickname }}" --}}
+                                                required
+                                                autofocus
+                                                autocomplete="date" />
+                                        <x-input-error :messages="$errors->get('start_date_time')" class="mt-2" />
+                                    </div>
+        
+                                    <div class="mt-4">
+                                        <label  class="block font-medium text-sm text-gray-700 dark:text-black-300 left-align-label" for="birthdate" :value="__('วันสิ้นสุดกิจกรรม')">
+                                            วันสิ้นสุดกิจกรรม
+                                        </label>
+                                        <input  class="border-gray-300 dark:border-gray-700 rounded-md shadow-sm block mt-1 w-full text-black"
+                                                id="end_date_time"
+                                                type="date"
+                                                name="end_date_time" :value="old('end_date_time')"
+                                                {{-- value="{{ $user->birthdate }}" --}}
+                                                autofocus
+                                                autocomplete="date" />
+                                        <x-input-error :messages="$errors->get('birthdate')" class="mt-2" />
+                                    </div>
 
-
-
-
-                                    <!--ใส่เนื้อหา Create Events-->
-
-
-
-
-                                
+                                    <div class="flex items-center justify-middle mt-6">
+                                        <button id="closePopupButton" class="mr-auto btn">Close</button>
+                                        <button class="ml-auto btn">
+                                            {{ __('Submit') }}
+                                        </button>
+                                    </div>
+                                </form>
                             </div>
-                            <button id="closePopupButton" class="mt-4 btn">Close</button>
-                            <button id="submitPopupButton" class="mt-4 btn">Submit</button>
-
                         </div>
                     </div>
 
