@@ -114,15 +114,7 @@ nav {
   font-display:block;
   src:url(https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/webfonts/fa-regular-400.woff2) format("woff2"),url(https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/webfonts/fa-regular-400.ttf) format("truetype");
 } 
-
-  body {  
-    font-family:var(--mdb-body-font-family);
-    font-size:var(--mdb-body-font-size);
-    font-weight:var(--mdb-body-font-weight);
-    line-height:var(--mdb-body-line-height);
-    color:var(--mdb-body-color);
-    text-align:var(--mdb-body-text-align);
-  }  
+ 
 
 * { 
     box-sizing: border-box;
@@ -158,6 +150,7 @@ body {
     background-color: var(--mdb-body-bg); 
     -webkit-text-size-adjust: 100%; 
     -webkit-tap-highlight-color: rgba(0,0,0,0);
+    font-style: Sans-serif;
 } 
 
 :root { 
@@ -166,12 +159,6 @@ body {
     --mdb-body-font-size: 1rem; 
     --mdb-body-font-weight: 400; 
     --mdb-body-line-height: 1.6; 
-    --mdb-body-color: #4f4f4f; 
-    --mdb-body-bg: #fff; 
-    --mdb-border-width: 1px; 
-    --mdb-border-style: solid; 
-    --mdb-border-color: #e0e0e0; 
-    --mdb-border-color-translucent: rgba(0,0,0,0.175); 
 } 
    
 
@@ -181,14 +168,6 @@ body {
 
 .justify-content-center { 
     justify-content: center!important;
-} 
-
-*,:after,:before { 
-    box-sizing: border-box;
-} 
-
-.col { 
-    flex: 1 0 0%;
 } 
 
 @media (min-width: 992px){ 
@@ -209,10 +188,6 @@ body {
 }     
 
 .card { 
-    --mdb-card-spacer-y: 1.5rem; 
-    --mdb-card-spacer-x: 1.5rem; 
-    --mdb-card-border-width: 1px; 
-    --mdb-card-border-color: var(--mdb-border-color-translucent); 
     --mdb-card-border-radius: 0.5rem; 
     --mdb-card-box-shadow: 0 2px 15px -3px rgba(0,0,0,0.07),0 10px 20px -2px rgba(0,0,0,0.04); 
     --mdb-card-bg: #fff; 
