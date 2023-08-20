@@ -42,7 +42,7 @@
                             <!-- Email Address -->
                             <div>
                                 <label class="block font-medium text-sm text-gray-700 dark:text-black-300" for="email" :value="__('Email')">
-                                    Email
+                                    อีเมล
                                 </label>
                                 <input  class="border-gray-300 dark:border-gray-700 rounded-md shadow-sm block mt-1 w-full"
                                         id="email"
@@ -57,7 +57,7 @@
                             <!-- Password -->
                             <div class="mt-4">
                                 <label class="block font-medium text-sm text-gray-700 dark:text-black-300" for="password" :value="__('Password')">
-                                    Password
+                                    รหัสผ่าน
                                 </label>
                                 <input  class="border-gray-300 dark:border-gray-700 rounded-md shadow-sm block mt-1 w-full"
                                         id="password"
@@ -108,7 +108,7 @@
                             <!-- Firstname -->
                             <div>
                                 <label  class="block font-medium text-sm text-gray-700 dark:text-black-300" for="first_name" :value="__('ชื่อจริง')">
-                                    Firstname
+                                    ชื่อจริง
                                 </label>
                                 <input  class="border-gray-300 dark:border-gray-700 rounded-md shadow-sm block mt-1 w-full"
                                         id="first_name"
@@ -122,7 +122,7 @@
                             <!-- Lastname -->
                             <div class="mt-4">
                                 <label  class="block font-medium text-sm text-gray-700 dark:text-black-300" for="last_name" :value="__('นามสกุล')">
-                                    Surname
+                                    นามสกุล
                                 </label>
                                 <input  class="border-gray-300 dark:border-gray-700 rounded-md shadow-sm block mt-1 w-full"
                                         id="last_name"
@@ -136,7 +136,7 @@
                             <!-- Nickname -->
                             <div class="mt-4">
                                 <label  class="block font-medium text-sm text-gray-700 dark:text-black-300" for="nickname" :value="__('ชื่อเล่น')">
-                                    Nickname
+                                    ชื่อเล่น
                                 </label>
                                 <input  class="border-gray-300 dark:border-gray-700 rounded-md shadow-sm block mt-1 w-full"
                                         id="nickname"
@@ -150,7 +150,7 @@
                             <!-- Email Address -->
                             <div class="mt-4">
                                 <label  class="block font-medium text-sm text-gray-700 dark:text-black-300" for="email" :value="__('อีเมล')">
-                                    Email
+                                    อีเมล
                                 </label>
                                 <input  class="border-gray-300 dark:border-gray-700 rounded-md shadow-sm block mt-1 w-full"
                                         id="email"
@@ -164,7 +164,7 @@
                             <!-- Password -->
                             <div class="mt-4">
                                 <label  class="block font-medium text-sm text-gray-700 dark:text-black-300" for="password" :value="__('รหัสผ่าน')">
-                                    Password
+                                    รหัสผ่าน
                                 </label>
 
                                 <input  class="border-gray-300 dark:border-gray-700 rounded-md shadow-sm block mt-1 w-full"
@@ -181,7 +181,7 @@
                             <!-- Confirm Password -->
                             <div class="mt-4">
                                 <label  class="block font-medium text-sm text-gray-700 dark:text-black-300" for="password_confirmation" :value="__('ยืนยันรหัสผ่าน')">
-                                    Password Confirmation
+                                    ยืนยัน รหัสผ่าน
                                 </label>
 
                                 <input  class="border-gray-300 dark:border-gray-700 rounded-md shadow-sm block mt-1 w-full"
