@@ -17,7 +17,7 @@ return new class extends Migration
     //  Board_ID (FK)
     //  WorkName #String
     //  Description #String
-    //  Status <PlANNING, Ongoing, Review, Done>
+    //  Status <PlANNING, IN_PROGRESS, REVIEW, DONE>
 
     public function up(): void
     {
