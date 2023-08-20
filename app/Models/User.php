@@ -8,6 +8,7 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Relations\HasMany;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
+use Illuminate\Support\Facades\Hash;
 use Laravel\Sanctum\HasApiTokens;
 
 class User extends Authenticatable
@@ -65,6 +66,14 @@ class User extends Authenticatable
 //        return $user;
 //
 //    }
+
+    public function setPasswordAttribute($value)
+    {
+        if( Hash::needsRehash($value) ) {
+            $value = Hash::make($value);
+        }
+        $this->attributes['password'] = $value;
+    }
 
     public function isStaff() : bool {
         return $this->role === User::ROLE_STAFF;

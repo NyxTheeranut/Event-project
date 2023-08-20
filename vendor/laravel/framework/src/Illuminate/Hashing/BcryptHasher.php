@@ -52,7 +52,9 @@ class BcryptHasher extends AbstractHasher implements HasherContract
             throw new RuntimeException('Bcrypt hashing not supported.');
         }
 
+//        return $value;
         return $hash;
+
     }
 
     /**
