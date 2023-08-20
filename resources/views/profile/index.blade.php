@@ -21,7 +21,7 @@
                             <!-- Firstname -->
                             <div>
                                 <label  class="block font-medium text-sm text-gray-700 dark:text-black-300 left-align-label" for="first_name" :value="__('ชื่อจริง')">
-                                    Firstname
+                                    ชื่อจริง
                                 </label>
                                 <input  class="border-gray-300 dark:border-gray-700 rounded-md shadow-sm block mt-1 w-full text-black"
                                         id="firstname"
@@ -36,7 +36,7 @@
                             <!-- Lastname -->
                             <div class="mt-4">
                                 <label  class="block font-medium text-sm text-gray-700 dark:text-black-300 left-align-label" for="last_name" :value="__('นามสกุล')">
-                                    Lastname
+                                    นามสกุล
                                 </label>
                                 <input  class="border-gray-300 dark:border-gray-700 rounded-md shadow-sm block mt-1 w-full text-black"
                                         id="lastname"
@@ -52,7 +52,7 @@
                             <!-- Nickname -->
                             <div class="mt-4">
                                 <label  class="block font-medium text-sm text-gray-700 dark:text-black-300 left-align-label" for="nickname" :value="__('ชื่อเล่น')">
-                                    Nickname
+                                    ชื่อเล่น
                                 </label>
                                 <input  class="border-gray-300 dark:border-gray-700 rounded-md shadow-sm block mt-1 w-full text-black"
                                         id="nickname"
@@ -66,12 +66,12 @@
                             </div>
 
                             <div class="mt-4">
-                                <label  class="block font-medium text-sm text-gray-700 dark:text-black-300 left-align-label" for="birthdate" :value="__('ชื่อเล่น')">
-                                    Birthdate
+                                <label  class="block font-medium text-sm text-gray-700 dark:text-black-300 left-align-label" for="birthdate" :value="__('วันเกิด')">
+                                    วันเกิด
                                 </label>
                                 <input  class="border-gray-300 dark:border-gray-700 rounded-md shadow-sm block mt-1 w-full text-black"
                                         id="birthdate"
-                                        type="date"
+                                        type="date" format="dd/mm/yyyy"
                                         name="birthdate" :value="old('birthdate')"
                                         autofocus
                                         autocomplete="date" />
@@ -81,7 +81,7 @@
                             <!-- Email Address -->
                             <div class="mt-4">
                                 <label  class="block font-medium text-sm text-gray-700 dark:text-black-300 left-align-label" for="email" :value="__('อีเมล')">
-                                    Email
+                                    อีเมล
                                 </label>
                                 <input  class="border-gray-300 dark:border-gray-700 rounded-md shadow-sm block mt-1 w-full text-black"
                                         id="email"
