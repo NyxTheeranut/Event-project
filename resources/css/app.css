@@ -56,6 +56,7 @@ nav {
   margin-left: 10px;
 }
 
+/*noinspection ALL*/
 #loginPopupModal {
   align-items: center;
   justify-content: center;
@@ -140,6 +141,7 @@ nav {
     margin-left: calc(var(--mdb-gutter-x)*-0.5);
 }
 
+/*noinspection ALL*/
 body {
     margin: 0;
     font-family: var(--mdb-body-font-family);
@@ -154,6 +156,7 @@ body {
     font-style: Sans-serif;
 }
 
+/*noinspection ALL*/
 :root {
     --mdb-white-rgb: 255,255,255;
     --mdb-body-font-family: var(--mdb-font-roboto);
@@ -188,6 +191,7 @@ body {
   }
 }
 
+/*noinspection ALL*/
 .card {
     --mdb-card-border-radius: 0.5rem;
     --mdb-card-box-shadow: 0 2px 15px -3px rgba(0,0,0,0.07),0 10px 20px -2px rgba(0,0,0,0.04);
@@ -279,11 +283,15 @@ p {
 .far {
     -moz-osx-font-smoothing: grayscale;
     -webkit-font-smoothing: antialiased;
-    display: var(--fa-display,inline-block);
     font-style: normal;
     font-variant: normal;
     line-height: 1;
     text-rendering: auto;
+}
+
+/*noinspection ALL*/
+.far {
+    display: var(--fa-display,inline-block);
 }
 
 .far {
@@ -299,6 +307,7 @@ p {
     content: "\f044";
 }
 
+/*noinspection ALL*/
 .card-body {
     flex: 1 1 auto;
     padding: var(--mdb-card-spacer-y) var(--mdb-card-spacer-x);
@@ -349,6 +358,7 @@ hr {
     margin-bottom: 1rem!important;
 }
 
+/*noinspection ALL*/
 a {
     color: var(--mdb-link-color);
 }
@@ -357,6 +367,7 @@ a {
     text-decoration: none;
 }
 
+/*noinspection ALL*/
 a:hover {
     color: var(--mdb-link-hover-color);
     text-decoration: none;
@@ -367,6 +378,7 @@ a:hover {
     color: #757575!important;
 }
 
+/*noinspection ALL*/
 .fab {
     -moz-osx-font-smoothing: grayscale;
     -webkit-font-smoothing: antialiased;
