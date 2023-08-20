@@ -20,10 +20,10 @@
 
                             <!-- Firstname -->
                             <div>
-                                <label  class="block font-medium text-sm text-gray-700 dark:text-black-300" for="first_name" :value="__('ชื่อจริง')">
+                                <label  class="block font-medium text-sm text-gray-700 dark:text-black-300 left-align-label" for="first_name" :value="__('ชื่อจริง')">
                                     Firstname
                                 </label>
-                                <input  class="border-gray-300 dark:border-gray-700 rounded-md shadow-sm block mt-1 w-full"
+                                <input  class="border-gray-300 dark:border-gray-700 rounded-md shadow-sm block mt-1 w-full text-black"
                                         id="first_name"
                                         type="text"
                                         name="first_name" :value="old('first_name')"
@@ -34,10 +34,10 @@
 
                             <!-- Lastname -->
                             <div class="mt-4">
-                                <label  class="block font-medium text-sm text-gray-700 dark:text-black-300" for="last_name" :value="__('นามสกุล')">
+                                <label  class="block font-medium text-sm text-gray-700 dark:text-black-300 left-align-label" for="last_name" :value="__('นามสกุล')">
                                     Surname
                                 </label>
-                                <input  class="border-gray-300 dark:border-gray-700 rounded-md shadow-sm block mt-1 w-full"
+                                <input  class="border-gray-300 dark:border-gray-700 rounded-md shadow-sm block mt-1 w-full text-black"
                                         id="last_name"
                                         type="text"
                                         name="last_name" :value="old('last_name')"
@@ -48,10 +48,10 @@
 
                             <!-- Nickname -->
                             <div class="mt-4">
-                                <label  class="block font-medium text-sm text-gray-700 dark:text-black-300" for="nickname" :value="__('ชื่อเล่น')">
+                                <label  class="block font-medium text-sm text-gray-700 dark:text-black-300 left-align-label" for="nickname" :value="__('ชื่อเล่น')">
                                     Nickname
                                 </label>
-                                <input  class="border-gray-300 dark:border-gray-700 rounded-md shadow-sm block mt-1 w-full"
+                                <input  class="border-gray-300 dark:border-gray-700 rounded-md shadow-sm block mt-1 w-full text-black"
                                         id="nickname"
                                         type="text"
                                         name="nickname" :value="old('nickname')"
@@ -62,17 +62,17 @@
 
                             <!-- Email Address -->
                             <div class="mt-4">
-                                <label  class="block font-medium text-sm text-gray-700 dark:text-black-300" for="email" :value="__('อีเมล')">
+                                <label  class="block font-medium text-sm text-gray-700 dark:text-black-300 left-align-label" for="email" :value="__('อีเมล')">
                                     Email
                                 </label>
-                                <input  class="border-gray-300 dark:border-gray-700 rounded-md shadow-sm block mt-1 w-full"
+                                <input  class="border-gray-300 dark:border-gray-700 rounded-md shadow-sm block mt-1 w-full text-black"
                                         id="email"
                                         type="email"
                                         name="email" :value="old('email')"
                                         autocomplete="username" />
                                 <x-input-error :messages="$errors->get('email')" class="mt-2" />
                             </div>
-                            <div class="flex items-center justify-middle mt-4">
+                            <div class="flex items-center justify-middle mt-6">
                                 <button id="closeEditPopupButton" class="mr-9 btn">Close</button>
                                 <button class="ml-9 btn">
                                     {{ __('Submit') }}

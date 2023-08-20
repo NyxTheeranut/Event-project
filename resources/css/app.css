@@ -70,6 +70,10 @@ nav {
   padding: 20px; /* Adjust this value as needed */
 }
 
+.left-align-label {
+  text-align: left;
+}
+
 .waviy {
   position: relative;
   display: flex;
