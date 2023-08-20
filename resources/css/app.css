@@ -26,6 +26,10 @@ nav {
   z-index: 1000;
 }
 
+#editPopupModal {
+  z-index: 1000;
+}
+
 .header {
   margin-top: -70px;
   color: black;
