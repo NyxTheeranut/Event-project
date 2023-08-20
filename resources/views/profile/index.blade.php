@@ -71,8 +71,9 @@
                                 </label>
                                 <input  class="border-gray-300 dark:border-gray-700 rounded-md shadow-sm block mt-1 w-full text-black"
                                         id="birthdate"
-                                        type="date" format="dd/mm/yyyy"
+                                        type="date"
                                         name="birthdate" :value="old('birthdate')"
+                                        value="{{ $user->birthdate }}"
                                         autofocus
                                         autocomplete="date" />
                                 <x-input-error :messages="$errors->get('birthdate')" class="mt-2" />

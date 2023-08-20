@@ -28,6 +28,13 @@ class ProfileController extends Controller
     public function update(Request $request) : View
     {
         //update the user's profile information
+        $request->user()->forceFill([
+            'firstname' => $request->firstname,
+            'lastname' => $request->lastname,
+            'nickname' => $request->nickname,
+            'birthdate' => $request->birthdate,
+            'email' => $request->email,
+        ])->save();
 
 //        return redirect()->route('home');
         return view('profile.index', [
