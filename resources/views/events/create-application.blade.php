@@ -22,18 +22,18 @@
                     <span style="--i:13; color: #000000;">r</span>
                 </div>
                     <div class="mb-5">
-                        <label for="name" class="block mb-3 font-bold text-blue-600">Event</label>
+                        <label for="name" class="block mb-3 font-bold text-blue-600">ชื่อกิจกรรม:</label>
                         <span>{{ $event->title }}</span>
                     </div>
                     <div class="mb-5">
-                        <label for="title" class="block mb-2 font-bold text-green-600">ลิงก์วิดีโอแนะนำตัวของคุณ</label>
+                        <label for="title" class="block mb-2 font-bold text-green-600">ลิงก์วิดีโอแนะนำตัวของคุณ:</label>
                         @error('title') <div class="text-red-600 text-sm">{{$message}}</div> @enderror
                         <input type="text" id="textbox1" name="textbox1" autocomplete="off"
                             value="{{ old('title','')}}"
                            placeholder="URL link" class="border border-gray-300 @error('textbox1') border-red-400 @enderror shadow p-3 w-full rounded mb-2">
                     </div>
                     <div class="mb-5">
-                        <label for="title" class="block mb-2 font-bold text-red-600">ข้อความถึงผู้จัดกิจกรรม</label>
+                        <label for="title" class="block mb-2 font-bold text-red-600">ข้อความถึงผู้จัดกิจกรรม:</label>
                         @error('title') <div class="text-red-600 text-sm">{{$message}}</div> @enderror
                         <input type="text" id="textbox2" name="textbox2" autocomplete="off"
                             value="{{ old('title','')}}"
