@@ -15,7 +15,7 @@
                 </button>
                 <div id="editPopupModal" class="fixed top-0 left-0 w-full h-full bg-black bg-opacity-50 flex items-center justify-center hidden">
                     <div class="bg-white rounded-lg p-8">
-                        <form method="POST" action="{{ route('register') }}">
+                        <form method="POST" action="{{ route('profile.update', ["user"=>$user]) }}">
                             @csrf
 
                             <!-- Firstname -->
@@ -24,26 +24,29 @@
                                     Firstname
                                 </label>
                                 <input  class="border-gray-300 dark:border-gray-700 rounded-md shadow-sm block mt-1 w-full text-black"
-                                        id="first_name"
+                                        id="firstname"
                                         type="text"
-                                        name="first_name" :value="old('first_name')"
+                                        name="firstname" :value="old('firstname')"
+                                        value="{{ $user->firstname }}"
                                         autofocus
-                                        autocomplete="first_name" />
-                                <x-input-error :messages="$errors->get('first_name')" class="mt-2" />
+                                        autocomplete="firstname"/>
+                                <x-input-error :messages="$errors->get('firstname')" class="mt-2" />
                             </div>
 
                             <!-- Lastname -->
                             <div class="mt-4">
                                 <label  class="block font-medium text-sm text-gray-700 dark:text-black-300 left-align-label" for="last_name" :value="__('นามสกุล')">
-                                    Surname
+                                    Lastname
                                 </label>
                                 <input  class="border-gray-300 dark:border-gray-700 rounded-md shadow-sm block mt-1 w-full text-black"
-                                        id="last_name"
+                                        id="lastname"
                                         type="text"
-                                        name="last_name" :value="old('last_name')"
+                                        name="lastname" :value="old('lastname')"
+                                        value="{{ $user->lastname }}"
+                                        required
                                         autofocus
-                                        autocomplete="name" />
-                                <x-input-error :messages="$errors->get('last_name')" class="mt-2" />
+                                        autocomplete="lastname" />
+                                <x-input-error :messages="$errors->get('lastname')" class="mt-2" />
                             </div>
 
                             <!-- Nickname -->
@@ -55,8 +58,10 @@
                                         id="nickname"
                                         type="text"
                                         name="nickname" :value="old('nickname')"
+                                        value="{{ $user->nickname }}"
+                                        required
                                         autofocus
-                                        autocomplete="name" />
+                                        autocomplete="nickname" />
                                 <x-input-error :messages="$errors->get('nickname')" class="mt-2" />
                             </div>
 
@@ -69,6 +74,8 @@
                                         id="email"
                                         type="email"
                                         name="email" :value="old('email')"
+                                        value="{{ $user->email }}"
+                                        required
                                         autocomplete="username" />
                                 <x-input-error :messages="$errors->get('email')" class="mt-2" />
                             </div>
@@ -82,7 +89,7 @@
                     </div>
                 </div>
             </div>
-            
+
             <div class="col-md-8 snipcss0-4-4-10">
               <div class="card-body p-4 snipcss0-5-10-11">
                 <h6 class="snipcss0-6-11-12">
@@ -95,7 +102,7 @@
                       Firstname
                     </h6>
                     <p class="text-muted snipcss0-8-15-17">
-                      Mute
+                      {{ $user->firstname }}
                     </p>
                   </div>
                   <div class="col-6 mb-3 snipcss0-7-14-18">
@@ -103,7 +110,7 @@
                       Lastname
                     </h6>
                     <p class="text-muted snipcss0-8-18-20">
-                      Mute
+                        {{ $user->lastname }}
                     </p>
                   </div>
                 </div>
@@ -117,7 +124,7 @@
                       Nickname
                     </h6>
                     <p class="text-muted snipcss0-8-24-26">
-                      Mute
+                        {{ $user->nickname }}
                     </p>
                   </div>
                   <div class="col-6 mb-3 snipcss0-7-23-27">
@@ -125,7 +132,7 @@
                         Birth Date
                     </h6>
                     <p class="text-muted snipcss0-8-27-29">
-                      2002 12 15
+                        {{ $user->birthdate }}
                     </p>
                   </div>
                 </div>
@@ -134,7 +141,7 @@
                       Email
                     </h6>
                     <p class="text-muted snipcss0-8-24-26">
-                      Mute@example.com
+                        {{ $user->email }}
                     </p>
                   </div>
               </div>
@@ -151,12 +158,13 @@
 
   editPopupButton.addEventListener('click', function() {
       editPopupModal.classList.remove('hidden');
-      window.location.href = localhost/myprofile;
+      // window.location.href = localhost/myprofile;
   });
 
   closeEditPopupButton.addEventListener('click', function() {
       editPopupModal.classList.add('hidden');
-      window.location.href = localhost/myprofile;
+      // window.location.href = "/";
+      console.log('close');
   });
 </script>
 

@@ -52,6 +52,13 @@ return [
     */
 
     'channels' => [
+        'console' => [
+            'driver' => 'monolog',
+            'handler' => 'stream',
+            'formatter' => 'default',
+            'level' => 'debug',
+        ],
+
         'stack' => [
             'driver' => 'stack',
             'channels' => ['single'],
