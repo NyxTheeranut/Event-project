@@ -28,7 +28,7 @@
         
                                     <!-- Title -->
                                     <div>
-                                        <label  class="block font-medium text-sm text-gray-700 dark:text-black-300 left-align-label" for="title" :value="__('ชื่อกิจกรรม')">
+                                        <label  class="block font-medium text-sm text-gray-700 dark:text-black-300 left-align-label mt-2" for="title" :value="__('ชื่อกิจกรรม')">
                                             ชื่อกิจกรรม
                                         </label>
                                         <input  class="border-gray-300 dark:border-gray-700 rounded-md shadow-sm block mt-1 w-full text-black"
