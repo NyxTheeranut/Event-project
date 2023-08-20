@@ -87,7 +87,13 @@ nav {
   }
 }
 
+#changePopupButtonToRegister {
+  cursor: pointer;
+}
 
+#changePopupButtonToLogin {
+  cursor: pointer;
+}
 
 
 
