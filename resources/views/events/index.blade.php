@@ -21,7 +21,7 @@
                         <div class="bg-white rounded-lg p-8">
                             <div class="container mx-auto px-10">
                                 <h2 class="header">
-                                    หน้าสร้างอีเว้นต์
+                                    หน้าสร้างกิจกรรม
                                 </h2>
                                     {{-- <form method="POST" action="{{ route('profile.update', ["user"=>$user]) }}"> --}}
                                     @csrf
