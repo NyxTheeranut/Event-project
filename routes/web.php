@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\ApplicationController;
+use App\Http\Controllers\CertificateController;
 use App\Http\Controllers\EventController;
 use App\Http\Controllers\KanbanBoardController;
 use App\Http\Controllers\ProfileController;
@@ -53,6 +54,8 @@ Route::middleware('auth')->group(function () {
 //    Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
 //    Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 });
+
+Route::resource('/myprofile/certificates', CertificateController::class);
 
 
 //Route::get('/events/apply', 'EventController@createApplication')->name('events.apply');
