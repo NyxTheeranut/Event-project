@@ -26,7 +26,7 @@ nav {
   font-size: 30px;
   margin-bottom: 20px;
   font-weight: bold;
-  justify-items: center;
+  text-align: center;
 }
 
 #popupModal {
@@ -37,6 +37,10 @@ nav {
 }
 
 #editPopupModal {
+  z-index: 1000;
+}
+
+#addPlanPopupModal {
   z-index: 1000;
 }
 
