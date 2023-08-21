@@ -25,7 +25,7 @@ class EventController extends Controller
         ]);
     }
 
-    
+
 
     /**
      * Show the form for creating a new event.
@@ -137,18 +137,10 @@ class EventController extends Controller
     {
         return view('events.applier', [
             'event' => $event,
-            'applications' => Application::get()
+            'applications' => Application::all()
         ]);
     }
 
-    
-
-    public function applierindextmp()
-    {
-        $events = Event::all(); 
-    
-        return view('events.applier', ['events' => $events]);
-    }
 
     public function appliershow(Event $event, User $user)
     {

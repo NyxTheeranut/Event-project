@@ -57,8 +57,7 @@ Route::get('/events/{event}/applied',
 
 Route::post('/events/create', [EventController::class, 'store'])->name('event.create');
 
-//Route::get('/events/{event}/applier', [EventController::class, 'applierindex'])->name('event.applier');
-Route::get('/events/{event}/applier', [EventController::class, 'applierindextmp'])->name('event.applier'); //ชั่วคราวเพื่อให้ใช้ $event list
+Route::get('/events/{event}/applier', [EventController::class, 'applierindex'])->name('event.applier'); //ชั่วคราวเพื่อให้ใช้ $event list
 
 //Route::get('/events/{event}/applier/{user}'), [EventController::class, 'appliershow'])->name('event.show');
 Route::get('/events/{event}/applier/user', [EventController::class, 'appliershow'])->name('event.show');
@@ -87,7 +86,7 @@ Route::delete('/events/{event}/kanban-board',
 Route::get('/applications', [ApplicationController::class, 'index'])
     ->name('applications.index');
 
-//Route::get('/budget-requests', [BudgetRequestController::class, 'getEvents2'])
+//Route::get('/budgetrequests', [BudgetRequestController::class, 'getEvents2'])
     //->name('budgetrequests.index');
 
 //Route::get('/dashboard', function () {
@@ -102,9 +101,17 @@ Route::middleware('auth')->group(function () {
 //    Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 });
 
+Route::get('/profile', [ProfileController::class, 'show'])->name('profile.show');
+
 Route::resource('/myprofile/certificates', CertificateController::class);
 
-Route::resource('/budget-requests', BudgetRequestController::class);
+//Route::resource('/budgetrequests', BudgetRequestController::class);
+
+Route::get('/budgetrequests', [BudgetRequestController::class, 'index'])->name('budgetrequests.index');
+
+Route::post('/budgetrequests/update',
+    [BudgetRequestController::class, 'update']
+)->name('budgetrequest.update');
 
 
 

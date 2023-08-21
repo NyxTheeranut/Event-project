@@ -254,8 +254,8 @@
                             </a>
                         </li>
                         <li>
-                            <a href="{{ route('budget-requests.index') }}"
-                               class="nav-menu {{ Route::currentRouteName() === 'budget-requests.index' ? 'active' : '' }}">
+                            <a href="{{ route('budgetrequests.index') }}"
+                               class="nav-menu {{ Route::currentRouteName() === 'budgetrequests.index' ? 'active' : '' }}">
                                 กิจกรรมที่รองบประมาณ
                             </a>
                         </li>

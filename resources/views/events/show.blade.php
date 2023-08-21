@@ -15,7 +15,7 @@
                     </div>
                     <div class="mb-3">
                         <label for="name" class="block font-bold text-blue-600">คำอธิบายกิจกรรม:</label>
-                        <span class="font-normal text-black-600">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</span>
+                        <span class="font-normal text-black-600">{{ $event->description }}</span>
                     </div>
                     <div class="mb-3">
                         <label for="name" class="block font-bold text-blue-600">วันเริ่มกิจกรรม:</label>
@@ -37,10 +37,13 @@
                 <div class="w-1/2 pl-6 border-l">
                     <div class="mb-3"style="margin-top: 3.6rem;">
                         <label for="name" class="block font-bold text-blue-600">งบจัดกิจกรรม:</label>
-                        <span class="font-normal text-black-600">1000 baht</span>
+                        <span class="font-normal text-black-600">{{ $event->budget }}</span>
                     </div>
                     <div class="mb-3">
-                        <label for="name" class="block font-bold text-blue-600">รายชื่อผู้จัดทำกิจกรรม:</label>
+                        <label for="name" class="block font-bold text-blue-600">ผู้จัดทำกิจกรรม:</label>
+                        <a href="{{ route('profile.show', ['user'=>$event->user]) }}">
+                            <span class="font-normal text-black-600">{{ $event->user->nickname }}</span>
+                        </a>
                     </div>
                 <!-- loop ($staffs as $staff)
 
@@ -49,21 +52,90 @@
                 -->
                     <div class="flex justify-between mt-8">
 
-                        <a href="{{ route('kanban-board.index', ['event' => $event]) }}"
-                            class="btn">
+                        <a href="{{ route('kanban-board.index', ['event' => $event]) }}" class="btn">
                             วางแผน
                         </a>
-                    
-                        <button type="submit" class="btn">
+
+                    </div>
+
+                    <div class="flex justify-between mt-1">
+                        <a href="{{ route('event.applier', ['event' => $event]) }}" class="btn">
                             ผู้ที่สมัครกิจกรรม
+                        </a>
+                    </div>
+
+
+                    <div class="flex justify-between mt-1">
+                        <a href="{{ route('kanban-board.index', ['event' => $event]) }}" class="btn">
+                            แก้ไข
+                        </a>
+                    </div>
+
+                    <!-- Accept popup -->
+
+{{--                    <form method="POST" action="{{ route('events.applications.update', ['event' => $event]) }}">--}}
+{{--                        @csrf--}}
+{{--                        @method('PUT')--}}
+{{--                        <input type="hidden" name="status" value="accepted">--}}
+
+                    <div class="flex justify-between mt-1">
+                        <button class="bg-blue-500 hover:bg-blue-700 text-white px-4 py-2 rounded transition duration-300 ease-in-out">
+                            กลับ
                         </button>
 
-                        <button type="submit" class="btn">
-                            แก้ไข
+                        <button class="bg-green-500 hover:bg-green-700 text-white px-4 py-2 rounded transition duration-300 ease-in-out">
+                            อนุมัติกิจกรรมนี้
+                        </button>
+
+                        <button id="rejectPopupButton" class="bg-red-500 hover:bg-red-700 text-white px-4 py-2 rounded ml-2 transition duration-300 ease-in-out">
+                            ไม่อนุมัติกิจกรรมนี้
                         </button>
                     </div>
+
                 </div>
             </div>
         </div>
     </div>
+    <!-- reject popup -->
+    <form>
+        <div id="rejectPopupModal" class="fixed top-0 left-0 w-full h-full bg-black bg-opacity-50 flex items-center justify-center hidden">
+            <div class="bg-white rounded-lg p-8">
+                @csrf
+                <div class="flex flex-col">
+                    <label id="rejectText" class="block font-medium text-sm text-black-700 dark:text-black-300" for="reason" :value="__('เหตุผลการปฏิเสธ')">
+                        เหตุผลของการปฏิเสธ
+                    </label>
+                    <div class="mt-1">
+                        <input class="border-gray-300 dark:border-gray-700 rounded-md shadow-sm block w-full"
+                               style="max-width: 350px;"
+                               id="reason"
+                               type="text"
+                               name="reason" :value="old('reason')"
+                               autofocus
+                               autocomplete="reason" />
+                    </div>
+                    <x-input-error :messages="$errors->get('reason')" class="mt-2" />
+                </div>
+                <div class="flex items-center justify-between mt-4">
+                    <button id="closeRejectPopupButton" class="btn">Close</button>
+                    <button class="btn">
+                        {{ __('Submit') }}
+                    </button>
+                </div>
+            </div>
+        </div>
+    </form>
+    <script>
+        const rejectPopupButton = document.getElementById('rejectPopupButton');
+        const rejectPopupModal = document.getElementById('rejectPopupModal');
+        const closeRejectPopupButton = document.getElementById('closeRejectPopupButton');
+
+        rejectPopupButton.addEventListener('click', function() {
+            rejectPopupModal.classList.remove('hidden');
+        });
+
+        closeRejectPopupButton.addEventListener('click', function() {
+            rejectPopupModal.classList.add('hidden');
+        });
+    </script>
 @endsection

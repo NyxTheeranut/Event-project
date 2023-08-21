@@ -11,6 +11,11 @@ class BudgetRequest extends Model
 {
     use HasFactory, SoftDeletes;
 
+    //  Status <'PENDING', 'APPROVED', 'REJECTED'>
+    public const STATUS_PENDING = 'PENDING';
+    public const STATUS_APPROVED = 'APPROVED';
+    public const STATUS_REJECTED = 'REJECTED';
+
     public function event() : BelongsTo {
         return $this->belongsTo(Event::class);
     }

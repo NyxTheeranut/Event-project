@@ -3,6 +3,7 @@
 namespace Database\Seeders;
 
 use App\Models\KanbanBoard;
+use App\Models\User;
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
 use App\Models\Event;
@@ -14,14 +15,14 @@ class EventSeeder extends Seeder
      */
     public function run(): void
     {
-        for ($i = 0; $i < 3; $i++) {
+        for ($i = 0; $i < 5; $i++) {
             $event = new Event();
             $event->title = fake()->realTextBetween(10, 20);
-            $event->description = "description";
+            $event->description = fake()->realTextBetween(10, 50);
             $event->start_date_time = fake()->dateTime();
             $event->end_date_time = fake()->dateTime();
             $event->budget = fake()->randomNumber();
-            $event-> organizer = 2;
+            $event->user_id = 2;
             $event->save();
 
             // Shameless Hard Code Kanban Board

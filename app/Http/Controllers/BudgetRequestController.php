@@ -13,9 +13,10 @@ class BudgetRequestController extends Controller
      */
     public function index()
     {
-        $events = Event::all(); 
-    
-        return view('budgetrequests.index', ['events' => $events]);
+        $budgetrequests = BudgetRequest::get();
+        $events = Event::get();
+
+        return view('budgetrequests.index', ['budgetrequests' => $budgetrequests, 'events' => $events]);
     }
 
     /**
@@ -53,9 +54,14 @@ class BudgetRequestController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, BudgetRequest $budgetRequest)
+    public function update(Request $request, BudgetRequest $budgetrequest)
     {
-        //
+        return $budgetrequest;
+        $budgetRequest->status = $request->get('status');
+        $budgetRequest->reason = $request->get('reason');
+        $budgetRequest->save();
+
+        return redirect()->route('budgetrequests.index');
     }
 
     /**
@@ -65,5 +71,5 @@ class BudgetRequestController extends Controller
     {
         //
     }
-    
+
 }

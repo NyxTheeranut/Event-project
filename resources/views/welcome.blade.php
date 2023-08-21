@@ -5,7 +5,7 @@
     @if (Auth::user()->role === "ACCOUNTANT")
 {{--        //redirect to event page--}}
         @php
-            header("Location: /budget-requests");
+            header("Location: /budgetrequests");
             die();
         @endphp
 
