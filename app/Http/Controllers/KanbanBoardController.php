@@ -33,9 +33,11 @@ class KanbanBoardController extends Controller
     /**
      * Show the form for creating a new work.
      */
-    public function create()
+    public function createWork(Event $event)
     {
-        return view('kanbanboard.create');
+        return view('kanbanboard.create', [
+            'event' => $event
+        ]);
     }
 
     /**
@@ -65,21 +67,28 @@ class KanbanBoardController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, KanbanBoard $kanbanBoard)
+    public function update(Request $request, Event $event)
     {
-        //
+        $work_id = $request->get('work_id');
+
+        $work = $event->kanbanBoard->works()->get()->find($work_id);
+
+        $work->status = $request->get('new_status');
+        $work->save();
+
+        return redirect()->route('kanban-board.index', [
+            'event' => $event
+        ]);
     }
 
     /**
      * Remove the specified resource from storage.
      */
-    public function destroyWork(Array $array)
+    public function destroyWork(Request $request, Event $event)
     {
-        $work = $array('work');
-        $event = $array('event');
+        $work_id = $request->get('work_id');
 
-        $work_id = $work->id;
-        $workToDelete = $event->kanbanBoard->works()->find($work_id);
+        $workToDelete = $event->kanbanBoard->works()->get()->find($work_id);
 
         $workToDelete->delete();
 

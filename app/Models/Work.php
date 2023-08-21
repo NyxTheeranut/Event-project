@@ -25,7 +25,7 @@ class Work extends Model
     public static string $STATUS_REVIEW = "REVIEW";
     public static string $STATUS_DONE = "DONE";
 
-    public function status_to_number() : int {
+    public function statusToNumber() : int {
         return match ($this->status) {
             Work::$STATUS_PLANNING => 0,
             Work::$STATUS_IN_PROGRESS => 1,
@@ -35,7 +35,7 @@ class Work extends Model
         };
     }
 
-    public function number_to_status(int $number) : string {
+    public function numberToStatus(int $number) : string {
         return match ($number) {
             0 => Work::$STATUS_PLANNING,
             1 => Work::$STATUS_IN_PROGRESS,

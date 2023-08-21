@@ -16,11 +16,11 @@
                 <span class="flex items-center justify-center w-5 h-5 ml-2 text-sm font-semibold text-indigo-500 bg-white rounded bg-opacity-30">
                     {{ $planning->count() }}
                 </span>
-                    <button class="flex items-center justify-center w-6 h-6 ml-auto text-indigo-500 rounded hover:bg-indigo-500 hover:text-indigo-100">
+                    <a href="{{ route('kanban-board.createWork', ['event' => $event]) }}" class="flex items-center justify-center w-6 h-6 ml-auto text-indigo-500 rounded hover:bg-indigo-500 hover:text-indigo-100">
                         <svg class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6v6m0 0v6m0-6h6m-6 0H6"></path>
                         </svg>
-                    </button>
+                    </a>
             </div>
             <div class="flex flex-col pb-2 overflow-auto">
                 @foreach($planning as $work)
@@ -29,9 +29,10 @@
                         <h4 class="mt-3 text-sm font-medium">{{ $work->description }}</h4>
                         <div class="flex items-center w-full mt-3 text-xs font-medium text-gray-400">
                             <!-- Trash Button -->
-                            <form action="{{ route('kanban-board.destroyWork', ['work' => $work, 'event' => $event]) }}" method="POST">
+                            <form action="{{ route('kanban-board.destroyWork', ['event' => $event]) }}" method="POST">
                                 @csrf
                                 @method('DELETE')
+                                <input type="hidden" name="work_id" value="{{ $work->id }}">
                                 <button type="submit" class="absolute top-0 right-0 flex items-center justify-center hidden w-5 h-5 mt-3 mr-2 text-gray-500 rounded hover:bg-gray-200 hover:text-gray-700 group-hover:flex">
                                     <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#000000" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="3 6 5 6 21 6"></polyline><path d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6m3 0V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2">
                                         </path><line x1="10" y1="11" x2="10" y2="17"></line><line x1="14" y1="11" x2="14" y2="17"></line>
@@ -39,11 +40,17 @@
                                 </button>
                             </form>
                             <!-- Right Button -->
-                            <a href="#" class="absolute top-0 right-7 flex items-center justify-center hidden w-5 h-5 mt-3 mr-2 text-gray-500 rounded hover:bg-gray-200 hover:text-gray-700 group-hover:flex">
-                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#000000" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                                    <path d="M9 18l6-6-6-6"/>
-                                </svg>
-                            </a>
+                            <form action="{{ route('kanban-board.changeStatus', ['event' => $event]) }}" method="POST">
+                                @csrf
+                                @method('PUT')
+                                <input type="hidden" name="work_id" value="{{ $work->id }}">
+                                <input type="hidden" name="new_status" value="{{ $work->numberToStatus($work->statusToNumber() + 1) }}">
+                                <button type="submit" class="absolute top-0 right-7 flex items-center justify-center hidden w-5 h-5 mt-3 mr-2 text-gray-500 rounded hover:bg-gray-200 hover:text-gray-700 group-hover:flex">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#000000" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                        <path d="M9 18l6-6-6-6"/>
+                                    </svg>
+                                </button>
+                            </form>
                         </div>
                     </div>
                 @endforeach
@@ -57,11 +64,6 @@
                 <span class="flex items-center justify-center w-5 h-5 ml-2 text-sm font-semibold text-indigo-500 bg-white rounded bg-opacity-30">
                     {{ $in_progress->count() }}
                 </span>
-                <button class="flex items-center justify-center w-6 h-6 ml-auto text-indigo-500 rounded hover:bg-indigo-500 hover:text-indigo-100">
-                    <svg class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6v6m0 0v6m0-6h6m-6 0H6"></path>
-                    </svg>
-                </button>
             </div>
             <div class="flex flex-col pb-2 overflow-auto">
                 @foreach($in_progress as $work)
@@ -70,23 +72,40 @@
                         <h4 class="mt-3 text-sm font-medium">{{ $work->description }}</h4>
                         <div class="flex items-center w-full mt-3 text-xs font-medium text-gray-400">
                             <!-- Trash Button -->
-                            <a href="#" class="absolute top-0 right-0 flex items-center justify-center hidden w-5 h-5 mt-3 mr-2 text-gray-500 rounded hover:bg-gray-200 hover:text-gray-700 group-hover:flex">
-                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#000000" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="3 6 5 6 21 6"></polyline><path d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6m3 0V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2">
-                                    </path><line x1="10" y1="11" x2="10" y2="17"></line><line x1="14" y1="11" x2="14" y2="17"></line>
-                                </svg>
-                            </a>
+                            <form action="{{ route('kanban-board.destroyWork', ['event' => $event]) }}" method="POST">
+                                @csrf
+                                @method('DELETE')
+                                <input type="hidden" name="work_id" value="{{ $work->id }}">
+                                <button type="submit" class="absolute top-0 right-0 flex items-center justify-center hidden w-5 h-5 mt-3 mr-2 text-gray-500 rounded hover:bg-gray-200 hover:text-gray-700 group-hover:flex">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#000000" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="3 6 5 6 21 6"></polyline><path d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6m3 0V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2">
+                                        </path><line x1="10" y1="11" x2="10" y2="17"></line><line x1="14" y1="11" x2="14" y2="17"></line>
+                                    </svg>
+                                </button>
+                            </form>
                             <!-- Right Button -->
-                            <a href="#" class="absolute top-0 right-7 flex items-center justify-center hidden w-5 h-5 mt-3 mr-2 text-gray-500 rounded hover:bg-gray-200 hover:text-gray-700 group-hover:flex">
-                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#000000" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                                    <path d="M9 18l6-6-6-6"/>
-                                </svg>
-                            </a>
+                            <form action="{{ route('kanban-board.changeStatus', ['event' => $event]) }}" method="POST">
+                                @csrf
+                                @method('PUT')
+                                <input type="hidden" name="work_id" value="{{ $work->id }}">
+                                <input type="hidden" name="new_status" value="{{ $work->numberToStatus($work->statusToNumber() + 1) }}">
+                                <button type="submit" class="absolute top-0 right-7 flex items-center justify-center hidden w-5 h-5 mt-3 mr-2 text-gray-500 rounded hover:bg-gray-200 hover:text-gray-700 group-hover:flex">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#000000" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                        <path d="M9 18l6-6-6-6"/>
+                                    </svg>
+                                </button>
+                            </form>
                             <!-- Left Button -->
-                            <a href="#" class="absolute top-0 right-14 flex items-center justify-center hidden w-5 h-5 mt-3 mr-2 text-gray-500 rounded hover:bg-gray-200 hover:text-gray-700 group-hover:flex">
-                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#000000" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                                    <path d="M15 18l-6-6 6-6"/>
-                                </svg>
-                            </a>
+                            <form action="{{ route('kanban-board.changeStatus', ['event' => $event]) }}" method="POST">
+                                @csrf
+                                @method('PUT')
+                                <input type="hidden" name="work_id" value="{{ $work->id }}">
+                                <input type="hidden" name="new_status" value="{{ $work->numberToStatus($work->statusToNumber() - 1) }}">
+                                <button type="submit" class="absolute top-0 right-14 flex items-center justify-center hidden w-5 h-5 mt-3 mr-2 text-gray-500 rounded hover:bg-gray-200 hover:text-gray-700 group-hover:flex">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#000000" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                        <path d="M15 18l-6-6 6-6"/>
+                                    </svg>
+                                </button>
+                            </form>
                         </div>
                     </div>
                 @endforeach
@@ -100,11 +119,6 @@
                 <span class="flex items-center justify-center w-5 h-5 ml-2 text-sm font-semibold text-indigo-500 bg-white rounded bg-opacity-30">
                     {{ $review->count() }}
                 </span>
-                <button class="flex items-center justify-center w-6 h-6 ml-auto text-indigo-500 rounded hover:bg-indigo-500 hover:text-indigo-100">
-                    <svg class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6v6m0 0v6m0-6h6m-6 0H6"></path>
-                    </svg>
-                </button>
             </div>
             <div class="flex flex-col pb-2 overflow-auto">
                 @foreach($review as $work)
@@ -113,23 +127,41 @@
                         <h4 class="mt-3 text-sm font-medium">{{ $work->description }}</h4>
                         <div class="flex items-center w-full mt-3 text-xs font-medium text-gray-400">
                             <!-- Trash Button -->
-                            <a href="#" class="absolute top-0 right-0 flex items-center justify-center hidden w-5 h-5 mt-3 mr-2 text-gray-500 rounded hover:bg-gray-200 hover:text-gray-700 group-hover:flex">
-                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#000000" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="3 6 5 6 21 6"></polyline><path d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6m3 0V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2">
-                                    </path><line x1="10" y1="11" x2="10" y2="17"></line><line x1="14" y1="11" x2="14" y2="17"></line>
-                                </svg>
-                            </a>
+                            <form action="{{ route('kanban-board.destroyWork', ['event' => $event]) }}" method="POST">
+                                @csrf
+                                @method('DELETE')
+                                <input type="hidden" name="event" value="{{ $event }}">
+                                <input type="hidden" name="work_id" value="{{ $work->id }}">
+                                <button type="submit" class="absolute top-0 right-0 flex items-center justify-center hidden w-5 h-5 mt-3 mr-2 text-gray-500 rounded hover:bg-gray-200 hover:text-gray-700 group-hover:flex">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#000000" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="3 6 5 6 21 6"></polyline><path d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6m3 0V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2">
+                                        </path><line x1="10" y1="11" x2="10" y2="17"></line><line x1="14" y1="11" x2="14" y2="17"></line>
+                                    </svg>
+                                </button>
+                            </form>
                             <!-- Right Button -->
-                            <a href="#" class="absolute top-0 right-7 flex items-center justify-center hidden w-5 h-5 mt-3 mr-2 text-gray-500 rounded hover:bg-gray-200 hover:text-gray-700 group-hover:flex">
-                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#000000" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                                    <path d="M9 18l6-6-6-6"/>
-                                </svg>
-                            </a>
+                            <form action="{{ route('kanban-board.changeStatus', ['event' => $event]) }}" method="POST">
+                                @csrf
+                                @method('PUT')
+                                <input type="hidden" name="work_id" value="{{ $work->id }}">
+                                <input type="hidden" name="new_status" value="{{ $work->numberToStatus($work->statusToNumber() + 1) }}">
+                                <button type="submit" class="absolute top-0 right-7 flex items-center justify-center hidden w-5 h-5 mt-3 mr-2 text-gray-500 rounded hover:bg-gray-200 hover:text-gray-700 group-hover:flex">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#000000" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                        <path d="M9 18l6-6-6-6"/>
+                                    </svg>
+                                </button>
+                            </form>
                             <!-- Left Button -->
-                            <a href="#" class="absolute top-0 right-14 flex items-center justify-center hidden w-5 h-5 mt-3 mr-2 text-gray-500 rounded hover:bg-gray-200 hover:text-gray-700 group-hover:flex">
-                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#000000" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                                    <path d="M15 18l-6-6 6-6"/>
-                                </svg>
-                            </a>
+                            <form action="{{ route('kanban-board.changeStatus', ['event' => $event]) }}" method="POST">
+                                @csrf
+                                @method('PUT')
+                                <input type="hidden" name="work_id" value="{{ $work->id }}">
+                                <input type="hidden" name="new_status" value="{{ $work->numberToStatus($work->statusToNumber() - 1) }}">
+                                <button type="submit" class="absolute top-0 right-14 flex items-center justify-center hidden w-5 h-5 mt-3 mr-2 text-gray-500 rounded hover:bg-gray-200 hover:text-gray-700 group-hover:flex">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#000000" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                        <path d="M15 18l-6-6 6-6"/>
+                                    </svg>
+                                </button>
+                            </form>
                         </div>
                     </div>
                 @endforeach
@@ -144,11 +176,6 @@
                 <span class="flex items-center justify-center w-5 h-5 ml-2 text-sm font-semibold text-indigo-500 bg-white rounded bg-opacity-30">
                     {{ $done->count() }}
                 </span>
-                <button class="flex items-center justify-center w-6 h-6 ml-auto text-indigo-500 rounded hover:bg-indigo-500 hover:text-indigo-100">
-                    <svg class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6v6m0 0v6m0-6h6m-6 0H6"></path>
-                    </svg>
-                </button>
             </div>
             <div class="flex flex-col pb-2 overflow-auto">
                 @foreach($done as $work)
@@ -157,17 +184,29 @@
                         <h4 class="mt-3 text-sm font-medium">{{ $work->description }}</h4>
                         <div class="flex items-center w-full mt-3 text-xs font-medium text-gray-400">
                             <!-- Trash Button -->
-                            <a href="#" class="absolute top-0 right-0 flex items-center justify-center hidden w-5 h-5 mt-3 mr-2 text-gray-500 rounded hover:bg-gray-200 hover:text-gray-700 group-hover:flex">
-                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#000000" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="3 6 5 6 21 6"></polyline><path d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6m3 0V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2">
-                                    </path><line x1="10" y1="11" x2="10" y2="17"></line><line x1="14" y1="11" x2="14" y2="17"></line>
-                                </svg>
-                            </a>
+                            <form action="{{ route('kanban-board.destroyWork', ['event' => $event]) }}" method="POST">
+                                @csrf
+                                @method('DELETE')
+                                <input type="hidden" name="event" value="{{ $event }}">
+                                <input type="hidden" name="work_id" value="{{ $work->id }}">
+                                <button type="submit" class="absolute top-0 right-0 flex items-center justify-center hidden w-5 h-5 mt-3 mr-2 text-gray-500 rounded hover:bg-gray-200 hover:text-gray-700 group-hover:flex">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#000000" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="3 6 5 6 21 6"></polyline><path d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6m3 0V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2">
+                                        </path><line x1="10" y1="11" x2="10" y2="17"></line><line x1="14" y1="11" x2="14" y2="17"></line>
+                                    </svg>
+                                </button>
+                            </form>
                             <!-- Left Button -->
-                            <a href="#" class="absolute top-0 right-7 flex items-center justify-center hidden w-5 h-5 mt-3 mr-2 text-gray-500 rounded hover:bg-gray-200 hover:text-gray-700 group-hover:flex">
-                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#000000" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                                    <path d="M15 18l-6-6 6-6"/>
-                                </svg>
-                            </a>
+                            <form action="{{ route('kanban-board.changeStatus', ['event' => $event]) }}" method="POST">
+                                @csrf
+                                @method('PUT')
+                                <input type="hidden" name="work_id" value="{{ $work->id }}">
+                                <input type="hidden" name="new_status" value="{{ $work->numberToStatus($work->statusToNumber() - 1) }}">
+                                <button type="submit" class="absolute top-0 right-14 flex items-center justify-center hidden w-5 h-5 mt-3 mr-2 text-gray-500 rounded hover:bg-gray-200 hover:text-gray-700 group-hover:flex">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#000000" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                        <path d="M15 18l-6-6 6-6"/>
+                                    </svg>
+                                </button>
+                            </form>
                         </div>
                     </div>
                 @endforeach
