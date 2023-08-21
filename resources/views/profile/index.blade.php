@@ -6,10 +6,9 @@
   <div id="certificatePopupModal" class="fixed top-0 left-0 w-full h-full bg-black bg-opacity-50 flex items-center justify-center hidden">
     <div class="bg-white rounded-lg p-8">
         <div class="gallery">
-          <img src="" alt="" />
-          <img src="" alt="" />
-          <img src="" alt="" />
-          <img src="" alt="" />
+          <img src="https://cdn.discordapp.com/attachments/1131271771480395826/1143174541653327972/image.png" alt="" />
+          <img src="https://cdn.discordapp.com/attachments/1131271771480395826/1143174604760817684/image.png" alt="" />
+          <img src="https://cdn.discordapp.com/attachments/1131271771480395826/1143174677737513020/image.png" alt="" />
         </div>
       <div class="flex items-center justify-center mt-4">
         <button id="closeCertificatePopupButton" class="mr-14 btn">Close</button>
