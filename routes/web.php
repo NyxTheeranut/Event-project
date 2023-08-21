@@ -51,6 +51,14 @@ Route::post('/events/create', [EventController::class, 'store'])->name('event.cr
 
 Route::resource('/events/{event}/kanban-board', KanbanBoardController::class);
 
+Route::put('/events/{event}/kanban-board/changeStatus',
+    [KanbanBoardController::class, 'changeStatus']
+)->name('kanban-board.changeStatus');
+
+Route::get('/events/{event}/kanban-board/create',
+    [KanbanBoardController::class, 'createWork']
+)->name('kanban-board.createWork');
+
 Route::delete('/events/{event}/kanban-board',
     [KanbanBoardController::class, 'destroyWork']
 )->name('kanban-board.destroyWork');
