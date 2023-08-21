@@ -42,7 +42,7 @@ Route::get('/events/{event}/apply',
 
 Route::resource('/events/{event}/kanban-board', KanbanBoardController::class);
 
-Route::post('/events/{event}/kanban-board',
+Route::delete('/events/{event}/kanban-board',
     [KanbanBoardController::class, 'destroyWork']
 )->name('kanban-board.destroyWork');
 

@@ -73,9 +73,18 @@ class KanbanBoardController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroyWork(Work $work)
+    public function destroyWork(Array $array)
     {
-        $work->delete();
-        return redirect()->route('kanban-board.index');
+        $work = $array('work');
+        $event = $array('event');
+
+        $work_id = $work->id;
+        $workToDelete = $event->kanbanBoard->works()->find($work_id);
+
+        $workToDelete->delete();
+
+        return redirect()->route('kanban-board.index', [
+            'event' => $event
+        ]);
     }
 }
