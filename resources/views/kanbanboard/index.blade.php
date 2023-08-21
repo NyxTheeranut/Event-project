@@ -201,7 +201,7 @@
                                 @method('PUT')
                                 <input type="hidden" name="work_id" value="{{ $work->id }}">
                                 <input type="hidden" name="new_status" value="{{ $work->numberToStatus($work->statusToNumber() - 1) }}">
-                                <button type="submit" class="absolute top-0 right-14 flex items-center justify-center hidden w-5 h-5 mt-3 mr-2 text-gray-500 rounded hover:bg-gray-200 hover:text-gray-700 group-hover:flex">
+                                <button type="submit" class="absolute top-0 right-7 flex items-center justify-center hidden w-5 h-5 mt-3 mr-2 text-gray-500 rounded hover:bg-gray-200 hover:text-gray-700 group-hover:flex">
                                     <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#000000" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                                         <path d="M15 18l-6-6 6-6"/>
                                     </svg>
