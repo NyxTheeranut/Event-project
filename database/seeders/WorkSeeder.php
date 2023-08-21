@@ -15,6 +15,6 @@ class WorkSeeder extends Seeder
     public function run(): void
     {
 
-        Work::factory(20)->create();
+        Work::factory(100)->create();
     }
 }
