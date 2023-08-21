@@ -18,6 +18,7 @@ class ApplicationController extends Controller
             'events' => Event::get()
         ]);
     }
+
     public function getEvents()
     {
         $events = Event::get();
@@ -26,4 +27,6 @@ class ApplicationController extends Controller
             'events' => $events
         ]);
     }
+
+
 }

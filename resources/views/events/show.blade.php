@@ -47,11 +47,16 @@
                 /* staffs */
 
                 -->
-                    <div class="mt-8">
+                    <div class="flex justify-between mt-8">
+
                         <a href="{{ route('kanban-board.index', ['event' => $event]) }}"
                             class="btn">
                             วางแผน
                         </a>
+                    
+                        <button type="submit" class="btn">
+                            ผู้ที่สมัครกิจกรรม
+                        </button>
                     </div>
                 </div>
             </div>

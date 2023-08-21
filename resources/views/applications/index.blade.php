@@ -28,23 +28,24 @@
         @endif
 
         @foreach ($applications->where('user_id', Auth::user()->id) as $application)
+            <a href="{{ route("events.show", ["event" => $events->find($application->event_id)]) }}">
+                <li class="flex items-center py-4 px-6 hover:bg-gray-50">
+                    <span class="text-gray-700 text-lg font-medium mr-4">{{ $loop->iteration }}.</span>
+                    <div class="flex-1">
+                        <h3 class="text-lg font-medium text-gray-800">{{ $events->find($application->event_id)->title }}</h3>
+                        @if ($application->status === 'PENDING')
+                            <p class="text-gray-600 text-base">กำลังรอการตอบรับ</p>
+                        @elseif ($application->status === 'APPROVED')
+                            <p class="text-gray-600 text-base">ยินดีด้วย! คุณถูกคัดเลือกเข้ากิจกรรมแล้ว</p>
+                        @elseif ($application->status === "REJECTED")
+                            <p class="text-gray-600 text-base">ถูกปฏิเสธ</p>
+                        @endif
+                    </div>
 
-            <li class="flex items-center py-4 px-6 hover:bg-gray-50">
-                <span class="text-gray-700 text-lg font-medium mr-4">{{ $loop->iteration }}.</span>
-                <div class="flex-1">
-                    <h3 class="text-lg font-medium text-gray-800">{{ $events->find($application->event_id)->title }}</h3>
-                    @if ($application->status === 'PENDING')
-                        <p class="text-gray-600 text-base">กำลังรอการตอบรับ</p>
-                    @elseif ($application->status === 'APPROVED')
-                        <p class="text-gray-600 text-base">ยินดีด้วย! คุณถูกคัดเลือกเข้ากิจกรรมแล้ว</p>
-                    @elseif ($application->status === "REJECTED")
-                        <p class="text-gray-600 text-base">ถูกปฏิเสธ</p>
-                    @endif
-                </div>
+                    <span class="text-gray-400">{{ $events->find($application->event_id)->getDurationToStringAttribute() }}</span>
 
-                <span class="text-gray-400">{{ $events->find($application->event_id)->getDurationToStringAttribute() }}</span>
-
-            </li>
+                </li>
+            </a>
 
         @endforeach
 

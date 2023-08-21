@@ -53,8 +53,12 @@
                 /* staffs */
 
                 -->
-                    <button type="submit" class="block bg-blue-500 text-white font-bold p-4 rounded-lg transition duration-300 ease-in-out hover:bg-blue-700"
-                    >Submit</button>
+                    <div class="flex justify-between mt-8">
+                        <button type="submit" class="btn">Submit</button>
+                        <button type="submit" class="btn">
+                            ผู้ที่สมัครกิจกรรม
+                        </button>
+                    </div>
                 </div>
             </div>
         </div>
