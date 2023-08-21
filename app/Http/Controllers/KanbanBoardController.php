@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Event;
 use App\Models\KanbanBoard;
 use App\Models\Work;
 use Illuminate\Http\Request;
@@ -11,13 +12,14 @@ class KanbanBoardController extends Controller
     /**
      * Display a Kanban board.
      */
-    public function index()
+    public function index(Event $event)
     {
-//        $works = KanbanBoard::find(1)->works()->get();
-        $planning = Work::planning()->get();
-        $in_progress = Work::inProgress()->get();
-        $review = Work::review()->get();
-        $done = Work::done()->get();
+        $kanbanBoard = $event->kanbanBoard;
+
+        $planning = $kanbanBoard->works()->planning()->get();
+        $in_progress = $kanbanBoard->works()->inProgress()->get();
+        $review = $kanbanBoard->works()->review()->get();
+        $done = $kanbanBoard->works()->done()->get();
 
         return view('kanbanboard.index', [
             'planning' => $planning,
@@ -32,7 +34,7 @@ class KanbanBoardController extends Controller
      */
     public function create()
     {
-        //
+        return view('kanbanboard.create');
     }
 
     /**

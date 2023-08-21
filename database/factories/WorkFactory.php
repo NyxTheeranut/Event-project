@@ -2,6 +2,7 @@
 
 namespace Database\Factories;
 
+use App\Models\KanbanBoard;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
 /**
@@ -20,7 +21,7 @@ class WorkFactory extends Factory
             'title' => fake()->realTextBetween(10, 20),
             'description' => fake()->realTextBetween(15, 30),
             'status' => fake()->randomElement(['PLANNING', 'IN_PROGRESS', 'REVIEW', 'DONE']),
-            'kanban_board_id' => 1
+            'kanban_board_id' => KanbanBoard::all()->random()->id
         ];
     }
 }

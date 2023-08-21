@@ -47,6 +47,12 @@
                 /* staffs */
 
                 -->
+                    <div class="mt-8">
+                        <a href="{{ route('kanban-board.index', ['event' => $event]) }}"
+                            class="bg-blue-500 text-white font-bold p-4 rounded-lg transition duration-300 ease-in-out hover:bg-blue-700">
+                            วางแผน
+                        </a>
+                    </div>
                 </div>
             </div>
         </div>
