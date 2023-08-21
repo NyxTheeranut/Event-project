@@ -330,10 +330,10 @@
         registerPopupModal.classList.remove('hidden');
     });
 
-    {{--logginButton.addEventListener('click', function() {--}}
-    {{--    if ({{ Auth::check() }}) {--}}
-    {{--        loginPopupModal.classList.add('hidden');--}}
-    {{--    }--}}
-    {{--});--}}
+    // {{--logginButton.addEventListener('click', function() {--}}
+    // {{--    if ({{ Auth::check() }}) {--}}
+    // {{--        loginPopupModal.classList.add('hidden');--}}
+    // {{--    }--}}
+    // {{--});--}}
 
 </script>
