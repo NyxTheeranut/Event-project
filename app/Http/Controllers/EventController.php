@@ -130,4 +130,22 @@ class EventController extends Controller
         $event->delete();
         return redirect()->route('events.index');
     }
+
+    public function applierindex(Event $event)
+    {
+        return view('events.applier', [
+            'event' => $event,
+            'applications' => Application::get()
+        ]);
+    }
+
+    public function appliershow(Event $event, User $user)
+    {
+        return view('events.applier-show', [
+            'event' => $event,
+            'applications' => Application::get(),
+            'user' => $user
+        ]);
+    }
+
 }

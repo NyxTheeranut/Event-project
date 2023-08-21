@@ -57,6 +57,11 @@ Route::get('/events/{event}/applied',
 
 Route::post('/events/create', [EventController::class, 'store'])->name('event.create');
 
+Route::get('/events/{event}/applier', [EventController::class, 'applierindex'])->name('event.applier');
+
+//Route::get('/events/{event}/applier/{user}'), [EventController::class, 'appliershow'])->name('event.show');
+Route::get('/events/{event}/applier/user', [EventController::class, 'appliershow'])->name('event.show');
+
 Route::resource('/events/{event}/kanban-board', KanbanBoardController::class);
 
 Route::put('/events/{event}/kanban-board/changeStatus',
