@@ -227,40 +227,71 @@
                 </svg>
             </button>
         </div>
-        <div class="items-center justify-center w-full lg:flex lg:w-auto lg:order-1" id="mobile-menu-2">
-            <ul class="flex flex-col mt-4 font-semibold lg:flex-row lg:space-x-8 lg:mt-0">
-                <li>
-                    <a href="{{ url('/') }}"
-                        class="nav-menu {{ request()->is('/') ? 'active' : '' }}">
-                        หน้าหลัก
-                    </a>
-                </li>
-                <li>
-                    <a href="{{ route('events.index') }}"
-                        class="nav-menu {{ Route::currentRouteName() === 'events.index' ? 'active' : '' }}">
-                        กิจกรรม
-                    </a>
-                </li>
-                <li>
-                    <a href="{{ route('applications.index') }}"
-                       class="nav-menu {{ Route::currentRouteName() === 'applications.index' ? 'active' : '' }}">
-                        กิจกรรมที่ลงทะเบียน
-                    </a>
-                </li>
-                <li>
-                    <a href="{{ route('budget-requests.index') }}"
-                       class="nav-menu {{ Route::currentRouteName() === 'budget-requests.index' ? 'active' : '' }}">
-                        กิจกรรมที่รองบประมาณ
-                    </a>
-                </li>
-                <li>
-                    <a href="{{ route('about.index') }}"
-                        class="nav-menu {{ Route::currentRouteName() === 'about.index' ? 'active' : '' }}">
-                        เกี่ยวกับเรา
-                    </a>
-                </li>
-            </ul>
-        </div>
+        @if (! Auth::user() == null)
+
+            @if (Auth::user()->role === "ACCOUNTANT")
+{{--               show nothing --}}
+                <div></div>
+            @else
+                <div class="items-center justify-center w-full lg:flex lg:w-auto lg:order-1" id="mobile-menu-2">
+                    <ul class="flex flex-col mt-4 font-semibold lg:flex-row lg:space-x-8 lg:mt-0">
+                        <li>
+                            <a href="{{ url('/') }}"
+                               class="nav-menu {{ request()->is('/') ? 'active' : '' }}">
+                                หน้าหลัก
+                            </a>
+                        </li>
+                        <li>
+                            <a href="{{ route('events.index') }}"
+                               class="nav-menu {{ Route::currentRouteName() === 'events.index' ? 'active' : '' }}">
+                                กิจกรรม
+                            </a>
+                        </li>
+                        <li>
+                            <a href="{{ route('applications.index') }}"
+                               class="nav-menu {{ Route::currentRouteName() === 'applications.index' ? 'active' : '' }}">
+                                กิจกรรมที่ลงทะเบียน
+                            </a>
+                        </li>
+                        <li>
+                            <a href="{{ route('budget-requests.index') }}"
+                               class="nav-menu {{ Route::currentRouteName() === 'budget-requests.index' ? 'active' : '' }}">
+                                กิจกรรมที่รองบประมาณ
+                            </a>
+                        </li>
+                        <li>
+                            <a href="{{ route('about.index') }}"
+                               class="nav-menu {{ Route::currentRouteName() === 'about.index' ? 'active' : '' }}">
+                                เกี่ยวกับเรา
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            @endif
+        @else
+            <div class="items-center justify-center w-full lg:flex lg:w-auto lg:order-1" id="mobile-menu-2">
+                <ul class="flex flex-col mt-4 font-semibold lg:flex-row lg:space-x-8 lg:mt-0">
+                    <li>
+                        <a href="{{ url('/') }}"
+                           class="nav-menu {{ request()->is('/') ? 'active' : '' }}">
+                            หน้าหลัก
+                        </a>
+                    </li>
+                    <li>
+                        <a href="{{ route('events.index') }}"
+                           class="nav-menu {{ Route::currentRouteName() === 'events.index' ? 'active' : '' }}">
+                            กิจกรรม
+                        </a>
+                    </li>
+                    <li>
+                        <a href="{{ route('about.index') }}"
+                           class="nav-menu {{ Route::currentRouteName() === 'about.index' ? 'active' : '' }}">
+                            เกี่ยวกับเรา
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        @endif
 
     </div>
 </nav>

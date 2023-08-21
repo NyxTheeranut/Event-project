@@ -11,6 +11,10 @@ class Application extends Model
 {
     use HasFactory, SoftDeletes;
 
+    public const STATUS_PENDING = 'PENDING';
+    public const STATUS_APPROVED = 'APPROVED';
+    public const STATUS_REJECTED = "REJECTED";
+
     public function user() : BelongsTo {
         return $this->belongsTo(User::class);
     }

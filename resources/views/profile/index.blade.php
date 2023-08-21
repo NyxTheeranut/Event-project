@@ -179,9 +179,13 @@
                     </p>
                   </div>
                   <div class="col-6 mb-3 snipcss0-7-23-24">
-                    <button id="certificatePopupButton"class="snipcss0-8-24-25 btn">
-                      Certificate
-                    </button>
+                  @if (Auth::check())
+                      @if (Auth::user()->role === 'MEMBER')
+                        <button id="certificatePopupButton"class="snipcss0-8-24-25 btn">
+                          Certificate
+                        </button>
+                      @endif
+                  @endif
                   </div>
                 </div>
               </div>

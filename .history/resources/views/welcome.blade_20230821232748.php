@@ -1,15 +1,13 @@
 @extends('layouts.main')
 
 @section('content')
-    @if (Auth::check())
     @if (Auth::user()->role === "ACCOUNTANT")
-{{--        //redirect to event page--}}
+        //redirect to event page
         @php
-            header("Location: /budget-requests");
+            header("Location: /events");
             die();
-        @endphp
-
-    @endif
+            
+        
     @endif
     <div class="relative overflow-hidden bg-cover bg-no-repeat bg-[50%] bg-[url('https://wallpapercrafter.com/th800/223750-planning-your-work.jpg')] h-[800px]">
         <div class="absolute top-0 right-0 bottom-0 left-0 h-full w-full overflow-hidden bg-[hsla(0,0%,0%,0.5)] bg-fixed">

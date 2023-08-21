@@ -38,9 +38,17 @@ Route::get('/events/{event}', [EventController::class, 'show'])->name('events.sh
 
 Route::get('/edit', [EventController::class, 'edit'])->name('events.edit');
 
-//Route::resource('/events/apply', EventController::class);
+Route::get('/events/{event}/apply',
+    [EventController::class, 'createApplication']
+)->name('events.applications.create');
 
 Route::get('/events/{event}/apply',
+    [EventController::class, 'storeApplication']
+)->name('events.applications.store');
+
+//Route::resource('/events/apply', EventController::class);
+
+Route::get('/events/{event}/applied',
     [EventController::class, 'createApplication']
 )->name('events.applications.create');
 
@@ -66,7 +74,7 @@ Route::delete('/events/{event}/kanban-board',
 //Route::get('/applications', [ApplicationController::class, 'index'])
 //    ->name('applications.index');
 
-Route::get('/applications', [ApplicationController::class, 'getEvents'])
+Route::get('/applications', [ApplicationController::class, 'index'])
     ->name('applications.index');
 
 //Route::get('/budget-requests', [BudgetRequestController::class, 'getEvents2'])

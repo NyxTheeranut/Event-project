@@ -13,10 +13,9 @@ class ApplicationController extends Controller
      */
     public function index()
     {
-        $applications = Application::get();
-
         return view('applications.index', [
-            'applications' => $applications
+            'applications' => Application::get(),
+            'events' => Event::get()
         ]);
     }
     public function getEvents()

@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Application;
 use App\Models\Event;
 use App\Models\User;
 use Illuminate\Http\RedirectResponse;
@@ -48,6 +49,18 @@ class EventController extends Controller
         return view('events.create-application', [
             'event' => $event
         ]);
+    }
+
+    public function storeApplication(Request $request, Event $event)
+    {
+        $application = new Application();
+        $application->event_id = $event->id;
+        $application->user_id = $request->user()->id;
+        $application->video_url = $request->video_url;
+        $application->message = $request->message;
+        $application->save();
+
+        return redirect()->route('applications.index');
     }
 
     /**
