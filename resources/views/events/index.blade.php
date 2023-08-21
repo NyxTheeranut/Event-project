@@ -91,16 +91,16 @@
 
             @foreach ($events as $event)
                 <a href="{{ route("events.show", ["event" => $event]) }}">
-                <li class="flex items-center py-4 px-6 hover:bg-gray-50">
-                    <span class="text-gray-700 text-lg font-medium mr-4">{{ $loop->iteration }}.</span>
-                    <div class="flex-1">
-                        <h3 class="text-lg font-medium text-gray-800">{{ $event->title }}</h3>
-                        <p class="text-gray-600 text-base">{{ $event->start_date_time }}</p>
-                    </div>
+                    <li class="flex items-center py-4 px-6 hover:bg-gray-50">
+                        <span class="text-gray-700 text-lg font-medium mr-4">{{ $loop->iteration }}.</span>
+                        <div class="flex-1">
+                            <h3 class="text-lg font-medium text-gray-800">{{ $event->title }}</h3>
+                            <p class="text-gray-600 text-base">{{ $event->start_date_time }}</p>
+                        </div>
 
-                    <span class="text-gray-400">{{ $event->getDurationToStringAttribute() }}</span>
+                        <span class="text-gray-400">{{ $event->getDurationToStringAttribute() }}</span>
 
-                </li>
+                    </li>
                 </a>
             @endforeach
 

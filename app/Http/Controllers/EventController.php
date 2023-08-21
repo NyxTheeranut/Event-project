@@ -36,8 +36,6 @@ class EventController extends Controller
         $event->organizer = $request->user();
         $event->save();
 
-
-
         return redirect()->route('events.index');
     }
 
