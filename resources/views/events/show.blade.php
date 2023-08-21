@@ -57,6 +57,10 @@
                         <button type="submit" class="btn">
                             ผู้ที่สมัครกิจกรรม
                         </button>
+
+                        <button type="submit" class="btn">
+                            แก้ไข
+                        </button>
                     </div>
                 </div>
             </div>

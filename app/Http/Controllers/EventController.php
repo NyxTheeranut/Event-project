@@ -24,6 +24,8 @@ class EventController extends Controller
         ]);
     }
 
+    
+
     /**
      * Show the form for creating a new event.
      */
@@ -131,6 +133,15 @@ class EventController extends Controller
         ]);
     }
 
+    
+
+    public function applierindextmp()
+    {
+        $events = Event::all(); 
+    
+        return view('events.applier', ['events' => $events]);
+    }
+
     public function appliershow(Event $event, User $user)
     {
         return view('events.applier-show', [
@@ -139,5 +150,6 @@ class EventController extends Controller
             'user' => $user
         ]);
     }
+
 
 }
