@@ -35,7 +35,7 @@ class KanbanBoardPolicy
     /**
      * Determine whether the user can update the model.
      */
-    public function update(User $user, KanbanBoard $kanbanBoard): bool
+    public function update(User $user): bool
     {
         return $user->isStaff();
     }

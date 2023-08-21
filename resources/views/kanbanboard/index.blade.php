@@ -23,45 +23,47 @@
                     </a>
                     <div id="addPlanPopupModal" class="fixed top-0 left-0 w-full h-full bg-black bg-opacity-50 flex items-center justify-center hidden">
                         <div class="bg-white rounded-lg p-8">
+                            <form method="POST" action="{{ route('kanban-board.store', ['event', $event]) }}">
                                 @csrf
-                                <div class="flex flex-col justify-center">
-                                    <label id="rejectText" class="block font-medium text-sm text-black-700 dark:text-black-300">
-                                        วางแผน
-                                    </label>
-                                    <label class="block font-medium text-sm text-black-700 dark:text-black-300" for="title" :value="__('เรื่อง')">
-                                        เรื่อง
-                                    </label>
-                                    <div class="mt-1">
-                                        <input class="border-gray-300 dark:border-gray-700 rounded-md shadow-sm block w-full"
-                                            style="max-width: 350px;"
-                                            id="title"
-                                            type="text"
-                                            name="title" :value="old('title')"
-                                            autofocus
-                                            autocomplete="title" />
-                                    </div>
-                                    <x-input-error :messages="$errors->get('title')" class="mt-2" />
-                                </div>
-                                <label class="block font-medium text-sm text-black-700 dark:text-black-300" for="description" :value="__('คำอธิบาย')">
-                                        คำอธิบาย
+                            <div class="flex flex-col justify-center">
+                                <label id="rejectText" class="block font-medium text-sm text-black-700 dark:text-black-300">
+                                    วางแผน
+                                </label>
+                                <label class="block font-medium text-sm text-black-700 dark:text-black-300" for="title" :value="__('เรื่อง')">
+                                    เรื่อง
                                 </label>
                                 <div class="mt-1">
                                     <input class="border-gray-300 dark:border-gray-700 rounded-md shadow-sm block w-full"
                                         style="max-width: 350px;"
-                                        id="description"
+                                        id="title"
                                         type="text"
-                                        name="description" :value="old('description')"
+                                        name="title" :value="old('title')"
                                         autofocus
-                                        autocomplete="description" />
+                                        autocomplete="title" />
                                 </div>
-                                <x-input-error :messages="$errors->get('description')" class="mt-2" />
-                                
-                                <div class="flex items-center justify-between mt-4">
-                                    <button id="closeAddPlanPopupButton" class="mr-10 btn">Close</button>
-                                    <button class="ml-10 btn">
-                                        {{ __('Submit') }}
-                                    </button>
-                                </div>
+                                <x-input-error :messages="$errors->get('title')" class="mt-2" />
+                            </div>
+                            <label class="block font-medium text-sm text-black-700 dark:text-black-300" for="description" :value="__('คำอธิบาย')">
+                                    คำอธิบาย
+                            </label>
+                            <div class="mt-1">
+                                <input class="border-gray-300 dark:border-gray-700 rounded-md shadow-sm block w-full"
+                                    style="max-width: 350px;"
+                                    id="description"
+                                    type="text"
+                                    name="description" :value="old('description')"
+                                    autofocus
+                                    autocomplete="description" />
+                            </div>
+                            <x-input-error :messages="$errors->get('description')" class="mt-2" />
+
+                            <div class="flex items-center justify-between mt-4">
+                                <button id="closeAddPlanPopupButton" class="mr-10 btn">Close</button>
+                                <button class="ml-10 btn">
+                                    {{ __('Submit') }}
+                                </button>
+                            </div>
+                            </form>
                         </div>
                     </div>
             </div>
@@ -256,7 +258,7 @@
             </div>
         </div>
         <div class="flex-shrink-0 w-6"></div>
-        
+
     </div>
     <script>
         const addPlanPopupButton = document.getElementById('addPlanPopupButton');
