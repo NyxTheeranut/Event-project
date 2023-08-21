@@ -75,6 +75,10 @@ class User extends Authenticatable
         $this->attributes['password'] = $value;
     }
 
+    public function isMember() : bool {
+        return $this->role === User::ROLE_MEMBER;
+    }
+
     public function isStaff() : bool {
         return $this->role === User::ROLE_STAFF;
     }
@@ -93,5 +97,9 @@ class User extends Authenticatable
 
     public function applications() : HasMany {
         return $this->hasMany(Application::class);
+    }
+
+    public function isOrganizerOf(int $event_id) : bool {
+        return $this->id === $event_id;
     }
 }

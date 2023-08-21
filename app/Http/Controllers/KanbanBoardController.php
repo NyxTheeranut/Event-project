@@ -6,6 +6,7 @@ use App\Models\Event;
 use App\Models\KanbanBoard;
 use App\Models\Work;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Gate;
 
 class KanbanBoardController extends Controller
 {
@@ -14,6 +15,8 @@ class KanbanBoardController extends Controller
      */
     public function index(Event $event)
     {
+        Gate::authorize('viewAny', KanbanBoard::class);
+
         $kanbanBoard = $event->kanbanBoard;
 
         $planning = $kanbanBoard->works()->planning()->get();
@@ -35,6 +38,7 @@ class KanbanBoardController extends Controller
      */
     public function createWork(Event $event)
     {
+        Gate::authorize('viewAny', KanbanBoard::class);
         return view('kanbanboard.create', [
             'event' => $event
         ]);
@@ -69,6 +73,8 @@ class KanbanBoardController extends Controller
      */
     public function update(Request $request, Event $event)
     {
+        Gate::authorize('update', KanbanBoard::class);
+
         $work_id = $request->get('work_id');
 
         $work = $event->kanbanBoard->works()->get()->find($work_id);
@@ -86,6 +92,8 @@ class KanbanBoardController extends Controller
      */
     public function destroyWork(Request $request, Event $event)
     {
+        Gate::authorize('delete', KanbanBoard::class);
+
         $work_id = $request->get('work_id');
 
         $workToDelete = $event->kanbanBoard->works()->get()->find($work_id);

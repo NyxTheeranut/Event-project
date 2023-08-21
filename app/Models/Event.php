@@ -47,4 +47,5 @@ class Event extends Model
     public function hasCertificate() : bool {
         return $this->certificate->count() != 0;
     }
+
 }

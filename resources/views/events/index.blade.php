@@ -11,14 +11,11 @@
                         กิจกรรม
                     </h2>
 
-                    <!-- Event Create (Auth coming soon) -->
-                    @if (Auth::check())
-                        @if (Auth::user()->role === 'STAFF')
+                    @can('create', \App\Models\Event::class)
                         <button id="popupButton" class="inline-block text-white bg-purple-700 hover:bg-purple-800 focus:ring-4 focus:ring-purple-300 font-medium rounded-lg text-sm px-4 lg:px-5 py-2 lg:py-2.5 sm:mr-2 lg:mr-0 focus:outline-none">
                             สร้างกิจกรรม
                         </button>
-                        @endif
-                    @endif
+                    @endcan
 
                     <!-- Popup Modal (Hidden by default) -->
                     <div id="popupModal" class="fixed top-0 left-0 w-full h-full bg-black bg-opacity-50 flex items-center justify-center hidden">
