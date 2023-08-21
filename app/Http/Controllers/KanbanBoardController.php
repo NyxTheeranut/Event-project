@@ -47,11 +47,15 @@ class KanbanBoardController extends Controller
     /**
      * Store a newly created resource in storage.
      */
-    public function store(Request $request, Event $event)
+    public function create(Request $request)
     {
+        $event = Event::find($request->get('event_id'));
+
         $work = new Work();
         $work->title = $request->get('title');
         $work->description = $request->get('description');
+        $work->kanban_board_id = $event->kanbanBoard->id;
+        $work->save();
 
         return redirect()->route('kanban-board.index', [
             'event' => $event

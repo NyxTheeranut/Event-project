@@ -12,7 +12,7 @@
         <!-- Planning Work List -->
         <div class="flex flex-col flex-shrink-0 w-72">
             <div class="flex items-center flex-shrink-0 h-10 px-2">
-                <span class="block text-sm font-semibold">กำลังวางแผน</span>
+                <span class="block text-sm font-semibold text-blue-500">กำลังวางแผน</span>
                 <span class="flex items-center justify-center w-5 h-5 ml-2 text-sm font-semibold text-indigo-500 bg-white rounded bg-opacity-30">
                     {{ $planning->count() }}
                 </span>
@@ -23,9 +23,10 @@
                     </a>
                     <div id="addPlanPopupModal" class="fixed top-0 left-0 w-full h-full bg-black bg-opacity-50 flex items-center justify-center hidden">
                         <div class="bg-white rounded-lg p-8">
-                            <form method="POST" action="{{ route('kanban-board.store', ['event', $event]) }}">
+                            <form method="GET" action="{{ route('kanban-board.create') }}">
                                 @csrf
                             <div class="flex flex-col justify-center">
+                                <input type="hidden" name="event_id" value="{{ $event->id }}">
                                 <label id="rejectText" class="block font-medium text-sm text-black-700 dark:text-black-300">
                                     วางแผน
                                 </label>
@@ -69,7 +70,7 @@
             </div>
             <div class="flex flex-col pb-2 overflow-auto">
                 @foreach($planning as $work)
-                    <div class="relative flex flex-col items-start p-4 mt-3 bg-white rounded-lg cursor-pointer bg-opacity-90 group hover:bg-opacity-100" draggable="true">
+                    <div class="relative flex flex-col items-start p-4 mt-3 bg-white rounded-lg cursor-pointer bg-opacity-90 group hover:bg-opacity-100" draggable="false">
                         <span class="flex items-center h-6 px-3 text-xs font-semibold text-blue-500 bg-blue-100 rounded-full">{{ $work->title }}</span>
                         <h4 class="mt-3 text-sm font-medium">{{ $work->description }}</h4>
                         <div class="flex items-center w-full mt-3 text-xs font-medium text-gray-400">
@@ -105,14 +106,14 @@
         <!-- In Progress Work List -->
         <div class="flex flex-col flex-shrink-0 w-72">
             <div class="flex items-center flex-shrink-0 h-10 px-2">
-                <span class="block text-sm font-semibold">อยู่ระหว่างดำเนินการ</span>
+                <span class="block text-sm font-semibold text-pink-500">อยู่ระหว่างดำเนินการ</span>
                 <span class="flex items-center justify-center w-5 h-5 ml-2 text-sm font-semibold text-indigo-500 bg-white rounded bg-opacity-30">
                     {{ $in_progress->count() }}
                 </span>
             </div>
             <div class="flex flex-col pb-2 overflow-auto">
                 @foreach($in_progress as $work)
-                    <div class="relative flex flex-col items-start p-4 mt-3 bg-white rounded-lg cursor-pointer bg-opacity-90 group hover:bg-opacity-100" draggable="true">
+                    <div class="relative flex flex-col items-start p-4 mt-3 bg-white rounded-lg cursor-pointer bg-opacity-90 group hover:bg-opacity-100" draggable="false">
                         <span class="flex items-center h-6 px-3 text-xs font-semibold text-pink-500 bg-pink-100 rounded-full">{{ $work->title }}</span>
                         <h4 class="mt-3 text-sm font-medium">{{ $work->description }}</h4>
                         <div class="flex items-center w-full mt-3 text-xs font-medium text-gray-400">
@@ -160,14 +161,14 @@
         <!-- Reviewing Work List -->
         <div class="flex flex-col flex-shrink-0 w-72">
             <div class="flex items-center flex-shrink-0 h-10 px-2">
-                <span class="block text-sm font-semibold">ตรวจสอบ</span>
+                <span class="block text-sm font-semibold text-orange-500">ตรวจสอบ</span>
                 <span class="flex items-center justify-center w-5 h-5 ml-2 text-sm font-semibold text-indigo-500 bg-white rounded bg-opacity-30">
                     {{ $review->count() }}
                 </span>
             </div>
             <div class="flex flex-col pb-2 overflow-auto">
                 @foreach($review as $work)
-                    <div class="relative flex flex-col items-start p-4 mt-3 bg-white rounded-lg cursor-pointer bg-opacity-90 group hover:bg-opacity-100" draggable="true">
+                    <div class="relative flex flex-col items-start p-4 mt-3 bg-white rounded-lg cursor-pointer bg-opacity-90 group hover:bg-opacity-100" draggable="false">
                         <span class="flex items-center h-6 px-3 text-xs font-semibold text-orange-500 bg-orange-100 rounded-full">{{ $work->title }}</span>
                         <h4 class="mt-3 text-sm font-medium">{{ $work->description }}</h4>
                         <div class="flex items-center w-full mt-3 text-xs font-medium text-gray-400">
@@ -217,14 +218,14 @@
 
         <div class="flex flex-col flex-shrink-0 w-72">
             <div class="flex items-center flex-shrink-0 h-10 px-2">
-                <span class="block text-sm font-semibold">เสร็จสิ้น</span>
+                <span class="block text-sm font-semibold text-green-500">เสร็จสิ้น</span>
                 <span class="flex items-center justify-center w-5 h-5 ml-2 text-sm font-semibold text-indigo-500 bg-white rounded bg-opacity-30">
                     {{ $done->count() }}
                 </span>
             </div>
             <div class="flex flex-col pb-2 overflow-auto">
                 @foreach($done as $work)
-                    <div class="relative flex flex-col items-start p-4 mt-3 bg-white rounded-lg cursor-pointer bg-opacity-90 group hover:bg-opacity-100" draggable="true">
+                    <div class="relative flex flex-col items-start p-4 mt-3 bg-white rounded-lg cursor-pointer bg-opacity-90 group hover:bg-opacity-100" draggable="false">
                         <span class="flex items-center h-6 px-3 text-xs font-semibold text-green-500 bg-green-100 rounded-full">{{ $work->title }}</span>
                         <h4 class="mt-3 text-sm font-medium">{{ $work->description }}</h4>
                         <div class="flex items-center w-full mt-3 text-xs font-medium text-gray-400">
