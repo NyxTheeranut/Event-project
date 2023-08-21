@@ -1,7 +1,7 @@
 @extends('layouts.main')
 
 @section('content')
-    <div class="relative h-[680px] overflow-hidden bg-cover bg-[50%] bg-no-repeat bg-[url('https://images.pexels.com/photos/2747449/pexels-photo-2747449.jpeg?cs=srgb&dl=pexels-wolfgang-2747449.jpg&fm=jpg')]">
+    <div class="relative h-[570px] overflow-hidden bg-cover bg-[50%] bg-no-repeat bg-[url('https://images.pexels.com/photos/2747449/pexels-photo-2747449.jpeg?cs=srgb&dl=pexels-wolfgang-2747449.jpg&fm=jpg')]">
         <div class="flex items-center justify-center h-full">
             <div class="bg-white p-10 rounded-lg shadow md:w-3/4 mx-auto lg:w-1/2 flex">
                 <!-- mew and smart(left side) -->
@@ -27,7 +27,7 @@
                     </div>
                     <div class="mt-3">
                         <form method="GET" action="{{ route('events.applications.create', ['event' => $event]) }}">
-                            <button type="submit" class="block bg-blue-500 text-white font-bold p-4 rounded-lg transition duration-300 ease-in-out hover:bg-blue-700">
+                            <button type="submit" class="btn">
                                 สมัคร
                             </button>
                         </form>
@@ -49,7 +49,7 @@
                 -->
                     <div class="mt-8">
                         <a href="{{ route('kanban-board.index', ['event' => $event]) }}"
-                            class="bg-blue-500 text-white font-bold p-4 rounded-lg transition duration-300 ease-in-out hover:bg-blue-700">
+                            class="btn">
                             วางแผน
                         </a>
                     </div>
