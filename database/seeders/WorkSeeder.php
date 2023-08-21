@@ -14,10 +14,6 @@ class WorkSeeder extends Seeder
      */
     public function run(): void
     {
-        // Shameless Hard Code Kanban Board
-        $kanban_board = new KanbanBoard();
-        $kanban_board->event_id = 1;
-        $kanban_board->save();
 
         Work::factory(20)->create();
     }
