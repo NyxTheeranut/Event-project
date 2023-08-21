@@ -36,6 +36,8 @@ Route::get('/events', [EventController::class, 'index'])->name('events.index');
 
 Route::get('/events/{event}', [EventController::class, 'show'])->name('events.show');
 
+Route::get('/edit', [EventController::class, 'edit'])->name('events.edit');
+
 //Route::resource('/events/apply', EventController::class);
 
 Route::get('/events/{event}/apply',
