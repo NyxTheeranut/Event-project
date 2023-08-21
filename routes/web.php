@@ -32,13 +32,20 @@ Route::get('/about', function () {
     return view('about.index');
 })->name('about.index');
 
-Route::resource('/events', EventController::class);
+Route::get('/events', [EventController::class, 'index'])->name('events.index');
+
+Route::get('/events/{event}', [EventController::class, 'show'])->name('events.show');
 
 //Route::resource('/events/apply', EventController::class);
 
 Route::get('/events/{event}/apply',
     [EventController::class, 'createApplication']
 )->name('events.applications.create');
+
+//Route::get('/events/create', [EventController::class, 'create'])
+//    ->name('event.create');
+
+Route::post('/events/create', [EventController::class, 'store'])->name('event.create');
 
 Route::resource('/events/{event}/kanban-board', KanbanBoardController::class);
 

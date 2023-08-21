@@ -18,6 +18,7 @@ return new class extends Migration
     //  Event_ID (FK)
     //  Video_URL #String
     //  Message #String
+    //  Status #String <PENDING, APPROVED, REJECTED>
 
     public function up(): void
     {
@@ -27,6 +28,7 @@ return new class extends Migration
             $table->foreignIdFor(Event::class);
             $table->string('video_url')->nullable();
             $table->string('message')->nullable();
+            $table->string('status')->default('PENDING');
             $table->timestamps();
             $table->softDeletes();
         });

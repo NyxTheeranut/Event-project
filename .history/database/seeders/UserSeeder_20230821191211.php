@@ -60,7 +60,7 @@ class UserSeeder extends Seeder
         $user->password = Hash::make("roserin");
         $user->birthdate = fake()->dateTime();
         $user->role = User::ROLE_ACCOUNTANT;
-        $user->profilepicture_path = "https://cdn.discordapp.com/attachments/937280705841483796/1143155543771463740/image.png";
+        $user->profilepicture_path = "https://cdn.discordapp.com/attachments/937280705841483796/1143155469033160704/image.png";
         $user->save();
 
     }

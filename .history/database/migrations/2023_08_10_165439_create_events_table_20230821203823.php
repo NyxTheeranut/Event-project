@@ -29,7 +29,7 @@ return new class extends Migration
             $table->string('title');
             $table->string('description') -> nullable();
             $table->dateTime('start_date_time');
-            $table->dateTime('end_date_time')->nullable();
+            $table->dateTime('end_date_time')->;
             $table->double('budget') -> nullable();
             $table->foreignIdFor(User::class, 'organizer');
             $table->string('status')->default('PLANNING');

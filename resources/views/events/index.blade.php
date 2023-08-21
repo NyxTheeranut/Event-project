@@ -23,9 +23,9 @@
                                 <h2 class="header">
                                     หน้าสร้างกิจกรรม
                                 </h2>
-                                    {{-- <form method="POST" action="{{ route('profile.update', ["user"=>$user]) }}"> --}}
+                                <form method="POST" action="{{ route('event.create') }}">
                                     @csrf
-        
+
                                     <!-- Title -->
                                     <div>
                                         <label  class="block font-medium text-sm text-gray-700 dark:text-black-300 left-align-label mt-2" for="title" :value="__('ชื่อกิจกรรม')">
@@ -40,23 +40,7 @@
                                                 autocomplete="title"/>
                                         <x-input-error :messages="$errors->get('title')" class="mt-2" />
                                     </div>
-        
-                                    <!-- Description -->
-                                    <div class="mt-4">
-                                        <label  class="block font-medium text-sm text-gray-700 dark:text-black-300 left-align-label" for="description" :value="__('ข้อมูลกิจกรรม')">
-                                            ข้อมูลกิจกรรม
-                                        </label>
-                                        <input  class="border-gray-300 dark:border-gray-700 rounded-md shadow-sm block mt-1 w-full text-black"
-                                                id="description"
-                                                type="text"
-                                                name="description" :value="old('description')"
-                                                {{-- value="{{ $user->lastname }}" --}}
-                                                required
-                                                autofocus
-                                                autocomplete="description" />
-                                        <x-input-error :messages="$errors->get('lastname')" class="mt-2" />
-                                    </div>
-        
+
                                     <!-- Start Date Time -->
                                     <div class="mt-4">
                                         <label  class="block font-medium text-sm text-gray-700 dark:text-black-300 left-align-label" for="start_date_time" :value="__('วันเริ่มกิจกรรม')">
@@ -71,20 +55,6 @@
                                                 autofocus
                                                 autocomplete="date" />
                                         <x-input-error :messages="$errors->get('start_date_time')" class="mt-2" />
-                                    </div>
-        
-                                    <div class="mt-4">
-                                        <label  class="block font-medium text-sm text-gray-700 dark:text-black-300 left-align-label" for="birthdate" :value="__('วันสิ้นสุดกิจกรรม')">
-                                            วันสิ้นสุดกิจกรรม
-                                        </label>
-                                        <input  class="border-gray-300 dark:border-gray-700 rounded-md shadow-sm block mt-1 w-full text-black"
-                                                id="end_date_time"
-                                                type="date"
-                                                name="end_date_time" :value="old('end_date_time')"
-                                                {{-- value="{{ $user->birthdate }}" --}}
-                                                autofocus
-                                                autocomplete="date" />
-                                        <x-input-error :messages="$errors->get('birthdate')" class="mt-2" />
                                     </div>
 
                                     <div class="flex items-center justify-middle mt-6">
@@ -125,11 +95,11 @@
                     </div>
 
                     <span class="text-gray-400">{{ $event->getDurationToStringAttribute() }}</span>
-                    
+
                 </li>
                 </a>
             @endforeach
-            
+
         </ul>
     </div>
     <script>

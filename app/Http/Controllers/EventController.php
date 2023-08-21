@@ -3,7 +3,11 @@
 namespace App\Http\Controllers;
 
 use App\Models\Event;
+use App\Models\User;
+use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
+use Illuminate\Routing\Route;
+use Illuminate\Support\Facades\Auth;
 
 class EventController extends Controller
 {
@@ -22,9 +26,18 @@ class EventController extends Controller
     /**
      * Show the form for creating a new event.
      */
-    public function create()
+    public function create(Request $request)
     {
-        return view('events.create');
+
+        $event = new Event();
+        $event->title = $request->title;
+        $event->start_date_time = $request->start_date_time;
+        $event->organizer = $request->user();
+        $event->save();
+
+
+
+        return redirect()->route('events.index');
     }
 
     /**
@@ -40,17 +53,17 @@ class EventController extends Controller
     /**
      * Store a newly created resource in storage.
      */
-    public function store(Request $request)
+    public function store(Request $request) //, User $user)
     {
         $event = new Event();
-        $event->title = $request->get('title');
-        $event->description = $request->get('description');
-        $event->start_date_time = $request->get('start_date_time');
-        $event->end_date_time = $request->get('end_date_time');
-        $event->budget = $request->get('budget');
-
+        $event->title = $request->title;
+        $event->start_date_time = $request->start_date_time;
+        $event->organizer = $request->user()->id;
         $event->save();
-        return redirect()->route('events.index');
+
+        return redirect()->route('events.show', [
+            'event' => $event
+        ]);
     }
 
     /**
