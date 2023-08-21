@@ -57,7 +57,8 @@ Route::get('/events/{event}/applied',
 
 Route::post('/events/create', [EventController::class, 'store'])->name('event.create');
 
-Route::get('/events/{event}/applier', [EventController::class, 'applierindex'])->name('event.applier');
+//Route::get('/events/{event}/applier', [EventController::class, 'applierindex'])->name('event.applier');
+Route::get('/events/{event}/applier', [EventController::class, 'applierindextmp'])->name('event.applier'); //ชั่วคราวเพื่อให้ใช้ $event list
 
 //Route::get('/events/{event}/applier/{user}'), [EventController::class, 'appliershow'])->name('event.show');
 Route::get('/events/{event}/applier/user', [EventController::class, 'appliershow'])->name('event.show');
