@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Event;
 use App\Models\BudgetRequest;
 use Illuminate\Http\Request;
 
@@ -12,7 +13,9 @@ class BudgetRequestController extends Controller
      */
     public function index()
     {
-        return view('budgetrequests.index');
+        $events = Event::all(); 
+    
+        return view('budgetrequests.index', ['events' => $events]);
     }
 
     /**
@@ -62,4 +65,5 @@ class BudgetRequestController extends Controller
     {
         //
     }
+    
 }

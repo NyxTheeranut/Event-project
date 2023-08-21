@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Event;
 use App\Models\Application;
 use Illuminate\Http\Request;
 
@@ -16,6 +17,14 @@ class ApplicationController extends Controller
 
         return view('applications.index', [
             'applications' => $applications
+        ]);
+    }
+    public function getEvents()
+    {
+        $events = Event::get();
+
+        return view('applications.index', [
+            'events' => $events
         ]);
     }
 }
