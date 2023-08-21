@@ -29,7 +29,7 @@
                         <h4 class="mt-3 text-sm font-medium">{{ $work->description }}</h4>
                         <div class="flex items-center w-full mt-3 text-xs font-medium text-gray-400">
                             <!-- Trash Button -->
-{{--                            <form action="{{ route('kanban-board.destroy', ['work' => $work]) }}" method="POST">--}}
+                            <form action="{{ route('kanban-board.destroyWork', ['work' => $work, 'event' => $event]) }}" method="POST">
                                 @csrf
                                 @method('DELETE')
                                 <button type="submit" class="absolute top-0 right-0 flex items-center justify-center hidden w-5 h-5 mt-3 mr-2 text-gray-500 rounded hover:bg-gray-200 hover:text-gray-700 group-hover:flex">
@@ -37,7 +37,7 @@
                                         </path><line x1="10" y1="11" x2="10" y2="17"></line><line x1="14" y1="11" x2="14" y2="17"></line>
                                     </svg>
                                 </button>
-{{--                            </form>--}}
+                            </form>
                             <!-- Right Button -->
                             <a href="#" class="absolute top-0 right-7 flex items-center justify-center hidden w-5 h-5 mt-3 mr-2 text-gray-500 rounded hover:bg-gray-200 hover:text-gray-700 group-hover:flex">
                                 <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#000000" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
