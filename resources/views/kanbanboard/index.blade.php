@@ -3,11 +3,11 @@
 @section('content')
     <!-- Header -->
     <div class="px-10 mt-6">
-        <h1 class="text-2xl font-bold">Kanban Board</h1>
+        <h1 class="text-2xl font-bold text-align-center">Kanban Board</h1>
     </div>
 
     <!-- The Board -->
-    <div class="flex flex-grow px-10 mt-4 space-x-6 overflow-auto">
+    <div class="flex flex-grow px-10 mt-4 space-x-6 overflow-auto justify-center">
 
         <!-- Planning Work List -->
         <div class="flex flex-col flex-shrink-0 w-72">
@@ -16,11 +16,54 @@
                 <span class="flex items-center justify-center w-5 h-5 ml-2 text-sm font-semibold text-indigo-500 bg-white rounded bg-opacity-30">
                     {{ $planning->count() }}
                 </span>
-                    <a href="{{ route('kanban-board.createWork', ['event' => $event]) }}" class="flex items-center justify-center w-6 h-6 ml-auto text-indigo-500 rounded hover:bg-indigo-500 hover:text-indigo-100">
+                    <a id="addPlanPopupButton" class="flex items-center justify-center w-6 h-6 ml-auto text-indigo-500 rounded hover:bg-indigo-500 hover:text-indigo-100">
                         <svg class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6v6m0 0v6m0-6h6m-6 0H6"></path>
                         </svg>
                     </a>
+                    <div id="addPlanPopupModal" class="fixed top-0 left-0 w-full h-full bg-black bg-opacity-50 flex items-center justify-center hidden">
+                        <div class="bg-white rounded-lg p-8">
+                                @csrf
+                                <div class="flex flex-col justify-center">
+                                    <label id="rejectText" class="block font-medium text-sm text-black-700 dark:text-black-300">
+                                        วางแผน
+                                    </label>
+                                    <label class="block font-medium text-sm text-black-700 dark:text-black-300" for="title" :value="__('เรื่อง')">
+                                        เรื่อง
+                                    </label>
+                                    <div class="mt-1">
+                                        <input class="border-gray-300 dark:border-gray-700 rounded-md shadow-sm block w-full"
+                                            style="max-width: 350px;"
+                                            id="title"
+                                            type="text"
+                                            name="title" :value="old('title')"
+                                            autofocus
+                                            autocomplete="title" />
+                                    </div>
+                                    <x-input-error :messages="$errors->get('title')" class="mt-2" />
+                                </div>
+                                <label class="block font-medium text-sm text-black-700 dark:text-black-300" for="description" :value="__('คำอธิบาย')">
+                                        คำอธิบาย
+                                </label>
+                                <div class="mt-1">
+                                    <input class="border-gray-300 dark:border-gray-700 rounded-md shadow-sm block w-full"
+                                        style="max-width: 350px;"
+                                        id="description"
+                                        type="text"
+                                        name="description" :value="old('description')"
+                                        autofocus
+                                        autocomplete="description" />
+                                </div>
+                                <x-input-error :messages="$errors->get('description')" class="mt-2" />
+                                
+                                <div class="flex items-center justify-between mt-4">
+                                    <button id="closeAddPlanPopupButton" class="mr-10 btn">Close</button>
+                                    <button class="ml-10 btn">
+                                        {{ __('Submit') }}
+                                    </button>
+                                </div>
+                        </div>
+                    </div>
             </div>
             <div class="flex flex-col pb-2 overflow-auto">
                 @foreach($planning as $work)
@@ -213,5 +256,19 @@
             </div>
         </div>
         <div class="flex-shrink-0 w-6"></div>
+        
     </div>
+    <script>
+        const addPlanPopupButton = document.getElementById('addPlanPopupButton');
+        const addPlanPopupModal = document.getElementById('addPlanPopupModal');
+        const closeAddPlanPopupButton = document.getElementById('closeAddPlanPopupButton');
+
+        addPlanPopupButton.addEventListener('click', function() {
+        addPlanPopupModal.classList.remove('hidden');
+        });
+
+        closeAddPlanPopupButton.addEventListener('click', function() {
+        addPlanPopupModal.classList.add('hidden');
+        });
+    </script>
 @endsection

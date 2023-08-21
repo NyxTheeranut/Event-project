@@ -11,9 +11,7 @@
 
 <div id="rejectPopupModal" class="fixed top-0 left-0 w-full h-full bg-black bg-opacity-50 flex items-center justify-center hidden">
     <div class="bg-white rounded-lg p-8">
-        {{-- <form method="POST" action="{{ route('register') }}"> --}}
             @csrf
-
             <div class="flex flex-col">
                 <label id="rejectText" class="block font-medium text-sm text-black-700 dark:text-black-300" for="reason" :value="__('เหตุผลการปฏิเสธ')">
                     เหตุผลของการปฏิเสธ
@@ -35,8 +33,6 @@
                     {{ __('Submit') }}
                 </button>
             </div>
-            
-        </form>
     </div>
 </div>
 
