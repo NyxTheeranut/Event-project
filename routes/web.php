@@ -49,6 +49,10 @@ Route::post('/events/create', [EventController::class, 'store'])->name('event.cr
 
 Route::resource('/events/{event}/kanban-board', KanbanBoardController::class);
 
+Route::delete('/events/{event}/kanban-board',
+    [KanbanBoardController::class, 'destroyWork']
+)->name('kanban-board.destroyWork');
+
 //Route::get('/applications', [ApplicationController::class, 'index'])
 //    ->name('applications.index');
 

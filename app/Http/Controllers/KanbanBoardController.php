@@ -25,7 +25,8 @@ class KanbanBoardController extends Controller
             'planning' => $planning,
             'in_progress' => $in_progress,
             'review' => $review,
-            'done' => $done
+            'done' => $done,
+            'event' => $event
         ]);
     }
 
@@ -72,8 +73,18 @@ class KanbanBoardController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(KanbanBoard $kanbanBoard)
+    public function destroyWork(Array $array)
     {
-        //
+        $work = $array('work');
+        $event = $array('event');
+
+        $work_id = $work->id;
+        $workToDelete = $event->kanbanBoard->works()->find($work_id);
+
+        $workToDelete->delete();
+
+        return redirect()->route('kanban-board.index', [
+            'event' => $event
+        ]);
     }
 }
