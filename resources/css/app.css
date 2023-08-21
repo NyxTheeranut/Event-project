@@ -22,7 +22,17 @@ nav {
   border-bottom: 2px solid #4a5568;
 }
 
+#rejectText {
+  font-size: 30px;
+  margin-bottom: 20px;
+  font-weight: bold;
+  justify-items: center;
+}
+
 #popupModal {
+  z-index: 1000;
+}
+#rejectPopupModal {
   z-index: 1000;
 }
 
@@ -65,6 +75,10 @@ nav {
   align-items: center;
   justify-content: center;
   display: hidden;
+}
+
+#certificatePopupModal {
+  z-index: 1000;
 }
 
 #loginPopupModal .bg-white {
@@ -446,5 +460,19 @@ a:hover {
   }
 }
 /*typing text animation*/ /*end*/
+.gallery {
+  height: 400px; width: 600px;
+  display: flex;
+  flex-direction: column;
+  overflow: auto;
+}
 
+.gallery img {
+  height: 100%; width:100%;
+  flex-shrink: 0;
+  object-fit: cover;
 
+  position: sticky;
+  top: 0;
+
+}

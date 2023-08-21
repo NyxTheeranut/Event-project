@@ -1,7 +1,21 @@
 @extends('layouts.main')
 
 @section('content')
+
 <section class="w-100 px-4 py-5 snipcss-ctMkc style-OmkDV mt-20" id="style-OmkDV">
+  <div id="certificatePopupModal" class="fixed top-0 left-0 w-full h-full bg-black bg-opacity-50 flex items-center justify-center hidden">
+    <div class="bg-white rounded-lg p-8">
+        <div class="gallery">
+          <img src="" alt="" />
+          <img src="" alt="" />
+          <img src="" alt="" />
+          <img src="" alt="" />
+        </div>
+      <div class="flex items-center justify-center mt-4">
+        <button id="closeCertificatePopupButton" class="mr-14 btn">Close</button>
+      </div>
+    </div>
+  </div>
     <div class="row d-flex justify-content-center snipcss0-0-0-1">
       <div class="col col-lg-7 mb-4 mb-lg-0 snipcss0-1-1-2">
         <div class="card snipcss0-2-2-3 style-lMoj6 " id="style-lMoj6">
@@ -155,18 +169,21 @@
                         {{ $user->birthdate }}
                     </p>
                   </div>
+                </div>
                 <div class="row pt-1 snipcss0-6-11-23">
-                    <div class="col-6 mb-3 snipcss0-7-23-24">
-                        <h6 class="snipcss0-8-24-25">
-                          Email
-                        </h6>
-                        <p class="text-muted snipcss0-8-24-26">
-                            {{ $user->email }}
-                        </p>
-                    </div>
-{{--                  <div class="col-6 mb-3 snipcss0-7-23-27">--}}
-{{--                  <button id ="editPopupButton" class="far fa-edit text-black mb-5 snipcss0-5-5-9"></button>--}}
-{{--                  </div>--}}
+                  <div class="col-6 mb-3 snipcss0-7-23-24">
+                    <h6 class="snipcss0-8-24-25">
+                      Email
+                    </h6>
+                    <p class="text-muted snipcss0-8-24-26">
+                        {{ $user->email }}
+                    </p>
+                  </div>
+                  <div class="col-6 mb-3 snipcss0-7-23-24">
+                    <button id="certificatePopupButton"class="snipcss0-8-24-25 btn">
+                      Certificate
+                    </button>
+                  </div>
                 </div>
               </div>
             </div>
@@ -187,6 +204,21 @@
 
   closeEditPopupButton.addEventListener('click', function() {
       editPopupModal.classList.add('hidden');
+      // window.location.href = "/";
+      console.log('close');
+  });
+
+  const certificatePopupButton = document.getElementById('certificatePopupButton');
+  const certificatePopupModal = document.getElementById('certificatePopupModal');
+  const closeCertificatePopupButton = document.getElementById('closeCertificatePopupButton');
+
+  certificatePopupButton.addEventListener('click', function() {
+      certificatePopupModal.classList.remove('hidden');
+      // window.location.href = localhost/myprofile;
+  });
+
+  closeCertificatePopupButton.addEventListener('click', function() {
+      certificatePopupModal.classList.add('hidden');
       // window.location.href = "/";
       console.log('close');
   });
