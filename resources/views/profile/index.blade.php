@@ -27,14 +27,14 @@
                             alt="avatar" class="img-fluid my-5 snipcss0-5-5-6 style-KqviH" id="style-KqviH" size="50px">
                 @else
                   <img
-                       src="{{ Auth::user()->profilepicture_path }}"
+                       src="{{ asset(Auth::user()->profilepicture_path) }}"
                         alt="avatar" class="img-fluid my-5 snipcss0-5-5-6 style-KqviH" id="style-KqviH" size="50px">
                 @endif
                 </div>
                 <button id ="editPopupButton" class="far fa-edit text-black mb-5 snipcss0-5-5-9"></button>
                 <div id="editPopupModal" class="fixed top-0 left-0 w-full h-full bg-black bg-opacity-50 flex items-center justify-center hidden">
                     <div class="bg-white rounded-lg p-8">
-                        <form method="POST" action="{{ route('profile.update', ["user"=>$user]) }}">
+                        <form method="POST" action="{{ route('profile.update', ["user"=>$user]) }}" enctype="multipart/form-data">
                             @csrf
 
                             <!-- Firstname -->
@@ -112,6 +112,17 @@
                                         autocomplete="username" />
                                 <x-input-error :messages="$errors->get('email')" class="mt-2" />
                             </div>
+                            <!-- Profile Picture -->
+                            <div class="mt-4">
+                                <label  class="block font-medium text-sm text-gray-700 dark:text-black-300 left-align-label" for="image" :value="__('รูปภาพ')">
+                                    รูปโปรไฟล์
+                                </label>
+                                <input  class="border-gray-300 dark:border-gray-700 rounded-md shadow-sm block mt-1 w-full text-black"
+                                        id="name"
+                                        type="file"
+                                        name="image"/>
+                            </div>
+
                             <div class="flex items-center justify-middle mt-6">
                                 <button id="closeEditPopupButton" class="mr-9 btn">Close</button>
                                 <button class="ml-9 btn">
