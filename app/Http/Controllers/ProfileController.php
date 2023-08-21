@@ -25,8 +25,17 @@ class ProfileController extends Controller
     /**
      * Update the user's profile information.
      */
-    public function update(Request $request) : View
+    public function update(Request $request)
     {
+        $image_file = $request->file('image');
+
+        if ($image_file != null) {
+            $file_name = now()->getTimestamp() . "." . $image_file->getClientOriginalExtension();
+            $image_file->storeAs("public/" . $file_name);
+            $image_path = "storage/" . $file_name;
+            $request->user()->forceFill(['profilepicture_path' => $image_path,])->save();
+        }
+
         //update the user's profile information
         $request->user()->forceFill([
             'firstname' => $request->firstname,
@@ -34,6 +43,7 @@ class ProfileController extends Controller
             'nickname' => $request->nickname,
             'birthdate' => $request->birthdate,
             'email' => $request->email,
+
         ])->save();
 
 //        return redirect()->route('home');
