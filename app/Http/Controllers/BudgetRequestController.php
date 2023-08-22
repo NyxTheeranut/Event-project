@@ -54,11 +54,17 @@ class BudgetRequestController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, BudgetRequest $budgetrequest)
+    public function update(Request $request)
     {
-        return $budgetrequest;
-        $budgetRequest->status = $request->get('status');
-        $budgetRequest->reason = $request->get('reason');
+//        return $request;
+        $event_obj = Event::find($request->event);
+        if ($request->status == null){
+            return redirect()->route('events.show', ['event'=>$event_obj]);
+        }
+        $budgetRequest = BudgetRequest::get()->where('event_id', $event_obj->id)->first();
+        $budgetRequest->status = $request->status;
+        $budgetRequest->reason = $request->reason;
+//        return $budgetRequest;
         $budgetRequest->save();
 
         return redirect()->route('budgetrequests.index');
@@ -71,5 +77,7 @@ class BudgetRequestController extends Controller
     {
         //
     }
+
+
 
 }

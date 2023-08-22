@@ -19,13 +19,13 @@
                         <span class="font-normal text-black-600">{{ $event->description }}</span>
                     </div>
                     <div class="mb-3">
-                        <label for="name" class="block font-bold text-blue-600">วันเริ่มกิจกรรม:</label>
+                        <label for="name" class="block font-bold text-blue-600">วันที่จัดกิจกรรม:</label>
                         <span class="font-normal text-black-600">{{ $event->start_date_time }}</span>
                     </div>
-                    <div class="mb-3">
-                        <label for="name" class="block font-bold text-blue-600">วันสิ้นสุดกิจกรรม:</label>
-                        <span class="font-normal text-black-600">{{ $event->end_date_time }}</span>
-                    </div>
+{{--                    <div class="mb-3">--}}
+{{--                        <label for="name" class="block font-bold text-blue-600">วันสิ้นสุดกิจกรรม:</label>--}}
+{{--                        <span class="font-normal text-black-600">{{ $event->end_date_time }}</span>--}}
+{{--                    </div>--}}
 
                     @if (Auth::check())
                         @if(Auth::user()->role === "MEMBER")
@@ -77,41 +77,48 @@
                     -->
                     @if (Auth::check())
                         @if (Auth::user()->role === 'STAFF')
-                    <div class="flex justify-between mt-8">
+                    <div class="flex justify-left mt-8">
 
-                        <a href="{{ route('kanban-board.index', ['event' => $event]) }}" class="btn">
+                        <a href="{{ route('kanban-board.index', ['event' => $event]) }}" class="btn mr-2">
                             วางแผน
+                        </a>
+
+                        <a href="{{ route('events.edit', ['event' => $event]) }}" class="btn">
+                            แก้ไข
                         </a>
 
                     </div>
 
-                    <div class="flex justify-between mt-1">
+                    <div class="flex justify-between mt-2">
                         <a href="{{ route('event.applier', ['event' => $event]) }}" class="btn">
                             ผู้ที่สมัครกิจกรรม
                         </a>
                     </div>
 
-                    <div class="flex justify-between mt-1">
-                        <a href="{{ route('events.edit', ['event' => $event]) }}" class="btn">
-                            แก้ไข
+                    <div class="flex justify-between mt-2">
+                        <a href="{{ route('event.applier', ['event' => $event]) }}" class="btn">
+                            ยื่นเรื่องของอนุมัติงบประมาณ
                         </a>
+
                     </div>
                         @endif
 
                         @if (Auth::user()->role === "ACCOUNTANT")
 
                     <div class="flex justify-between mt-1">
-                        <button class="bg-blue-500 hover:bg-blue-700 text-white px-4 py-2 rounded transition duration-300 ease-in-out">
-                            กลับ
-                        </button>
 
-                        <button class="bg-green-500 hover:bg-green-700 text-white px-4 py-2 rounded transition duration-300 ease-in-out">
+                        <a id="acceptPopupButton"  class="bg-green-500 hover:bg-green-700 mr-1 text-white px-4 py-2 rounded transition duration-300 ease-in-out">
                             อนุมัติกิจกรรมนี้
-                        </button>
+                        </a>
 
-                        <button id="rejectPopupButton" class="bg-red-500 hover:bg-red-700 text-white px-4 py-2 rounded ml-2 transition duration-300 ease-in-out">
+                        <button id="rejectPopupButton" class="bg-red-500 hover:bg-red-700 text-white px-4 py-2 rounded transition duration-300 ease-in-out">
                             ไม่อนุมัติกิจกรรมนี้
                         </button>
+                    </div>
+                    <div class="flex justify-right mt-5">
+                        <a href="{{ route('budgetrequests.index') }}" class="bg-blue-500 hover:bg-blue-700 mr-1 text-white px-4 py-2 rounded transition duration-300 ease-in-out">
+                            กลับ
+                        </a>
                     </div>
                         @endif
                     @endif
@@ -120,14 +127,27 @@
             </div>
         </div>
     </div>
-    <!-- reject popup -->
-    <form>
-        <div id="rejectPopupModal" class="fixed top-0 left-0 w-full h-full bg-black bg-opacity-50 flex items-center justify-center hidden">
+    <!-- accept popup -->
+    <form method="GET" action="{{ route('budgetrequest.update') }}">
+        <div id="acceptPopupModal" class="fixed top-0 left-0 w-full h-full bg-black bg-opacity-50 flex items-center justify-center hidden">
             <div class="bg-white rounded-lg p-8">
                 @csrf
                 <div class="flex flex-col">
+                    <input hidden
+                           id="event"
+                           type="text"
+                           name="event"
+                           value="{{ $event->id }}"/>
+                    @php
+                        $status = "APPROVED";
+                    @endphp
+                    <input hidden
+                           id="status"
+                           type="text"
+                           name="status"
+                           value="{{ $status }}"/>
                     <label id="rejectText" class="block font-medium text-sm text-black-700 dark:text-black-300" for="reason" :value="__('เหตุผลการปฏิเสธ')">
-                        เหตุผลของการปฏิเสธ
+                        เหตุผลที่อนุมัติกิจกรรมนี้
                     </label>
                     <div class="mt-1">
                         <input class="border-gray-300 dark:border-gray-700 rounded-md shadow-sm block w-full"
@@ -136,13 +156,58 @@
                                type="text"
                                name="reason" :value="old('reason')"
                                autofocus
-                               autocomplete="reason" />
+                               autocomplete="reason"
+                               required/>
                     </div>
                     <x-input-error :messages="$errors->get('reason')" class="mt-2" />
                 </div>
                 <div class="flex items-center justify-between mt-4">
-                    <button id="closeRejectPopupButton" class="btn">Close</button>
-                    <button class="btn">
+                    <button id="closeAcceptPopupButton" class="btn" type="button">Close</button>
+                    <button class="btn" type="submit">
+                        {{ __('Submit') }}
+                    </button>
+                </div>
+            </div>
+        </div>
+    </form>
+    <!-- reject popup -->
+    <form method="GET" action="{{ route('budgetrequest.update') }}">
+        <div id="rejectPopupModal" class="fixed top-0 left-0 w-full h-full bg-black bg-opacity-50 flex items-center justify-center hidden">
+            <div class="bg-white rounded-lg p-8">
+                @csrf
+                <div class="flex flex-col">
+                    <input hidden
+                           id="event"
+                           type="text"
+                           name="event"
+                           value="{{ $event->id }}"/>
+                    @php
+                        $status = "REJECTED";
+                    @endphp
+                    <input hidden
+                           id="status"
+                           type="text"
+                           name="status"
+                           value="{{ $status }}"/>
+                    <label id="rejectText" class="block font-medium text-sm text-black-700 dark:text-black-300" for="reason" :value="__('เหตุผลการปฏิเสธ')">
+                        เหตุผลที่ไม่อนุมัติกิจกรรมนี้
+                    </label>
+                    <div class="mt-1">
+                        <input class="border-gray-300 dark:border-gray-700 rounded-md shadow-sm block w-full"
+                               style="max-width: 350px;"
+                               id="reason"
+                               type="text"
+                               name="reason" :value="old('reason')"
+                               autofocus
+                               autocomplete="reason"
+                               required
+                                />
+                    </div>
+                    <x-input-error :messages="$errors->get('reason')" class="mt-2" />
+                </div>
+                <div class="flex items-center justify-between mt-4">
+                    <button id="closeRejectPopupButton" class="btn" type="button">Close</button>
+                    <button class="btn" type="submit">
                         {{ __('Submit') }}
                     </button>
                 </div>
@@ -153,6 +218,9 @@
         const rejectPopupButton = document.getElementById('rejectPopupButton');
         const rejectPopupModal = document.getElementById('rejectPopupModal');
         const closeRejectPopupButton = document.getElementById('closeRejectPopupButton');
+        const acceptPopupButton = document.getElementById('acceptPopupButton');
+        const acceptPopupModal = document.getElementById('acceptPopupModal');
+        const closeAcceptPopupButton = document.getElementById('closeAcceptPopupButton');
 
         rejectPopupButton.addEventListener('click', function() {
             rejectPopupModal.classList.remove('hidden');
@@ -160,6 +228,14 @@
 
         closeRejectPopupButton.addEventListener('click', function() {
             rejectPopupModal.classList.add('hidden');
+        });
+
+        acceptPopupButton.addEventListener('click', function() {
+            acceptPopupModal.classList.remove('hidden');
+        });
+
+        closeAcceptPopupButton.addEventListener('click', function() {
+            acceptPopupModal.classList.add('hidden');
         });
     </script>
 @endsection

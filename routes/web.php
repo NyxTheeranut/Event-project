@@ -106,7 +106,7 @@ Route::resource('/myprofile/certificates', CertificateController::class);
 
 Route::get('/budgetrequests', [BudgetRequestController::class, 'index'])->name('budgetrequests.index');
 
-Route::post('/budgetrequests/update',
+Route::get('/budgetrequests/update',
     [BudgetRequestController::class, 'update']
 )->name('budgetrequest.update');
 

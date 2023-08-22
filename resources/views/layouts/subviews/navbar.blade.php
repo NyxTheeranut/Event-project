@@ -247,19 +247,19 @@
                                 กิจกรรม
                             </a>
                         </li>
+                        @if (Auth::user()->role === "MEMBER")
                         <li>
                             <a href="{{ route('applications.index') }}"
                                class="nav-menu {{ Route::currentRouteName() === 'applications.index' ? 'active' : '' }}">
                                 กิจกรรมที่ลงทะเบียน
                             </a>
                         </li>
-                        @if (Auth::user()->role === "MEMBER")
                             <div></div>
                         @else
                         <li>
                             <a href="{{ route('budgetrequests.index') }}"
                                class="nav-menu {{ Route::currentRouteName() === 'budgetrequests.index' ? 'active' : '' }}">
-                                กิจกรรมที่รองบประมาณ
+                                กิจกรรมที่รอการอนุมัติงบประมาณ
                             </a>
                         </li>
                         @endif

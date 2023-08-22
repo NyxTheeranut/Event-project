@@ -49,7 +49,7 @@
                                     <!-- Start Date Time -->
                                     <div class="mt-4">
                                         <label  class="block font-medium text-sm text-gray-700 dark:text-black-300 left-align-label" for="start_date_time" :value="__('วันเริ่มกิจกรรม')">
-                                            วันเริ่มกิจกรรม
+                                            วันที่จัดกิจกรรม
                                         </label>
                                         <input  class="border-gray-300 dark:border-gray-700 rounded-md shadow-sm block mt-1 w-full text-black"
                                                 id="start_date_time"

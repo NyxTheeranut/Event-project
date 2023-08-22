@@ -3,9 +3,15 @@
 @section('content')
 <div class="relative h-[680px] overflow-hidden bg-cover bg-[50%] bg-no-repeat bg-[url('https://images.pexels.com/photos/2747449/pexels-photo-2747449.jpeg?cs=srgb&dl=pexels-wolfgang-2747449.jpg&fm=jpg')]">
     <div class="container mx-auto px-40 ">
+        @if (Auth::user()->role === 'ACCOUNTANT')
         <h2 class="mt-32 mb-12 text-5xl font-bold leading-tight tracking-tight md:text-6xl xl:text-5xl text-white">
-            กิจกรรมที่รองบประมาณ
+            กิจกรรมที่รอการอนุมัติงบประมาณ
         </h2>
+        @else
+            <h2 class="mt-32 mb-12 text-5xl font-bold leading-tight tracking-tight md:text-6xl xl:text-5xl text-white">
+                สถานะกิจกรรมที่ขออนุมัติงบประมาณ
+            </h2>
+        @endif
     </div>
 </div>
 
@@ -21,36 +27,6 @@
         @endif
 
         @foreach ($budgetrequests as $budgetrequest)
-{{--            <form id="rejectPopupModal" method="POST" action="{{ route('budgetrequest.update', $budgetrequest) }}">--}}
-{{--                <div class="fixed top-0 left-0 w-full h-full bg-black bg-opacity-50 flex items-center justify-center hidden">--}}
-{{--                    <div class="bg-white rounded-lg p-8">--}}
-{{--                        @csrf--}}
-{{--                        <div class="flex flex-col">--}}
-{{--                            <input type="hidden" id="status" name="status" value="REJECTED">--}}
-{{--                            <input type="hidden" id="budgetrequest_id" name="budgetrequest_id" value="{{ $budgetrequest }}">--}}
-{{--                            <label id="rejectText" class="block font-medium text-sm text-black-700 dark:text-black-300" for="reason" :value="__('เหตุผลการปฏิเสธ')">--}}
-{{--                                เหตุผลของการปฏิเสธ--}}
-{{--                            </label>--}}
-{{--                            <div class="mt-1">--}}
-{{--                                <input class="border-gray-300 dark:border-gray-700 rounded-md shadow-sm block w-full"--}}
-{{--                                       style="max-width: 350px;"--}}
-{{--                                       id="reason"--}}
-{{--                                       type="text"--}}
-{{--                                       name="reason" :value="old('reason')"--}}
-{{--                                       autofocus--}}
-{{--                                       autocomplete="reason" />--}}
-{{--                            </div>--}}
-{{--                            <x-input-error :messages="$errors->get('reason')" class="mt-2" />--}}
-{{--                        </div>--}}
-{{--                        <div class="flex items-center justify-between mt-4">--}}
-{{--                            <button id="closeRejectPopupButton" class="btn">Close</button>--}}
-{{--                            <button class="btn">--}}
-{{--                                {{ __('Submit') }}--}}
-{{--                            </button>--}}
-{{--                        </div>--}}
-{{--                    </div>--}}
-{{--                </div>--}}
-{{--            </form>--}}
 
             <li class="flex items-center py-4 px-6 hover:bg-gray-50">
                 <span class="text-gray-700 text-lg font-medium mr-4">{{ $loop->iteration }}.</span>
@@ -65,7 +41,12 @@
                     @endif
                 </div>
                 <span class="text-gray-400">
-                    <a href="/events/{{ $budgetrequest->event->id }}" class="bg-blue-500 hover:bg-green-700 text-white px-4 py-2 rounded transition duration-300 ease-in-out">คลิกที่นี่ เพื่อดูรายละเอียดเพิ่มเติ่ม และตัดสินใจ</a>
+                    <button class="bg-gray-300 {{ $budgetrequest->getStatusTextColor() }} px-4 py-2 rounded"> {{ $budgetrequest->getStatusMessage() }} </button>
+                    @if (Auth::user()->role === "ACCOUNTANT")
+                        <a href="/events/{{ $budgetrequest->event->id }}" class="bg-blue-500 hover:bg-green-700 text-white px-4 py-2 rounded transition duration-300 ease-in-out">
+                            คลิกที่นี่ เพื่อดูรายละเอียดเพิ่มเติ่ม และตัดสินใจ
+                        </a>
+                    @endif
                 </span>
             </li>
 
