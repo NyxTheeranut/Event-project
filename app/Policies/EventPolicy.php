@@ -29,7 +29,6 @@ class EventPolicy
      */
     public function create(User $user): bool
     {
-        return true;
         return $user->isStaff();
     }
 
@@ -38,7 +37,6 @@ class EventPolicy
      */
     public function update(User $user, Event $event): bool
     {
-        return true;
         return $user->isStaff() && $user->isOrganizerOf($event->id);
     }
 
@@ -47,7 +45,6 @@ class EventPolicy
      */
     public function delete(User $user, Event $event): bool
     {
-        return true;
         return $user->isStaff() && $user->isOrganizerOf($event->id);
     }
 
@@ -56,7 +53,6 @@ class EventPolicy
      */
     public function restore(User $user, Event $event): bool
     {
-        return true;
         return $user->isStaff() && $user->isOrganizerOf($event->id);
     }
 
@@ -65,7 +61,6 @@ class EventPolicy
      */
     public function forceDelete(User $user, Event $event): bool
     {
-        return true;
         return $user->isStaff() && $user->isOrganizerOf($event->id);
     }
 }

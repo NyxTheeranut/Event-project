@@ -49,7 +49,14 @@ class KanbanBoardController extends Controller
      */
     public function create(Request $request)
     {
+
         $event = Event::find($request->get('event_id'));
+
+        if ($request->get('title') === null) {
+            return redirect()->route('kanban-board.index', [
+                'event' => $event
+            ]);
+        }
 
         $work = new Work();
         $work->title = $request->get('title');
