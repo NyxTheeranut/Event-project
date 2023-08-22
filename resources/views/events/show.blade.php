@@ -7,20 +7,20 @@
             <div class="bg-white p-10 rounded-lg shadow md:w-3/4 mx-auto lg:w-1/2 flex">
                 <!-- mew and smart(left side) -->
                 <div class="w-1/2 pr-6">
-                    <div class="typingTextEvent mb-2">
+                    <div class="typingTextEvent mb-2" style="color: black;">
                         Event Details.
                     </div>
                     <div class="mb-3">
-                        <label for="name" class="block font-bold text-blue-600">ชื่อกิจกรรม:</label>
-                        <span class="font-normal text-black-600">{{ $event->title }}</span>
+                        <label for="name" class="block font-bold text-blue-600" style="color: black;">ชื่อกิจกรรม:</label>
+                        <span class="font-normal text-black-600" style="color: black;">{{ $event->title }}</span>
                     </div>
                     <div class="mb-3">
-                        <label for="name" class="block font-bold text-blue-600">คำอธิบายกิจกรรม:</label>
-                        <span class="font-normal text-black-600">{{ $event->description }}</span>
+                        <label for="name" class="block font-bold text-blue-600" style="color: black;">คำอธิบายกิจกรรม:</label>
+                        <span class="font-normal text-black-600" style="color: black;">{{ $event->description }}</span>
                     </div>
                     <div class="mb-3">
-                        <label for="name" class="block font-bold text-blue-600">วันที่จัดกิจกรรม:</label>
-                        <span class="font-normal text-black-600">{{ $event->start_date_time }}</span>
+                        <label for="name" class="block font-bold text-blue-600" style="color: black;">วันที่จัดกิจกรรม:</label>
+                        <span class="font-normal text-black-600" style="color: black;">{{ $event->start_date_time }}</span>
                     </div>
 {{--                    <div class="mb-3">--}}
 {{--                        <label for="name" class="block font-bold text-blue-600">วันสิ้นสุดกิจกรรม:</label>--}}
@@ -59,8 +59,8 @@
                         @else
                     <div class="w-1/2 pl-6 border-l">
                         <div class="mb-3"style="margin-top: 3.6rem;">
-                            <label for="name" class="block font-bold text-blue-600">งบจัดกิจกรรม:</label>
-                            <span class="font-normal text-black-600">{{ $event->budget }}</span>
+                            <label for="name" class="block font-bold text-blue-600" style="color: black;">งบจัดกิจกรรม:</label>
+                            <span class="font-normal text-black-600" style="color: black;">{{ $event->budget }}</span>
                         </div>
                         @endif
                         <div class="mb-3">
@@ -146,12 +146,12 @@
                            type="text"
                            name="status"
                            value="{{ $status }}"/>
-                    <label id="rejectText" class="block font-medium text-sm text-black-700 dark:text-black-300" for="reason" :value="__('เหตุผลการปฏิเสธ')">
+                    <label id="rejectText" class="block font-medium text-sm text-black-700 dark:text-black-300" style="color: black;" for="reason" :value="__('เหตุผลการปฏิเสธ')">
                         เหตุผลที่อนุมัติกิจกรรมนี้
                     </label>
                     <div class="mt-1">
                         <input class="border-gray-300 dark:border-gray-700 rounded-md shadow-sm block w-full"
-                               style="max-width: 350px;"
+                        style="max-width: 350px; color: black;"
                                id="reason"
                                type="text"
                                name="reason" :value="old('reason')"
@@ -189,12 +189,12 @@
                            type="text"
                            name="status"
                            value="{{ $status }}"/>
-                    <label id="rejectText" class="block font-medium text-sm text-black-700 dark:text-black-300" for="reason" :value="__('เหตุผลการปฏิเสธ')">
+                    <label id="rejectText" class="block font-medium text-sm text-black-700 dark:text-black-300" style="color: black;" for="reason" :value="__('เหตุผลการปฏิเสธ')">
                         เหตุผลที่ไม่อนุมัติกิจกรรมนี้
                     </label>
                     <div class="mt-1">
                         <input class="border-gray-300 dark:border-gray-700 rounded-md shadow-sm block w-full"
-                               style="max-width: 350px;"
+                               style="max-width: 350px; color: black;"
                                id="reason"
                                type="text"
                                name="reason" :value="old('reason')"

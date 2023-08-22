@@ -26,7 +26,7 @@
 
                             <!-- Firstname -->
                             <div>
-                                <label  class="block font-medium text-sm text-gray-700 dark:text-black-300 left-align-label" for="first_name" :value="__('ชื่อจริง')">
+                                <label  class="block font-medium text-sm text-gray-700 dark:text-black-300 left-align-label"  for="first_name" :value="__('ชื่อจริง')">
                                     ชื่อจริง
                                 </label>
                                 <input  class="border-gray-300 dark:border-gray-700 rounded-md shadow-sm block mt-1 w-full text-black"
@@ -112,13 +112,13 @@
 
             <div class="col-md-8 snipcss0-4-4-10">
               <div class="card-body p-4 snipcss0-5-10-11">
-                <h6 class="snipcss0-6-11-12">
+                <h6 class="snipcss0-6-11-12" style="color: black;">
                   Information
                 </h6>
                 <hr class="mt-0 mb-4 snipcss0-6-11-13">
                 <div class="row pt-1 snipcss0-6-11-14">
                   <div class="col-6 mb-3 snipcss0-7-14-15">
-                    <h6 class="snipcss0-8-15-16">
+                    <h6 class="snipcss0-8-15-16" >
                       Firstname
                     </h6>
                     <p class="text-muted snipcss0-8-15-17">

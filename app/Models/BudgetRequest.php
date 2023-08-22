@@ -32,13 +32,13 @@ class BudgetRequest extends Model
     public function getStatusTextColor() : string {
         switch ($this->status) {
             case self::STATUS_PENDING:
-                return 'text-yellow-500';
+                return 'color: rgb(174, 175, 69);';
             case self::STATUS_APPROVED:
-                return 'text-green-500';
+                return 'color: green;';
             case self::STATUS_REJECTED:
-                return 'text-red-500';
+                return 'color: red;';
             default:
-                return 'text-black-500';
+                return 'color: black;';
         }
     }
 

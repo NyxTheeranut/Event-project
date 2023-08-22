@@ -111,9 +111,9 @@
 {{--    </div>--}}
         <div class="max-w-[800px] px-6 py-6 text-left text-white md:py-0 md:px-16 mb-10">
 
-        <h2 class="mb-8 text-5xl font-bold leading-tight tracking-tight md:text-6xl xl:text-7xl mt-20 "style="color: black;">
+            <h2 class="mb-8 text-5xl font-bold leading-tight tracking-tight md:text-6xl xl:text-7xl mt-20 ml0 "style="color: black;">
             กิจกรรม
-        </h2>
+            </h2>
 
         @can('create', \App\Models\Event::class)
             <button id="popupButton" class="inline-block text-white bg-purple-700 hover:bg-purple-800 focus:ring-4 focus:ring-purple-300 font-medium rounded-lg text-sm px-4 lg:px-5 py-2 lg:py-2.5 sm:mr-2 lg:mr-0 focus:outline-none">
@@ -125,9 +125,6 @@
         <div id="popupModal" class="fixed top-0 left-0 w-full h-full bg-black bg-opacity-50 flex items-center justify-center hidden">
             <div class="bg-white rounded-lg p-8">
                 <div class="container mx-auto px-10">
-{{--                    <h2 class="header">--}}
-{{--                        หน้าสร้างกิจกรรม--}}
-{{--                    </h2>--}}
                     <form method="POST" action="{{ route('event.create') }}">
                         @csrf
 
@@ -184,13 +181,17 @@
                             <div class="mlbc-name color-black">
                                 {{ $event->title }}
                             </div>
-                            <div class="mlbc-cate">
-                                <img src="https://www.majorcineplex.com/public/desktop_new_assets/img/icon-tag.svg" class="mlbc-icon">
-                                location
+                            <div class="mlbc-time">
+                                <img src="https://www.majorcineplex.com/public/desktop_new_assets/img/icon-time.svg" class="mlbc-icon">
+                                Start: {{ $event->start_date_time }}
                             </div>
                             <div class="mlbc-time">
                                 <img src="https://www.majorcineplex.com/public/desktop_new_assets/img/icon-time.svg" class="mlbc-icon">
-                                {{ $event->start_date_time }}
+                                End :{{ $event->end_date_time }}
+                            </div>
+                            <div class="mlbc-time pt-5">
+                                Description :
+                                {{ $event->description }}
                             </div>
                             <div class="mlbc-btn">
                                 <a href="{{ route("events.show", ["event" => $event]) }}" class="mlbc-btn-mi">
@@ -204,7 +205,7 @@
                     </div>
                     <div class="mlb-name">
                         <a href="{{ route("events.show", ["event" => $event]) }}" style="color: grey;">
-                            {{ $event->start_date_time }}
+                            Start: {{ $event->start_date_time }}
                         </a>
                     </div>
 
