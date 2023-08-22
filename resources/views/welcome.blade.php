@@ -18,7 +18,7 @@
                     <h2 class="mb-8 text-5xl font-bold leading-tight tracking-tight md:text-6xl xl:text-7xl">
                         Beats Event
                     </h2>
-                    <p class="text-xl mb-16">insert ข้อความสุดน่าประทับใจ here</p>
+                    <p class="text-xl mb-16">สมัครและ จัดการกิจกรรมได้ที่นี่</p>
                     <a href="{{ route('events.index') }}"
                        class="text-white text-xl bg-cyan-700 hover:bg-cyan-800 focus:ring-4 focus:ring-cyan-900 font-medium rounded-3xl text-sm px-9 lg:px-10 py-3 lg:py-3.5 sm:mr-2 lg:mr-0 focus:outline-none">
                         ไปที่กิจกรรม

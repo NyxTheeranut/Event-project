@@ -25,6 +25,8 @@
                         <label for="name" class="block font-bold text-blue-600">วันสิ้นสุดกิจกรรม:</label>
                         <span class="font-normal text-black-600">{{ $event->end_date_time }}</span>
                     </div>
+
+                    @if (Auth::check())
                     <div class="mt-3">
                         <form method="GET" action="{{ route('events.applications.create', ['event' => $event]) }}">
                             <button type="submit" class="btn">
@@ -32,24 +34,35 @@
                             </button>
                         </form>
                     </div>
-                </div>
-                <!-- smart (right side) -->
-                <div class="w-1/2 pl-6 border-l">
-                    <div class="mb-3"style="margin-top: 3.6rem;">
-                        <label for="name" class="block font-bold text-blue-600">งบจัดกิจกรรม:</label>
-                        <span class="font-normal text-black-600">{{ $event->budget }}</span>
                     </div>
-                    <div class="mb-3">
-                        <label for="name" class="block font-bold text-blue-600">ผู้จัดทำกิจกรรม:</label>
-                        <a href="{{ route('profile.show', ['user'=>$event->user]) }}">
-                            <span class="font-normal text-black-600">{{ $event->user->nickname }}</span>
-                        </a>
-                    </div>
-                <!-- loop ($staffs as $staff)
+                @if (! Auth::user()->role === "MEMBER")
+                    <!-- smart (right side) -->
+                    <div class="w-1/2 pl-6 border-l">
+                        <div class="mb-3"style="margin-top: 3.6rem;">
+                            <label for="name" class="block font-bold text-blue-600">งบจัดกิจกรรม:</label>
+                            <span class="font-normal text-black-600">{{ $event->budget }}</span>
+                        </div>
+                        @else
+                            <div class="w-1/2 pl-6 border-l">
+                                <div class="mb-3"style="margin-top: 3.6rem;">
+                                    <label for="name" class="block font-bold text-blue-600"></label>
+                                    <span class="font-normal text-black-600"></span>
+                                </div>
+                        @endif
+                        <div class="mb-3">
+                            <label for="name" class="block font-bold text-blue-600">ผู้จัดทำกิจกรรม:</label>
+                            <a href="{{ route('profile.show', ['user'=>$event->user]) }}">
+                                <span class="font-normal text-black-600">{{ $event->user->nickname }}</span>
+                            </a>
+                        </div>
+                        @endif
+                    <!-- loop ($staffs as $staff)
 
-                /* staffs */
+                    /* staffs */
 
-                -->
+                    -->
+                    @if (Auth::check())
+                        @if (Auth::user()->role === 'STAFF')
                     <div class="flex justify-between mt-8">
 
                         <a href="{{ route('kanban-board.index', ['event' => $event]) }}" class="btn">
@@ -70,13 +83,9 @@
                             แก้ไข
                         </a>
                     </div>
+                        @endif
 
-                    <!-- Accept popup -->
-
-{{--                    <form method="POST" action="{{ route('events.applications.update', ['event' => $event]) }}">--}}
-{{--                        @csrf--}}
-{{--                        @method('PUT')--}}
-{{--                        <input type="hidden" name="status" value="accepted">--}}
+                        @if (Auth::user()->role === "ACCOUNTANT")
 
                     <div class="flex justify-between mt-1">
                         <button class="bg-blue-500 hover:bg-blue-700 text-white px-4 py-2 rounded transition duration-300 ease-in-out">
@@ -91,6 +100,8 @@
                             ไม่อนุมัติกิจกรรมนี้
                         </button>
                     </div>
+                        @endif
+                    @endif
 
                 </div>
             </div>

@@ -253,18 +253,22 @@
                                 กิจกรรมที่ลงทะเบียน
                             </a>
                         </li>
+                        @if (Auth::user()->role === "MEMBER")
+                            <div></div>
+                        @else
                         <li>
                             <a href="{{ route('budgetrequests.index') }}"
                                class="nav-menu {{ Route::currentRouteName() === 'budgetrequests.index' ? 'active' : '' }}">
                                 กิจกรรมที่รองบประมาณ
                             </a>
                         </li>
-                        <li>
-                            <a href="{{ route('about.index') }}"
-                               class="nav-menu {{ Route::currentRouteName() === 'about.index' ? 'active' : '' }}">
-                                เกี่ยวกับเรา
-                            </a>
-                        </li>
+                        @endif
+{{--                        <li>--}}
+{{--                            <a href="{{ route('about.index') }}"--}}
+{{--                               class="nav-menu {{ Route::currentRouteName() === 'about.index' ? 'active' : '' }}">--}}
+{{--                                เกี่ยวกับเรา--}}
+{{--                            </a>--}}
+{{--                        </li>--}}
                     </ul>
                 </div>
             @endif

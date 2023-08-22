@@ -58,7 +58,7 @@ class EventController extends Controller
 
     public function storeApplication(Request $request, Event $event)
     {
-        Gate::authorize('apply', Event::class);
+//        Gate::authorize('apply', Event::class);
         $application = new Application();
         $application->event_id = $event->id;
         $application->user_id = $request->user()->id;
@@ -74,7 +74,7 @@ class EventController extends Controller
      */
     public function store(Request $request) //, User $user)
     {
-        Gate::authorize('create', Event::class);
+//        Gate::authorize('create', Event::class);
 
         $event = new Event();
         $event->title = $request->title;
