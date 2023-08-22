@@ -143,6 +143,7 @@
 
                                     autofocus
                                     autocomplete="title"/>
+{{--                            @error() @enderror--}}
                             <x-input-error :messages="$errors->get('title')" class="mt-2" />
                         </div>
 
@@ -163,7 +164,7 @@
 
                         <div class="flex items-center justify-middle mt-6">
                             <button id="closePopupButton" class="mr-auto btn">Close</button>
-                            <button class="ml-auto btn">
+                            <button class="ml-auto btn" type="submit">
                                 {{ __('Submit') }}
                             </button>
                         </div>

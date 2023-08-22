@@ -32,6 +32,9 @@ class EventController extends Controller
      */
     public function create(Request $request)
     {
+        $request->validate([
+            'title' => ['required', 'min:4', 'max:255'],
+        ]);
 
         $event = new Event();
         $event->title = $request->title;
@@ -58,7 +61,12 @@ class EventController extends Controller
 
     public function storeApplication(Request $request, Event $event)
     {
-//        Gate::authorize('apply', Event::class);
+        $request->validate([
+            'video_url' => ['min:4', 'max:255'],
+            'description' => ['required', 'min:10', 'max:255'],
+            'budget' => ['required', 'integer', 'max:5000000']
+        ]);
+
         $application = new Application();
         $application->event_id = $event->id;
         $application->user_id = $request->user()->id;
@@ -74,7 +82,9 @@ class EventController extends Controller
      */
     public function store(Request $request) //, User $user)
     {
-//        Gate::authorize('create', Event::class);
+        $request->validate([
+            'title' => ['required', 'min:4', 'max:255'],
+        ]);
 
         $event = new Event();
         $event->title = $request->title;
@@ -113,6 +123,12 @@ class EventController extends Controller
      */
     public function update(Request $request, Event $event)
     {
+        $request->validate([
+            'title' => ['required', 'min:4', 'max:255'],
+            'description' => ['required', 'min:10', 'mmax:255'],
+            'budget' => ['required', 'integer', 'max:5000000']
+        ]);
+
         $event->title = $request->get('title');
         $event->description = $request->get('description');
         $event->start_date_time = $request->get('start_date_time');

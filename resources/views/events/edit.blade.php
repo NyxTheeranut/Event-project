@@ -18,7 +18,7 @@
                         @error('title') <div class="text-red-600 text-sm">{{$message}}</div> @enderror
                         <input type="text" id="name" name="title" autocomplete="off"
                             value="{{ old('title', $event->title) }}"
-                            placeholder="ชื่อกิจกรรม" class="border border-gray-300 @error('textbox1') border-red-400 @enderror shadow p-3 w-full rounded mb-2" style="height: 40px; width: 100%;">
+                            placeholder="ชื่อกิจกรรม" class="border border-gray-300 @error('title') border-red-400 @enderror shadow p-3 w-full rounded mb-2" style="height: 40px; width: 100%;">
                     </div>
                     <div class="mb-2">
                         <label for="description" class="block mb-2 font-bold text-blue-600">คำอธิบายกิจกรรม:</label>
