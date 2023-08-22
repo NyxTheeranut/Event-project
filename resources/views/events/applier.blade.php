@@ -30,19 +30,18 @@
                             <h3 class="text-lg font-medium text-gray-800">{{ $application->user->nickname }}</h3>
                             <p class="text-gray-600 text-base">{{ $application->user->firstname }} {{ $application->user->lastname }}</p>
                         </span>
-                        <span></span>
+
 
                         @if ($application->status === "PENDING")
-                        <div class="text-gray-400">
-                            <form method="get" action="{{ route("events.applications.update", ['event'=>$application->event]) }}">
+                        <div class="text-gray-400 flex justify-between" >
+
+                            <form class="mr-2" method="get" action="{{ route("events.applications.update", ['event'=>$application->event]) }}">
                                 <input type="text" id="status" name="status" hidden value="ACCEPTED"/>
                                 <input type="text" id="application_id" name="application_id" hidden value="{{ $application->id }}"/>
                                 <button class="bg-green-500 hover:bg-green-700 text-white px-4 py-2 rounded transition duration-300 ease-in-out">
                                     รับเข้ากิจกรรม
                                 </button>
                             </form>
-                        </div>
-                        <div class="text-gray-400 mt-2">
                             <form method="get" action="{{ route("events.applications.update", ['event'=>$application->event]) }}">
                                 <input type="text" id="status" name="status" hidden value="REJECTED"/>
                                 <input type="text" id="application_id" name="application_id" hidden value="{{ $application->id }}"/>
