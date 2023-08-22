@@ -11,6 +11,7 @@ nav {
 
 body {
     color: #000;
+    font-style: black;
 }
 
 .nav-menu.active {
@@ -1161,5 +1162,6 @@ img.mlbc-icon {
   user-select: none; /* Prevent text selection on the button text */
 }
 body {
-    font-style: grey;
+    font-style: black;
+    color:#929292;
 }
