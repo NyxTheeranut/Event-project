@@ -32,11 +32,13 @@ Route::get('/about', function () {
     return view('about.index');
 })->name('about.index');
 
-Route::get('/events', [EventController::class, 'index'])->name('events.index');
-Route::get('/events/{event}/edit', [EventController::class, 'edit'])->name('events.edit');
-Route::get('/events/{event}', [EventController::class, 'show'])->name('events.show');
+Route::resource('/events', EventController::class);
 
-Route::get('/edit', [EventController::class, 'edit'])->name('events.edit');
+//Route::get('/events', [EventController::class, 'index'])->name('events.index');
+//Route::get('/events/{event}/edit', [EventController::class, 'edit'])->name('events.edit');
+//Route::get('/events/{event}', [EventController::class, 'show'])->name('events.show');
+
+//Route::get('/edit', [EventController::class, 'edit'])->name('events.edit');
 
 Route::get('/events/{event}/apply',
     [EventController::class, 'createApplication']
