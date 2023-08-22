@@ -100,19 +100,17 @@
 
                         @if (Auth::user()->role === "ACCOUNTANT")
 
-                    <div class="flex justify-between mt-1">
-                        <button class="bg-blue-500 hover:bg-blue-700 text-white px-4 py-2 rounded transition duration-300 ease-in-out">
-                            กลับ
-                        </button>
-
-                        <button class="bg-green-500 hover:bg-green-700 text-white px-4 py-2 rounded transition duration-300 ease-in-out">
-                            อนุมัติกิจกรรมนี้
-                        </button>
-
-                        <button id="rejectPopupButton" class="bg-red-500 hover:bg-red-700 text-white px-4 py-2 rounded ml-2 transition duration-300 ease-in-out">
-                            ไม่อนุมัติกิจกรรมนี้
-                        </button>
-                    </div>
+                        <div class="flex justify-between mt-4 space-x-2">
+                            <button class="btn2 bg-blue-500 hover:bg-blue-700 text-white">
+                                กลับ
+                            </button>
+                            <button class="btn2 bg-green-500 hover:bg-green-700 text-white">
+                                อนุมัติกิจกรรมนี้
+                            </button>
+                            <button id="rejectPopupButton" class="btn2 bg-red-500 hover:bg-red-700 text-white">
+                                ไม่อนุมัติกิจกรรมนี้
+                            </button>
+                        </div>
                         @endif
                     @endif
 
