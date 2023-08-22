@@ -1,6 +1,7 @@
 @extends('layouts.main')
 
 @section('content')
+
 <div class="relative h-[680px] overflow-hidden bg-cover bg-[50%] bg-no-repeat bg-[url('https://images.pexels.com/photos/2747449/pexels-photo-2747449.jpeg?cs=srgb&dl=pexels-wolfgang-2747449.jpg&fm=jpg')]">
     <div class="container mx-auto px-40 ">
         <h2 class="mt-32 mb-12 text-5xl font-bold leading-tight tracking-tight md:text-6xl xl:text-5xl text-white">
@@ -11,7 +12,7 @@
 
 
 
-<div class="block shadow-black/20 backdrop-blur-[30px] -mt-[230px] bg-white rounded-md overflow-hidden w-11/12 mx-auto mb-16">
+<div class="block shadow-black/20 backdrop-blur-[30px] -mt-[430px] bg-white rounded-md overflow-hidden w-11/12 mx-auto mb-16">
     <ul class="divide-y divide-gray-200">
 
         {{-- No Application --}}
