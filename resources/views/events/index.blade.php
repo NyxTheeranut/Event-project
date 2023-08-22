@@ -81,37 +81,37 @@
     </div> --}}
 
     {{-- Event List --}}
-    <div class="block shadow-black/20 backdrop-blur-[30px] -mt-[130px] bg-white rounded-md overflow-hidden w-11/12 mx-auto mb-16">
-        <ul class="divide-y divide-gray-200">
+{{--    <div class="block shadow-black/20 backdrop-blur-[30px] -mt-[130px] bg-white rounded-md overflow-hidden w-11/12 mx-auto mb-16">--}}
+{{--        <ul class="divide-y divide-gray-200">--}}
 
-            {{-- No Event --}}
-           @if (count($events) === 0)
-                <div class="flex items-center justify-center py-4 px-6">
-                    <img class="w-1/6" src="https://static.vecteezy.com/system/resources/previews/003/067/848/original/cartoon-sad-smile-face-emoticon-icon-in-flat-style-free-vector.jpg" alt="Sad face">
-                    <p class="text-3xl font-medium text-gray-800">404 Event Not Found</p>
-                </div>
-            @endif
+{{--            --}}{{-- No Event --}}
+{{--           @if (count($events) === 0)--}}
+{{--                <div class="flex items-center justify-center py-4 px-6">--}}
+{{--                    <img class="w-1/6" src="https://static.vecteezy.com/system/resources/previews/003/067/848/original/cartoon-sad-smile-face-emoticon-icon-in-flat-style-free-vector.jpg" alt="Sad face">--}}
+{{--                    <p class="text-3xl font-medium text-gray-800">404 Event Not Found</p>--}}
+{{--                </div>--}}
+{{--            @endif--}}
 
-            @foreach ($events as $event)
-                <a href="{{ route("events.show", ["event" => $event]) }}">
-                    <li class="flex items-center py-4 px-6 hover:bg-gray-50">
-                        <span class="text-gray-700 text-lg font-medium mr-4">{{ $loop->iteration }}.</span>
-                        <div class="flex-1">
-                            <h3 class="text-lg font-medium text-gray-800">{{ $event->title }}</h3>
-                            <p class="text-gray-600 text-base">{{ $event->start_date_time }}</p>
-                        </div>
+{{--            @foreach ($events as $event)--}}
+{{--                <a href="{{ route("events.show", ["event" => $event]) }}">--}}
+{{--                    <li class="flex items-center py-4 px-6 hover:bg-gray-50">--}}
+{{--                        <span class="text-gray-700 text-lg font-medium mr-4">{{ $loop->iteration }}.</span>--}}
+{{--                        <div class="flex-1">--}}
+{{--                            <h3 class="text-lg font-medium text-gray-800">{{ $event->title }}</h3>--}}
+{{--                            <p class="text-gray-600 text-base">{{ $event->start_date_time }}</p>--}}
+{{--                        </div>--}}
 
-                        <span class="text-gray-400">{{ $event->getDurationToStringAttribute() }}</span>
+{{--                        <span class="text-gray-400">{{ $event->getDurationToStringAttribute() }}</span>--}}
 
-                    </li>
-                </a>
-            @endforeach
+{{--                    </li>--}}
+{{--                </a>--}}
+{{--            @endforeach--}}
 
-        </ul>
-    </div>
+{{--        </ul>--}}
+{{--    </div>--}}
         <div class="max-w-[800px] px-6 py-6 text-left text-white md:py-0 md:px-16 mb-10">
 
-        <h2 class="mb-8 text-5xl font-bold leading-tight tracking-tight md:text-6xl xl:text-7xl "style="color: black;">
+        <h2 class="mb-8 text-5xl font-bold leading-tight tracking-tight md:text-6xl xl:text-7xl mt-20 "style="color: black;">
             กิจกรรม
         </h2>
 
@@ -125,9 +125,9 @@
         <div id="popupModal" class="fixed top-0 left-0 w-full h-full bg-black bg-opacity-50 flex items-center justify-center hidden">
             <div class="bg-white rounded-lg p-8">
                 <div class="container mx-auto px-10">
-                    <h2 class="header">
-                        หน้าสร้างกิจกรรม
-                    </h2>
+{{--                    <h2 class="header">--}}
+{{--                        หน้าสร้างกิจกรรม--}}
+{{--                    </h2>--}}
                     <form method="POST" action="{{ route('event.create') }}">
                         @csrf
 
