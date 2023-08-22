@@ -9,6 +9,9 @@ nav {
     z-index: 1000;
   }
 
+body {
+    color: #000;
+}
 
 .nav-menu.active {
     border-bottom: 2px solid #3182ce;
@@ -967,7 +970,7 @@ a,a:hover,a:active {
     font-style: normal;
     font-weight: normal;
     background: #E5E5EA;
-    color: #8E8E93;
+    color: black;
     padding: 6px 16px;
     font-size: 14px;
     border-radius: 26px;
@@ -1155,4 +1158,7 @@ img.mlbc-icon {
   cursor: pointer;
   transition: background-color 0.3s ease;
   user-select: none; /* Prevent text selection on the button text */
+}
+body {
+    font-style: grey;
 }
