@@ -29,14 +29,14 @@
                             <h3 class="text-lg font-medium text-gray-800">{{ $application->user->nickname }}</h3>
                             <p class="text-gray-600 text-base">{{ $application->user->firstname }} {{ $application->user->lastname }}</p>
                         </div>
-
+                        <div class="ml-auto">
                         <span class="text-gray-400">
                             <a href="{{ route("home") }}" class="bg-green-500 hover:bg-green-700 text-white px-4 py-2 rounded transition duration-300 ease-in-out">รับเข้ากิจกรรม</a>
                         </span>
                         <span class="text-gray-400">
-                            <a href="{{ route("home") }}" class="bg-red-500 hover:bg-green-700 text-white px-4 py-2 rounded transition duration-300 ease-in-out">ไม่รับเข้ากิจกรรม</a>
+                            <a href="{{ route("home") }}" class="bg-red-500 hover:bg-red-700 text-white px-4 py-2 rounded transition duration-300 ease-in-out">ไม่รับเข้ากิจกรรม</a>
                         </span>
-
+                        </div>
                     </li>
                 </a>
             @endforeach
