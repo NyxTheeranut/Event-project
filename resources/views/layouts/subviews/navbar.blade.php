@@ -22,7 +22,7 @@
 
                         <form action="{{ route('logout') }}" method="POST">
                             @csrf
-                            <button type="submit">
+                            <button type="submit" style="color: black;" >
                                 ออกจากระบบ
                             </button>
                         </form>
