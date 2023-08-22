@@ -28,7 +28,7 @@
                 @else
                   <img
                        src="{{ asset(Auth::user()->profilepicture_path) }}"
-                        alt="avatar" class="img-fluid my-5 snipcss0-5-5-6 style-KqviH" id="style-KqviH" size="50px">
+                        alt="avatar" class="img-fluid my-5 snipcss0-5-5-6 style-KqviH " id="style-KqviH" size="50px">
                 @endif
                 </div>
                 <button id ="editPopupButton" class="far fa-edit text-black mb-5 snipcss0-5-5-9"></button>

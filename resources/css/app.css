@@ -278,10 +278,11 @@ body {
 
 img {
     vertical-align: middle;
+    border-radius: 20px;
 }
 
 .img-fluid {
-    max-width: 100%;
+    max-width: 80%;
     height: auto;
 }
 
