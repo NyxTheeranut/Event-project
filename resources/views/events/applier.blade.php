@@ -24,18 +24,42 @@
             @foreach ($applications->where('event', $event) as $application)
                 <a href="{{ route("profile.show", ['user'=>($application->user)]) }}">
                     <li class="flex items-center py-4 px-6 hover:bg-gray-50">
+                        <div>
                         <span class="text-gray-700 text-lg font-medium mr-4">{{ $loop->iteration }}.</span>
-                        <div class="flex-1">
+                        <span class="flex-1">
                             <h3 class="text-lg font-medium text-gray-800">{{ $application->user->nickname }}</h3>
                             <p class="text-gray-600 text-base">{{ $application->user->firstname }} {{ $application->user->lastname }}</p>
-                        </div>
+                        </span>
+                        <span></span>
 
-                        <span class="text-gray-400">
-                            <a href="{{ route("home") }}" class="bg-green-500 hover:bg-green-700 text-white px-4 py-2 rounded transition duration-300 ease-in-out">รับเข้ากิจกรรม</a>
-                        </span>
-                        <span class="text-gray-400">
-                            <a href="{{ route("home") }}" class="bg-red-500 hover:bg-green-700 text-white px-4 py-2 rounded transition duration-300 ease-in-out">ไม่รับเข้ากิจกรรม</a>
-                        </span>
+                        @if ($application->status === "PENDING")
+                        <div class="text-gray-400">
+                            <form method="get" action="{{ route("events.applications.update", ['event'=>$application->event]) }}">
+                                <input type="text" id="status" name="status" hidden value="ACCEPTED"/>
+                                <input type="text" id="application_id" name="application_id" hidden value="{{ $application->id }}"/>
+                                <button class="bg-green-500 hover:bg-green-700 text-white px-4 py-2 rounded transition duration-300 ease-in-out">
+                                    รับเข้ากิจกรรม
+                                </button>
+                            </form>
+                        </div>
+                        <div class="text-gray-400 mt-2">
+                            <form method="get" action="{{ route("events.applications.update", ['event'=>$application->event]) }}">
+                                <input type="text" id="status" name="status" hidden value="REJECTED"/>
+                                <input type="text" id="application_id" name="application_id" hidden value="{{ $application->id }}"/>
+                                <button href="{{ route("home") }}" class="bg-red-500 hover:bg-red-700 text-white px-4 py-2 rounded transition duration-300 ease-in-out">
+                                    ไม่รับเข้ากิจกรรม
+                                </button>
+                            </form>
+                        </div>
+                        </div>
+                        @else
+                            <div class="text-gray-400">
+                                <button class="bg-gray-400 hover:bg-gray-500 text-white px-4 py-2 rounded transition duration-300 ease-in-out">
+                                    {{ $application->status }}
+                                </button>
+                            </div>
+                            <div class="text-gray-400 mt-2"></div>
+                        @endif
 
                     </li>
                 </a>

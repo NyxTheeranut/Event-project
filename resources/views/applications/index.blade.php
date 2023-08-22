@@ -43,8 +43,14 @@
                         @endif
                     </div>
 
-                    <span class="text-gray-400">{{ $events->find($application->event_id)->getDurationToStringAttribute() }}</span>
 
+{{--                    <span class="text-gray-400">{{ $events->find($application->event_id)->getDurationToStringAttribute() }}</span>--}}
+
+                    <span class="text-gray-400">
+                        <button class="bg-gray-400 hover:bg-gray-500 text-white px-4 py-2 rounded transition duration-300 ease-in-out">
+                            {{ $application->status }}
+                        </button>
+                    </span>
                 </li>
             </a>
 

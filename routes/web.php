@@ -54,6 +54,10 @@ Route::get('/events/{event}/applied',
     [EventController::class, 'createApplication']
 )->name('events.applications.create');
 
+Route::get('/events/{event}/applicationUpdate',
+    [EventController::class, 'applicationUpdate']
+)->name('events.applications.update');
+
 //Route::get('/events/create', [EventController::class, 'create'])
 //    ->name('event.create');
 
