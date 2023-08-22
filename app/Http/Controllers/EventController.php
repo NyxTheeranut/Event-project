@@ -93,17 +93,18 @@ class EventController extends Controller
     public function show(Event $event)
     {
         return view('events.show', [
-            'event' => $event
+            'event' => $event,
+            'applications' => $event->applications,
         ]);
     }
 
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(Event $event)
+    public function edit(Event $event, Request $request)
     {
         return view('events.edit', [
-            'event' => $event
+            'event' =>  Event::find($request->event)
         ]);
     }
 

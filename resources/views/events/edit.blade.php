@@ -13,14 +13,17 @@
                         <label for="title" class="block mb-2 font-bold text-blue-600">ชื่อกิจกรรม:</label>
                         @error('title') <div class="text-red-600 text-sm">{{$message}}</div> @enderror
                         <input type="text" id="textbox1" name="textbox1" autocomplete="off"
-                            value="{{ old('title','')}}"
-                            placeholder="ชื่อกิจกรรมใหม่..." class="border border-gray-300 @error('textbox1') border-red-400 @enderror shadow p-3 w-full rounded mb-2" style="height: 40px; width: 100%;">
+                            value="{{ $event->title }}"
+                            placeholder="ชื่อกิจกรรม" class="border border-gray-300 @error('textbox1') border-red-400 @enderror shadow p-3 w-full rounded mb-2" style="height: 40px; width: 100%;">
                     </div>
                     <div class="mb-2">
                         <label for="description" class="block mb-2 font-bold text-blue-600">คำอธิบายกิจกรรม:</label>
                         @error('description') <div class="text-red-600 text-sm">{{$message}}</div> @enderror
                         <textarea id="description" name="description" autocomplete="off"
-                                placeholder="คำอธิบายกิจกรรมใหม่..." class="border border-gray-300 @error('description') border-red-400 @enderror shadow p-3 w-full rounded mb-2" style="height: 120px; width: 100%;">{{ old('description','') }}</textarea>
+                                placeholder="คำอธิบายกิจกรรม"
+                                  {{-- value="{{ $event->description }}" --}}
+
+                                  class="border border-gray-300 @error('description') border-red-400 @enderror shadow p-3 w-full rounded mb-2" style="height: 120px; width: 100%;">{{ old('description','') }}</textarea>
                     </div>
                     <div class="mt-4">
                         <label class="block font-bold text-blue-600 dark:text-black-300 left-align-label" for="start_date_time" :value="__('วันเริ่มกิจกรรม')">

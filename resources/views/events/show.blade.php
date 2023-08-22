@@ -1,6 +1,7 @@
 @extends('layouts.main')
 
 @section('content')
+    @inject('Application', 'App\Models\Application')
     <div class="relative h-[570px] overflow-hidden bg-cover bg-[50%] bg-no-repeat bg-[url('https://images.pexels.com/photos/2747449/pexels-photo-2747449.jpeg?cs=srgb&dl=pexels-wolfgang-2747449.jpg&fm=jpg')]">
         <div class="flex items-center justify-center h-full">
             <div class="bg-white p-10 rounded-lg shadow md:w-3/4 mx-auto lg:w-1/2 flex">
@@ -27,27 +28,40 @@
                     </div>
 
                     @if (Auth::check())
+                        @if(Auth::user()->role === "MEMBER")
                     <div class="mt-3">
+                        @if ($applications->find(Auth::user()->id))
+                            <button type="submit" class="btn hover:bg-red-500">
+                                คุณสมัครกิจกรรมนี้ไปแล้ว
+                            </button>
+                        @else
                         <form method="GET" action="{{ route('events.applications.create', ['event' => $event]) }}">
                             <button type="submit" class="btn">
                                 สมัคร
                             </button>
                         </form>
+                        @endif
                     </div>
                     </div>
-                @if (! Auth::user()->role === "MEMBER")
+                @else
+                    <div class="mt-3">
+
+                    </div>
+            </div>
+                @endif
+                @if (Auth::user()->role === "MEMBER")
                     <!-- smart (right side) -->
-                    <div class="w-1/2 pl-6 border-l">
-                        <div class="mb-3"style="margin-top: 3.6rem;">
-                            <label for="name" class="block font-bold text-blue-600">งบจัดกิจกรรม:</label>
-                            <span class="font-normal text-black-600">{{ $event->budget }}</span>
-                        </div>
-                        @else
                             <div class="w-1/2 pl-6 border-l">
                                 <div class="mb-3"style="margin-top: 3.6rem;">
                                     <label for="name" class="block font-bold text-blue-600"></label>
                                     <span class="font-normal text-black-600"></span>
                                 </div>
+                        @else
+                    <div class="w-1/2 pl-6 border-l">
+                        <div class="mb-3"style="margin-top: 3.6rem;">
+                            <label for="name" class="block font-bold text-blue-600">งบจัดกิจกรรม:</label>
+                            <span class="font-normal text-black-600">{{ $event->budget }}</span>
+                        </div>
                         @endif
                         <div class="mb-3">
                             <label for="name" class="block font-bold text-blue-600">ผู้จัดทำกิจกรรม:</label>
@@ -77,9 +91,8 @@
                         </a>
                     </div>
 
-
                     <div class="flex justify-between mt-1">
-                        <a href="{{ route('kanban-board.index', ['event' => $event]) }}" class="btn">
+                        <a href="{{ route('events.edit', ['event' => $event]) }}" class="btn">
                             แก้ไข
                         </a>
                     </div>

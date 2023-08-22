@@ -33,7 +33,7 @@ Route::get('/about', function () {
 })->name('about.index');
 
 Route::get('/events', [EventController::class, 'index'])->name('events.index');
-Route::get('/events/edit', [EventController::class, 'edit'])->name('events.edit');
+Route::get('/events/{event}/edit', [EventController::class, 'edit'])->name('events.edit');
 Route::get('/events/{event}', [EventController::class, 'show'])->name('events.show');
 
 Route::get('/edit', [EventController::class, 'edit'])->name('events.edit');
