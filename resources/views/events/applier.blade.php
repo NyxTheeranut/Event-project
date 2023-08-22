@@ -22,7 +22,7 @@
 
 {{--            --}}
             @foreach ($applications->where('event', $event) as $application)
-                <a href="{{ route("profile.show", [$application->user]) }}">
+                <a href="{{ route("profile.show", ['user'=>($application->user)]) }}">
                     <li class="flex items-center py-4 px-6 hover:bg-gray-50">
                         <span class="text-gray-700 text-lg font-medium mr-4">{{ $loop->iteration }}.</span>
                         <div class="flex-1">

@@ -141,15 +141,4 @@ class EventController extends Controller
         ]);
     }
 
-
-    public function appliershow(Event $event, User $user)
-    {
-        return view('events.applier-show', [
-            'event' => $event,
-            'applications' => Application::get(),
-            'user' => $user
-        ]);
-    }
-
-
 }

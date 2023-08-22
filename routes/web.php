@@ -57,10 +57,7 @@ Route::get('/events/{event}/applied',
 
 Route::post('/events/create', [EventController::class, 'store'])->name('event.create');
 
-Route::get('/events/{event}/applier', [EventController::class, 'applierindex'])->name('event.applier'); //ชั่วคราวเพื่อให้ใช้ $event list
-
-//Route::get('/events/{event}/applier/{user}'), [EventController::class, 'appliershow'])->name('event.show');
-Route::get('/events/{event}/applier/user', [EventController::class, 'appliershow'])->name('event.show');
+Route::get('/events/{event}/applier', [EventController::class, 'applierindex'])->name('event.applier');
 
 Route::resource('/events/{event}/kanban-board', KanbanBoardController::class);
 
@@ -101,7 +98,7 @@ Route::middleware('auth')->group(function () {
 //    Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 });
 
-Route::get('/profile', [ProfileController::class, 'show'])->name('profile.show');
+Route::get('/userinfo/{user}', [ProfileController::class, 'show'])->name('profile.show');
 
 Route::resource('/myprofile/certificates', CertificateController::class);
 
