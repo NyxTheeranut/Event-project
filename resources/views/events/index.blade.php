@@ -5,18 +5,24 @@
     {{-- Heading Image --}}
     {{--<div class="relative h-[570px] overflow-hidden bg-cover bg-[50%] bg-no-repeat bg-[url('https://images.pexels.com/photos/2747449/pexels-photo-2747449.jpeg?cs=srgb&dl=pexels-wolfgang-2747449.jpg&fm=jpg')]">
         <div class="absolute top-0 right-0 bottom-0 left-0 h-full w-full overflow-hidden bg-[hsla(0,0%,0%,0.5)] bg-fixed">
+    <div class="relative h-[470px] overflow-hidden bg-cover bg-[50%] bg-no-repeat bg-[url('https://images.pexels.com/photos/2747449/pexels-photo-2747449.jpeg?cs=srgb&dl=pexels-wolfgang-2747449.jpg&fm=jpg')]">
+        <div class="absolute top-0 right-0 bottom-0 left-0 h-full w-full overflow-hidden bg-fixed">
             <div class="flex h-full items-center justify-left">
                 <div class="max-w-[800px] px-6 py-6 text-left text-white md:py-0 md:px-16">
 
-                    <h2 class="mb-8 text-5xl font-bold leading-tight tracking-tight md:text-6xl xl:text-7xl">
+                    <h2 class="mb-12 text-5xl font-bold leading-tight tracking-tight md:text-6xl xl:text-7xl">
                         กิจกรรม
                     </h2>
 
+                    @if (Auth::check())
+                        @if (Auth::user()->role === "STAFF")
                     @can('create', \App\Models\Event::class)
                         <button id="popupButton" class="inline-block text-white bg-purple-700 hover:bg-purple-800 focus:ring-4 focus:ring-purple-300 font-medium rounded-lg text-sm px-4 lg:px-5 py-2 lg:py-2.5 sm:mr-2 lg:mr-0 focus:outline-none">
                             สร้างกิจกรรม
                         </button>
                     @endcan
+                        @endif
+                    @endif
 
                     <!-- Popup Modal (Hidden by default) -->
                     <div id="popupModal" class="fixed top-0 left-0 w-full h-full bg-black bg-opacity-50 flex items-center justify-center hidden">
@@ -75,10 +81,10 @@
     </div> --}}
 
     {{-- Event List --}}
-    {{-- <div class="block shadow-black/20 backdrop-blur-[30px] -mt-[130px] bg-white rounded-md overflow-hidden w-11/12 mx-auto mb-16">
+    <div class="block shadow-black/20 backdrop-blur-[30px] -mt-[130px] bg-white rounded-md overflow-hidden w-11/12 mx-auto mb-16">
         <ul class="divide-y divide-gray-200">
 
-
+            {{-- No Event --}}
            @if (count($events) === 0)
                 <div class="flex items-center justify-center py-4 px-6">
                     <img class="w-1/6" src="https://static.vecteezy.com/system/resources/previews/003/067/848/original/cartoon-sad-smile-face-emoticon-icon-in-flat-style-free-vector.jpg" alt="Sad face">
@@ -102,7 +108,7 @@
             @endforeach
 
         </ul>
-    </div> --}}
+    </div>
         <div class="max-w-[800px] px-6 py-6 text-left text-white md:py-0 md:px-16 mb-10">
 
         <h2 class="mb-8 text-5xl font-bold leading-tight tracking-tight md:text-6xl xl:text-7xl "style="color: black;">
@@ -165,8 +171,8 @@
                 </div>
             </div>
         </div>
-    </div>    
-    
+    </div>
+
     <div class="movie-list snipcss-pfK3z ml-20" id="movie-showing1">
         <div class="swiper-wrapper snipcss-nIoro style-3cjh3" id="style-3cjh3" style="display: flex; flex-wrap: wrap;">
             @foreach ($events as $event)
@@ -200,7 +206,7 @@
                             {{ $event->start_date_time }}
                         </a>
                     </div>
-                    
+
                 </div>
             </div>
             @endforeach
@@ -213,11 +219,11 @@
           <span class="swiper-notification" aria-live="assertive" aria-atomic="true">
           </span>
         </div>
-    </div> 
+    </div>
 
-    
-    
-      
+
+
+
     <script>
         const popupButton = document.getElementById('popupButton');
         const popupModal = document.getElementById('popupModal');
@@ -230,7 +236,7 @@
         closePopupButton.addEventListener('click', function() {
             popupModal.classList.add('hidden');
         });
-     
+
     var swiper = new Swiper('.swiper-container', {
         slidesPerView: 'auto', // Display as many slides as fit on the screen
         spaceBetween: 20, // Adjust this value to control the gap between slides
