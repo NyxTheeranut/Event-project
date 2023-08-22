@@ -125,7 +125,7 @@
 
                             <div class="flex items-center justify-middle mt-6">
                                 <button id="closeEditPopupButton" class="mr-9 btn">Close</button>
-                                <button class="ml-9 btn">
+                                <button class="ml-auto btn">
                                     {{ __('Submit') }}
                                 </button>
                             </div>
