@@ -29,7 +29,7 @@
                     </div>
 
                 @else
-                <div class="mx-4 font-semibold">
+                <div class="mx-4 font-semibold"  style="color: black;">
                     <button  id="loginPopupButton">เข้าสู่ระบบ</button>
                 </div>
 
@@ -45,6 +45,7 @@
                                     อีเมล
                                 </label>
                                 <input  class="border-gray-300 dark:border-gray-700 rounded-md shadow-sm block mt-1 w-full"
+                                style="color: black;"
                                         id="email"
                                         type="email"
                                         name="email" :value="old('email')"
@@ -59,7 +60,7 @@
                                 <label class="block font-medium text-sm text-gray-700 dark:text-black-300" for="password" :value="__('Password')">
                                     รหัสผ่าน
                                 </label>
-                                <input  class="border-gray-300 dark:border-gray-700 rounded-md shadow-sm block mt-1 w-full"
+                                <input  class="border-gray-300 dark:border-gray-700 rounded-md shadow-sm block mt-1 w-full"  style="color: black;"
                                         id="password"
                                         type="password"
                                         name="password"
@@ -95,7 +96,7 @@
                     </div>
                 </div>
 
-                <div class="mx-4 font-semibold">
+                <div class="mx-4 font-semibold"  style="color: black;">
                     <button id="registerPopupButton">สมัคร</button>
                 </div>
 
@@ -111,6 +112,7 @@
                                     ชื่อจริง
                                 </label>
                                 <input  class="border-gray-300 dark:border-gray-700 rounded-md shadow-sm block mt-1 w-full"
+                                style="color: black;"
                                         id="first_name"
                                         type="text"
                                         name="first_name" :value="old('first_name')"
@@ -125,6 +127,7 @@
                                     นามสกุล
                                 </label>
                                 <input  class="border-gray-300 dark:border-gray-700 rounded-md shadow-sm block mt-1 w-full"
+                                style="color: black;"
                                         id="last_name"
                                         type="text"
                                         name="last_name" :value="old('last_name')"
@@ -139,6 +142,7 @@
                                     ชื่อเล่น
                                 </label>
                                 <input  class="border-gray-300 dark:border-gray-700 rounded-md shadow-sm block mt-1 w-full"
+                                style="color: black;"
                                         id="nickname"
                                         type="text"
                                         name="nickname" :value="old('nickname')"
@@ -153,6 +157,7 @@
                                     อีเมล
                                 </label>
                                 <input  class="border-gray-300 dark:border-gray-700 rounded-md shadow-sm block mt-1 w-full"
+                                style="color: black;"
                                         id="email"
                                         type="email"
                                         name="email" :value="old('email')"
@@ -168,6 +173,7 @@
                                 </label>
 
                                 <input  class="border-gray-300 dark:border-gray-700 rounded-md shadow-sm block mt-1 w-full"
+                                style="color: black;"
                                         id="password"
                                         class="block mt-1 w-full"
                                         type="password"
@@ -185,6 +191,7 @@
                                 </label>
 
                                 <input  class="border-gray-300 dark:border-gray-700 rounded-md shadow-sm block mt-1 w-full"
+                                style="color: black;"
                                         id="password_confirmation"
                                         class="block mt-1 w-full"
                                         type="password"
