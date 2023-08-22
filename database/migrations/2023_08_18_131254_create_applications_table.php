@@ -18,7 +18,7 @@ return new class extends Migration
     //  Event_ID (FK)
     //  Video_URL #String
     //  Message #String
-    //  Status #String <PENDING, APPROVED, REJECTED>
+    //  Status #String <PENDING, ACCEPT, REJECTED>
 
     public function up(): void
     {

@@ -158,4 +158,15 @@ class EventController extends Controller
         ]);
     }
 
+    public function applicationUpdate(Request $request)
+    {
+//        return $request;
+        $application = Application::find($request->get('application_id'));
+        $application->status = $request->get('status');
+        $application->save();
+        return redirect()->route('events.show', [
+            'event' => $application->event
+        ]);
+    }
+
 }
