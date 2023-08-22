@@ -22,9 +22,16 @@ class BudgetRequestController extends Controller
     /**
      * Show the form for creating a new resource.
      */
-    public function create()
+    public function create(Request $request)
     {
-        //
+//        return $request;
+
+        $budgetrequests = new BudgetRequest();
+        $budgetrequests->event_id = $request->event_id;
+        $budgetrequests->reason = 'PENDING';
+        $budgetrequests->save();
+
+        return redirect()->route('budgetrequests.index');
     }
 
     /**

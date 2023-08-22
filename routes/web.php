@@ -112,6 +112,8 @@ Route::resource('/myprofile/certificates', CertificateController::class);
 
 Route::get('/budgetrequests', [BudgetRequestController::class, 'index'])->name('budgetrequests.index');
 
+Route::get('/budgetrequests/create', [BudgetRequestController::class, 'create'])->name('budgetrequests.create');
+
 Route::get('/budgetrequests/update',
     [BudgetRequestController::class, 'update']
 )->name('budgetrequest.update');

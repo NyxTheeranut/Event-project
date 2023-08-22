@@ -94,14 +94,24 @@
                             ผู้ที่สมัครกิจกรรม
                         </a>
                     </div>
-
+                                @if($event->budgetrequest === null)
                     <div class="flex justify-between mt-2">
-                        <a href="{{ route('event.applier', ['event' => $event]) }}" class="btn">
+                        <form method="get" action="{{ route('budgetrequests.create') }}">
+                            <input type="hidden" name="event_id" value="{{ $event->id }}">
+                            <button class="btn">
                             ยื่นเรื่องของอนุมัติงบประมาณ
-                        </a>
-
+                        </button>
+                        </form>
                     </div>
-                        @endif
+                                    @else
+                                    <div class="flex justify-between mt-2">
+                                            <button class="bg-gray-500 hover:bg-yellow-700 mr-1 text-white px-4 py-2 rounded transition duration-300 ease-in-out">
+                                                กิจกรรมนี้มีการยื่นของอนุมัติงบประมาณแล้ว <br> {{ $event->budgetrequest->getStatusMessage()}}
+                                            </button>
+                                    </div>
+                                @endif
+
+                    @endif
 
                         @if (Auth::user()->role === "ACCOUNTANT")
 
@@ -127,6 +137,7 @@
             </div>
         </div>
     </div>
+
     <!-- accept popup -->
     <form method="GET" action="{{ route('budgetrequest.update') }}">
         <div id="acceptPopupModal" class="fixed top-0 left-0 w-full h-full bg-black bg-opacity-50 flex items-center justify-center hidden">

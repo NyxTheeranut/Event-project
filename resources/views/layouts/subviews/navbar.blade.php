@@ -78,9 +78,9 @@
                                 </label>
                             </div>
                             <div>
-                                <a id="changePopupButtonToRegister" class="underline text-sm text-gray-600 dark:text-black-400 hover:text-black-900 rounded-md focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500 dark:focus:ring-offset-gray-800">
-                                    {{ __('ยังไม่มีบัญชี? ไปสมัครเลย') }}
-                                </a>
+{{--                                <a id="changePopupButtonToRegister" class="underline text-sm text-gray-600 dark:text-black-400 hover:text-black-900 rounded-md focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500 dark:focus:ring-offset-gray-800">--}}
+{{--                                    {{ __('ยังไม่มีบัญชี? ไปสมัครเลย') }}--}}
+{{--                                </a>--}}
                             </div>
                             <div class="flex items-center justify-center mt-4">
                                 <button id="closeLoginPopupButton" class="mr-14 btn">Close</button>
@@ -96,9 +96,9 @@
                     </div>
                 </div>
 
-                <div class="mx-4 font-semibold"  style="color: black;">
-                    <button id="registerPopupButton">สมัคร</button>
-                </div>
+{{--                <div class="mx-4 font-semibold"  style="color: black;">--}}
+{{--                    <button id="registerPopupButton">สมัคร</button>--}}
+{{--                </div>--}}
 
                 <!-- Popup Modal for Registration (Hidden by default) -->
                 <div id="registerPopupModal" class="fixed top-0 left-0 w-full h-full bg-black bg-opacity-50 flex items-center justify-center hidden">

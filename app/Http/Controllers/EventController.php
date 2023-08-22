@@ -61,11 +61,11 @@ class EventController extends Controller
 
     public function storeApplication(Request $request, Event $event)
     {
-        $request->validate([
-            'video_url' => ['min:4', 'max:255'],
-            'description' => ['required', 'min:10', 'max:255'],
-            'budget' => ['required', 'integer', 'max:5000000']
-        ]);
+//        $request->validate([
+//            'video_url' => ['min:4', 'max:255'],
+//            'description' => ['required', 'min:10', 'max:255'],
+//            'budget' => ['required', 'integer', 'max:5000000']
+//        ]);
 
         $application = new Application();
         $application->event_id = $event->id;
@@ -125,7 +125,7 @@ class EventController extends Controller
     {
         $request->validate([
             'title' => ['required', 'min:4', 'max:255'],
-            'description' => ['required', 'min:10', 'mmax:255'],
+            'description' => ['required', 'min:10', 'max:255'],
             'budget' => ['required', 'integer', 'max:5000000']
         ]);
 

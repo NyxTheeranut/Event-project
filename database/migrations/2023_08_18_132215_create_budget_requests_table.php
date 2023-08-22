@@ -23,7 +23,7 @@ return new class extends Migration
             $table->id();
             $table->foreignIdFor(Event::class)->constrained('events');
             $table->string('status')->default('PENDING');
-            $table->string('reason');
+            $table->string('reason')->nullable();
             $table->timestamps();
             $table->softDeletes();
         });
