@@ -146,12 +146,12 @@
                            type="text"
                            name="status"
                            value="{{ $status }}"/>
-                    <label id="rejectText" class="block font-medium text-sm text-black-700 dark:text-black-300" for="reason" :value="__('เหตุผลการปฏิเสธ')">
+                    <label id="rejectText" class="block font-medium text-sm text-black-700 dark:text-black-300" style="color: black;" for="reason" :value="__('เหตุผลการปฏิเสธ')">
                         เหตุผลที่อนุมัติกิจกรรมนี้
                     </label>
                     <div class="mt-1">
                         <input class="border-gray-300 dark:border-gray-700 rounded-md shadow-sm block w-full"
-                               style="max-width: 350px;"
+                        style="max-width: 350px; color: black;"
                                id="reason"
                                type="text"
                                name="reason" :value="old('reason')"
@@ -189,12 +189,12 @@
                            type="text"
                            name="status"
                            value="{{ $status }}"/>
-                    <label id="rejectText" class="block font-medium text-sm text-black-700 dark:text-black-300" for="reason" :value="__('เหตุผลการปฏิเสธ')">
+                    <label id="rejectText" class="block font-medium text-sm text-black-700 dark:text-black-300" style="color: black;" for="reason" :value="__('เหตุผลการปฏิเสธ')">
                         เหตุผลที่ไม่อนุมัติกิจกรรมนี้
                     </label>
                     <div class="mt-1">
                         <input class="border-gray-300 dark:border-gray-700 rounded-md shadow-sm block w-full"
-                               style="max-width: 350px;"
+                               style="max-width: 350px; color: black;"
                                id="reason"
                                type="text"
                                name="reason" :value="old('reason')"

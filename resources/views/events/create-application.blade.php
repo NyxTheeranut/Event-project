@@ -23,20 +23,20 @@
                 </div>
                     <div class="mb-5">
                         <label for="name" class="block mb-3 font-bold text-blue-600">ชื่อกิจกรรม:</label>
-                        <span>{{ $event->title }}</span>
+                        <span style="color: black;">{{ $event->title }}</span>
                     </div>
                 <form method="GET" action="{{ route('events.applications.store', ['event' => $event]) }}">
                     <div class="mb-5">
                         <label for="video_url" class="block mb-2 font-bold text-green-600">ลิงก์วิดีโอแนะนำตัวของคุณ:</label>
                         @error('video_url') <div class="text-red-600 text-sm">{{$message}}</div> @enderror
-                        <input type="video_url" id="video_url" name="video_url" autocomplete="off"
+                        <input style="color: black;" type="video_url" id="video_url" name="video_url" autocomplete="off"
                             value="{{ old('video_url','')}}"
                            placeholder="URL link" class="border border-gray-300 @error('video_url') border-red-400 @enderror shadow p-3 w-full rounded mb-2">
                     </div>
                     <div class="mb-5">
                         <label for="message" class="block mb-2 font-bold text-red-600">ข้อความถึงผู้จัดกิจกรรม:</label>
                         @error('message') <div class="text-red-600 text-sm">{{$message}}</div> @enderror
-                        <input type="text" id="message" name="message" autocomplete="off"
+                        <input style="color: black;" type="text" id="message" name="message" autocomplete="off"
                             value="{{ old('message','')}}"
                            placeholder="Details" class="border border-gray-300 @error('message') border-red-400 @enderror shadow p-3 w-full rounded mb-2">
                     </div>

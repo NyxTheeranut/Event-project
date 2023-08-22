@@ -180,13 +180,17 @@
                             <div class="mlbc-name color-black">
                                 {{ $event->title }}
                             </div>
-                            <div class="mlbc-cate">
-                                <img src="https://www.majorcineplex.com/public/desktop_new_assets/img/icon-tag.svg" class="mlbc-icon">
-                                location
+                            <div class="mlbc-time">
+                                <img src="https://www.majorcineplex.com/public/desktop_new_assets/img/icon-time.svg" class="mlbc-icon">
+                                Start: {{ $event->start_date_time }}
                             </div>
                             <div class="mlbc-time">
                                 <img src="https://www.majorcineplex.com/public/desktop_new_assets/img/icon-time.svg" class="mlbc-icon">
-                                {{ $event->start_date_time }}
+                                End :{{ $event->end_date_time }}
+                            </div>
+                            <div class="mlbc-time pt-5">
+                                Description :
+                                {{ $event->description }}
                             </div>
                             <div class="mlbc-btn">
                                 <a href="{{ route("events.show", ["event" => $event]) }}" class="mlbc-btn-mi">
@@ -200,7 +204,7 @@
                     </div>
                     <div class="mlb-name">
                         <a href="{{ route("events.show", ["event" => $event]) }}" style="color: grey;">
-                            {{ $event->start_date_time }}
+                            Start: {{ $event->start_date_time }}
                         </a>
                     </div>
 

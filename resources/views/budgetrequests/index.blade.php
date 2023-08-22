@@ -41,7 +41,7 @@
                     @endif
                 </div>
                 <span class="text-gray-400">
-                    <button class="bg-gray-300 {{ $budgetrequest->getStatusTextColor() }} px-4 py-2 rounded"> {{ $budgetrequest->getStatusMessage() }} </button>
+                    <button class="bg-gray-300 px-4 py-2 rounded" style="{{ $budgetrequest->getStatusTextColor() }}"> {{ $budgetrequest->getStatusMessage() }} </button>
                     @if (Auth::user()->role === "ACCOUNTANT")
                         <a href="/events/{{ $budgetrequest->event->id }}" class="bg-blue-500 hover:bg-green-700 text-white px-4 py-2 rounded transition duration-300 ease-in-out">
                             คลิกที่นี่ เพื่อดูรายละเอียดเพิ่มเติ่ม และตัดสินใจ
