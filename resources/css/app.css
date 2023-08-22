@@ -2,10 +2,6 @@
 @tailwind components;
 @tailwind utilities;
 
-.container {
-    margin-top: 55px;
-  }
-
 nav {
     position: fixed;
     top: 0;
@@ -169,7 +165,7 @@ nav {
 
 /*noinspection ALL*/
 body {
-    margin: 0;
+    margin-top: 0;
     font-family: var(--mdb-body-font-family);
     font-size: var(--mdb-body-font-size);
     font-weight: var(--mdb-body-font-weight);
@@ -503,3 +499,649 @@ a:hover {
     border-color: transparent
   }
 }
+
+@font-face { 
+  font-family:swiper-icons;
+  src:url("data:application/font-woff;charset=utf-8;base64, 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") format("woff");
+  font-weight:400;
+  font-style:normal;
+} 
+@font-face { 
+  font-family:"DB Gin Siam X";
+  src:url("https://www.majorcineplex.com/public/desktop_new_assets/fonts/DBGinSiamX-Italic.eot");
+  src:url("https://www.majorcineplex.com/public/desktop_new_assets/fonts/DBGinSiamX-Italic.eot?#iefix") format("embedded-opentype"),
+        url("https://www.majorcineplex.com/public/desktop_new_assets/fonts/DBGinSiamX-Italic.woff2") format("woff2"),
+        url("https://www.majorcineplex.com/public/desktop_new_assets/fonts/DBGinSiamX-Italic.woff") format("woff"),
+        url("https://www.majorcineplex.com/public/desktop_new_assets/fonts/DBGinSiamX-Italic.ttf") format("truetype"),
+        url("https://www.majorcineplex.com/public/desktop_new_assets/fonts/DBGinSiamX-Italic.svg#DBGinSiamX-Italic") format("svg");
+  font-weight:normal;
+  font-style:italic;
+} 
+@font-face { 
+  font-family:"DB Gin Siam X";
+  src:url("https://www.majorcineplex.com/public/desktop_new_assets/fonts/DBGinSiamX.eot");
+  src:url("https://www.majorcineplex.com/public/desktop_new_assets/fonts/DBGinSiamX.eot?#iefix") format("embedded-opentype"),
+        url("https://www.majorcineplex.com/public/desktop_new_assets/fonts/DBGinSiamX.woff2") format("woff2"),
+        url("https://www.majorcineplex.com/public/desktop_new_assets/fonts/DBGinSiamX.woff") format("woff"),
+        url("https://www.majorcineplex.com/public/desktop_new_assets/fonts/DBGinSiamX.ttf") format("truetype"),
+        url("https://www.majorcineplex.com/public/desktop_new_assets/fonts/DBGinSiamX.svg#DBGinSiamX") format("svg");
+  font-weight:normal;
+  font-style:normal;
+} 
+@font-face { 
+  font-family:"DB Gin Siam X";
+  src:url("https://www.majorcineplex.com/public/desktop_new_assets/fonts/DBGinSiamX-Light.eot");
+  src:url("https://www.majorcineplex.com/public/desktop_new_assets/fonts/DBGinSiamX-Light.eot?#iefix") format("embedded-opentype"),
+        url("https://www.majorcineplex.com/public/desktop_new_assets/fonts/DBGinSiamX-Light.woff2") format("woff2"),
+        url("https://www.majorcineplex.com/public/desktop_new_assets/fonts/DBGinSiamX-Light.woff") format("woff"),
+        url("https://www.majorcineplex.com/public/desktop_new_assets/fonts/DBGinSiamX-Light.ttf") format("truetype"),
+        url("https://www.majorcineplex.com/public/desktop_new_assets/fonts/DBGinSiamX-Light.svg#DBGinSiamX-Light") format("svg");
+  font-weight:300;
+  font-style:normal;
+} 
+@font-face { 
+  font-family:"DB Gin Siam X";
+  src:url("https://www.majorcineplex.com/public/desktop_new_assets/fonts/DBGinSiamX-Bold.eot");
+  src:url("https://www.majorcineplex.com/public/desktop_new_assets/fonts/DBGinSiamX-Bold.eot?#iefix") format("embedded-opentype"),
+        url("https://www.majorcineplex.com/public/desktop_new_assets/fonts/DBGinSiamX-Bold.woff2") format("woff2"),
+        url("https://www.majorcineplex.com/public/desktop_new_assets/fonts/DBGinSiamX-Bold.woff") format("woff"),
+        url("https://www.majorcineplex.com/public/desktop_new_assets/fonts/DBGinSiamX-Bold.ttf") format("truetype"),
+        url("https://www.majorcineplex.com/public/desktop_new_assets/fonts/DBGinSiamX-Bold.svg#DBGinSiamX-Bold") format("svg");
+  font-weight:bold;
+  font-style:normal;
+}
+* { 
+    box-sizing: border-box;
+} 
+
+body { 
+    margin: 0; 
+    font-size: 1rem; 
+    font-weight: 400; 
+    line-height: 1.5; 
+    color: #212529; 
+    text-align: left; 
+    background-color: #f4f4f4;
+} 
+
+body {  
+    color: #b8b8b8; 
+} 
+
+body { 
+    position: relative;
+} 
+
+html { 
+    font-family: sans-serif; 
+    line-height: 1.15; 
+    -webkit-text-size-adjust: 100%; 
+    -webkit-tap-highlight-color: transparent;
+} 
+
+html { 
+    overflow-x: hidden; 
+    margin: 0; 
+    padding: 0;
+} 
+
+:root { 
+    --swiper-navigation-size: 44px;
+} 
+
+.movie-list { 
+    padding-right: 100px; 
+    padding-left: 100px;
+    position: relative;
+   margin: 0 0 .2em 0;;
+} 
+
+*,:after,:before { 
+    box-sizing: border-box;
+} 
+
+.swiper-container { 
+    margin-left: auto; 
+    margin-right: auto; 
+    position: relative; 
+    overflow: hidden; 
+    list-style: none; 
+    padding: 0; 
+    z-index: 1;
+} 
+
+.swiper-container  { 
+    width: 100%; 
+    height: 100%; 
+    margin-left: auto; 
+    margin-right: auto; 
+    position: initial;
+} 
+
+.swiper-wrapper { 
+    position: relative; 
+    width: 100%; 
+    height: 100%; 
+    z-index: 1; 
+    display: flex; 
+    transition-property: transform; 
+    box-sizing: content-box;
+} 
+
+.swiper-wrapper { 
+    transform: translate3d(0px,0,0);
+} 
+
+.swiper-container-free-mode > .swiper-wrapper  { 
+    transition-timing-function: ease-out; 
+    margin: 0 auto;
+} 
+
+.swiper-button-next { 
+    position: absolute; 
+    top: 50%; 
+    width: calc(var(--swiper-navigation-size)/ 44 * 27); 
+    height: var(--swiper-navigation-size); 
+    margin-top: calc(-1 * var(--swiper-navigation-size)/ 2); 
+    z-index: 10; 
+    cursor: pointer; 
+    display: flex; 
+    align-items: center; 
+    justify-content: center; 
+    color: var(--swiper-navigation-color,var(--swiper-theme-color));
+} 
+
+.swiper-button-next { 
+    right: 10px; 
+    left: auto;
+} 
+
+.swiper-button-next  { 
+    right: 0px; 
+    top: 35%;
+} 
+
+.swiper-button-next:after,.swiper-button-prev:after { 
+    font-family: swiper-icons; 
+    font-size: var(--swiper-navigation-size); 
+    text-transform: none; 
+    letter-spacing: 0; 
+    font-variant: initial;
+} 
+
+.swiper-button-next:after, .swiper-container-rtl .swiper-button-prev::after { 
+    content: 'next';
+} 
+
+.swiper-button-next::after, .swiper-container-rtl .swiper-button-prev::after { 
+    font-size: 24px; 
+    color: black;
+} 
+
+.movie-list .swiper-button-next::after, .movie-list .swiper-container-rtl .swiper-button-prev::after { 
+    display: none;
+} 
+
+.swiper-button-prev { 
+    position: absolute; 
+    top: 50%; 
+    width: calc(var(--swiper-navigation-size)/ 44 * 27); 
+    height: var(--swiper-navigation-size); 
+    margin-top: calc(-1 * var(--swiper-navigation-size)/ 2); 
+    z-index: 10; 
+    cursor: pointer; 
+    display: flex; 
+    align-items: center; 
+    justify-content: center; 
+    color: var(--swiper-navigation-color,var(--swiper-theme-color));
+} 
+
+.swiper-button-prev { 
+    left: 10px; 
+    right: auto;
+} 
+
+.swiper-button-prev  { 
+    left: auto; 
+    right: 0px; 
+    top: 55%;
+} 
+
+.swiper-button-prev:after, .swiper-container-rtl .swiper-button-next::after { 
+    content: 'prev';
+} 
+
+.swiper-button-prev::after, .swiper-container-rtl .swiper-button-next::after { 
+    font-size: 24px; 
+    color: #fff;
+} 
+
+.movie-list .swiper-button-prev::after, .movie-list .swiper-container-rtl .swiper-button-next::after { 
+    display: none;
+} 
+
+.swiper-container .swiper-notification  { 
+    position: absolute; 
+    left: 0; 
+    top: 0; 
+    pointer-events: none; 
+    opacity: 0; 
+    z-index: -1000;
+} 
+
+.swiper-slide { 
+    flex-shrink: 0; 
+    width: 100%; 
+    height: 100%; 
+    position: relative; 
+    transition-property: transform;
+} 
+
+.swiper-slide  { 
+    text-align: center; 
+    font-size: 20px; 
+    height: calc((100% - 30px) / 2); 
+    display: -webkit-box; 
+    display: -ms-flexbox; 
+    display: -webkit-flex; 
+    display: flex; 
+    -webkit-box-pack: center; 
+    -ms-flex-pack: center; 
+    -webkit-justify-content: center; 
+    justify-content: center; 
+    -webkit-box-align: center; 
+    -ms-flex-align: center; 
+    -webkit-align-items: center; 
+    align-items: center;
+} 
+
+img { 
+    vertical-align: middle; 
+    border-style: none;
+} 
+
+img.icon-arrow-slider { 
+    width: 40px; 
+    height: 40px;
+} 
+
+.ml-box { 
+    margin-bottom: 15px;
+} 
+
+.ml-box { 
+    width: 100%;
+} 
+
+.mlb-cover { 
+    margin-bottom: 15px; 
+    position: relative; 
+    height: 275px;
+} 
+
+.mlb-cover { 
+    margin-bottom: 15px; 
+    position: relative; 
+    height: 360px;
+} 
+
+.mlb-cover { 
+    border-radius: 10px; 
+    background-size: cover!important; 
+    background-position: top center!important; 
+    background-repeat: no-repeat!important; 
+    background-repeat-x: no-repeat !important; 
+    background-repeat-y: no-repeat !important;
+} 
+
+.adv_tic:after { 
+  
+    content: " "; 
+    padding: 34px; 
+    position: absolute; 
+    right: 0; 
+    top: 0; 
+    z-index: 10; 
+    cursor: pointer; 
+    background-position-x: right; 
+    background-position-y: top; 
+    background-size: initial; 
+    background-repeat-x: no-repeat; 
+    background-repeat-y: no-repeat; 
+    background-attachment: scroll; 
+    background-origin: initial; 
+    background-clip: initial; 
+    background-color: rgba(0, 0, 0, 0);
+} 
+
+.mlb-date { 
+    font-family: "Bai Jamjuree"; 
+    text-align: left; 
+    font-size: 11px; 
+    text-transform: uppercase; 
+    color: black;
+} 
+
+.mlb-date { 
+    font-family: 'DB Gin Siam X'; 
+    text-align: left; 
+    font-size: 20px; 
+    font-style: normal; 
+    font-weight: normal; 
+    line-height: 26px; 
+    text-transform: uppercase; 
+    color: black;
+} 
+
+.mlb-name { 
+    text-align: left; 
+    text-transform: uppercase; 
+    color: #fff;
+} 
+
+.mlb-name { 
+    min-height: 80px;
+} 
+
+.mlb-genres { 
+    text-align: left;
+} 
+
+.mlbc-hover { 
+    opacity: 0; 
+    position: absolute; 
+    top: 0; 
+    bottom: 0; 
+    left: 0; 
+    right: 0; 
+    width: 100%; 
+    height: 100%; 
+    padding: 10px; 
+    text-align: left; 
+    background-color: rgba(0, 0, 0, 0.8); 
+    -webkit-transition: all 0.4s ease 0s; 
+    -moz-transition: all 0.4s ease 0s; 
+    -ms-transition: all 0.4s ease 0s; 
+    -o-transition: all 0.4s ease 0s; 
+    transition: all 0.4s ease 0s; 
+    z-index: 11;
+} 
+
+.ml-box:hover .mlbc-hover { 
+    opacity: 1; 
+    -webkit-transition: all 0.4s ease 0s; 
+    -moz-transition: all 0.4s ease 0s; 
+    -ms-transition: all 0.4s ease 0s; 
+    -o-transition: all 0.4s ease 0s; 
+    transition: all 0.4s ease 0s;
+} 
+
+a { 
+    color: black; 
+    text-decoration: none; 
+    background-color: transparent;
+} 
+
+a { 
+    text-decoration: none; 
+    outline-style: none; 
+    -webkit-transition: all 0.4s ease 0s; 
+    -moz-transition: all 0.4s ease 0s; 
+    -ms-transition: all 0.4s ease 0s; 
+    -o-transition: all 0.4s ease 0s; 
+    transition: all 0.4s ease 0s;
+} 
+
+.mlb-name a  { 
+    color: #fff; 
+    font-size: 20px; 
+    display: -webkit-box; 
+    -webkit-line-clamp: 2; 
+    -webkit-box-orient: vertical; 
+    overflow: hidden; 
+    line-height: 1;
+} 
+
+.mlb-name a  { 
+    color: #fff; 
+    font-size: 30px; 
+    display: -webkit-box; 
+    -webkit-line-clamp: 2; 
+    -webkit-box-orient: vertical; 
+    overflow: hidden; 
+    font-style: normal; 
+    font-weight: normal; 
+    line-height: 38px; 
+    letter-spacing: -0.591628px; 
+    flex: none; 
+    order: 2; 
+    flex-grow: 0; 
+    margin: 8px 0px;
+} 
+
+a:hover { 
+    color: grey; 
+    text-decoration: underline;
+} 
+
+a,a:hover,a:active { 
+    text-decoration: none; 
+    outline-style: none; 
+    -webkit-transition: all 0.4s ease 0s; 
+    -moz-transition: all 0.4s ease 0s; 
+    -ms-transition: all 0.4s ease 0s; 
+    -o-transition: all 0.4s ease 0s; 
+    transition: all 0.4s ease 0s;
+} 
+
+.mlb-name a , .mlb-name a:hover { 
+    color: #fff; 
+    font-size: 20px; 
+    display: -webkit-box; 
+    -webkit-line-clamp: 2; 
+    -webkit-box-orient: vertical; 
+    overflow: hidden; 
+    line-height: 1;
+} 
+
+.mlb-name a, .mlb-name a:hover, .mlb-name a:focus { 
+    color: #fff; 
+    font-size: 30px; 
+    display: -webkit-box; 
+    -webkit-line-clamp: 2; 
+    -webkit-box-orient: vertical; 
+    overflow: hidden; 
+    font-family: 'DB Gin Siam X'; 
+    font-style: normal; 
+    font-weight: normal; 
+    line-height: 38px; 
+    letter-spacing: -0.591628px; 
+    flex: none; 
+    order: 2; 
+    flex-grow: 0; 
+    margin: 8px 0px;
+} 
+
+.genres_span { 
+    font-family: 'DB Gin Siam X'; 
+    font-style: normal; 
+    font-weight: normal; 
+    background: #E5E5EA; 
+    color: #8E8E93; 
+    padding: 6px 16px; 
+    font-size: 14px; 
+    border-radius: 26px; 
+    margin-right: 4px; 
+    overflow: hidden; 
+    max-width: 62px; 
+    line-height: 26px; 
+    align-items: center; 
+    text-align: center;
+} 
+
+.mlb-name a, .mlb-name a:hover, .mlb-name a:focus { 
+    color: #fff; 
+    font-size: 20px; 
+    display: -webkit-box; 
+    -webkit-line-clamp: 2; 
+    -webkit-box-orient: vertical; 
+    overflow: hidden; 
+    line-height: 1;
+} 
+
+.add_movie_fav { 
+    position: absolute; 
+    top: 13px; 
+    right: 12px; 
+    z-index: 12;
+} 
+
+.mlbc-name { 
+    margin-top: 5px; 
+    display: -webkit-box; 
+    -webkit-line-clamp: 2; 
+    -webkit-box-orient: vertical; 
+    overflow: hidden; 
+    line-height: 1; 
+    height: 36px;
+} 
+
+.mlbc-cate { 
+    font-size: 16px; 
+    margin-top: 10px;
+} 
+
+.mlbc-time { 
+    margin-top: 2px; 
+    font-size: 16px;
+} 
+
+.mlbc-btn { 
+    position: absolute; 
+    bottom: 10px; 
+    left: 10px; 
+    right: 10px;
+} 
+
+.add_movie_fav img  { 
+    width: 25px;
+} 
+
+img.mlbc-i-play { 
+    width: 40px;
+} 
+
+img.mlbc-icon { 
+    height: 10px; 
+    margin-right: 5px;
+} 
+
+.mlbc-btn-mi { 
+    background-color: #fff; 
+    color: #000; 
+    display: block; 
+    text-align: center; 
+    border-radius: 5px; 
+    font-weight: 600; 
+    font-size: 16px;
+} 
+
+.mlbc-btn-mi { 
+    margin-top: -33px; 
+    font-size: 17px !important;
+} 
+
+.mlbc-btn-mi,.mlbc-btn-mi:hover { 
+    background-color: #fff; 
+    color: #000; 
+    display: block; 
+    text-align: center; 
+    border-radius: 5px; 
+    font-weight: 600; 
+    font-size: 16px;
+} 
+
+.mlbc-btn-mi,.mlbc-btn-mi:hover { 
+    margin-top: -33px; 
+    font-size: 17px !important;
+} 
+
+.mlbc-btn-bn { 
+    background-color: #ff283c; 
+    color: #fff; 
+    text-shadow: 0 0 5px rgba(0, 0, 0, 0.5); 
+    display: block; 
+    text-align: center; 
+    border-radius: 5px; 
+    font-weight: 600; 
+    font-size: 16px; 
+    margin-top: 8px;
+} 
+
+.mlbc-btn-bn,.mlbc-btn-bn:hover { 
+    background-color: #ff283c; 
+    color: #fff; 
+    text-shadow: 0 0 5px rgba(0, 0, 0, 0.5); 
+    display: block; 
+    text-align: center; 
+    border-radius: 5px; 
+    font-weight: 600; 
+    font-size: 16px; 
+    margin-top: 8px;
+} 
+
+
+/* These were inline style tags. Uses id+class to override almost everything */
+#style-wz4rd.style-wz4rd {  
+   transform: translate3d(-226.727px, 0px, 0px);  
+    transition-duration: 0ms;  
+}  
+#style-fNH4t.style-fNH4t {  
+   width: 202.727px;  
+    margin-right: 24px;  
+}  
+#style-DIA4x.style-DIA4x {  
+   background: url(https://cdn.majorcineplex.com/uploads/movie/3544/thumb_3544.jpg?1234);  
+}  
+#style-sOnbE.style-sOnbE {  
+   width: 202.727px;  
+    margin-right: 24px;  
+}  
+#style-LoO2N.style-LoO2N {  
+   background: url(https://cdn.majorcineplex.com/uploads/movie/3926/thumb_3926.jpg);  
+}  
+#style-YJdf2.style-YJdf2 {  
+   width: 202.727px;  
+    margin-right: 24px;  
+}  
+#style-ez7eq.style-ez7eq {  
+   background: url(https://cdn.majorcineplex.com/uploads/movie/3840/thumb_3840.jpg);  
+}  
+#style-O8TR6.style-O8TR6 {  
+   width: 202.727px;  
+    margin-right: 24px;  
+}  
+#style-osvDR.style-osvDR {  
+   background: url(https://cdn.majorcineplex.com/uploads/movie/3841/thumb_3841.jpg);  
+}  
+#style-IMVX5.style-IMVX5 {  
+   width: 202.727px;  
+    margin-right: 24px;  
+}  
+#style-2jFhq.style-2jFhq {  
+   background: url(https://cdn.majorcineplex.com/uploads/movie/3885/thumb_3885.jpg);  
+}  
+#style-f6oXc.style-f6oXc {  
+   width: 202.727px;  
+    margin-right: 24px;  
+}  
+#style-YNpQy.style-YNpQy {  
+   background: url(https://cdn.majorcineplex.com/uploads/movie/3547/thumb_3547.jpg);  
+}  
+#style-RkHkf.style-RkHkf {  
+   width: 202.727px;  
+    margin-right: 24px;  
+}  
+#style-aKZ46.style-aKZ46 {  
+   background: url(https://cdn.majorcineplex.com/uploads/movie/3816/thumb_3816.jpg);  
+}  

@@ -11,7 +11,7 @@
 
 
 
-<div class="block shadow-black/20 backdrop-blur-[30px] -mt-[230px] bg-white rounded-md overflow-hidden w-11/12 mx-auto mb-16">
+<div class="block shadow-black/20 backdrop-blur-[30px] -mt-[320px] bg-white rounded-md overflow-hidden w-11/12 mx-auto mb-16">
     <ul class="divide-y divide-gray-200">
 
         {{-- No Application --}}
