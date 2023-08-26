@@ -95,20 +95,20 @@
                         </a>
                     </div>
                                 @if($event->budgetrequest === null)
-                                    @if ( !$event->budget === null)
+                                    @if ( $event->budget === null)
+                                        <div class="flex justify-between mt-2">
+                                            <button class="bg-gray-500 hover:bg-red-700 mr-1 text-white px-4 py-2 rounded transition duration-300 ease-in-out">
+                                                กิจกรรมนี้ ยังไม่สามารถยื่นขออนุมัติงบประมาณได้ เนื่องจากยังไม่มีการกำหนดงบประมาณ
+                                            </button>
+                                        </div>
+                                    @else
                                         <div class="flex justify-between mt-2">
                                             <form method="get" action="{{ route('budgetrequests.create') }}">
                                                 <input type="hidden" name="event_id" value="{{ $event->id }}">
                                                 <button class="btn">
-                                                ยื่นเรื่องของอนุมัติงบประมาณ
-                                            </button>
+                                                    ยื่นเรื่องของอนุมัติงบประมาณ
+                                                </button>
                                             </form>
-                                        </div>
-                                    @else
-                                        <div class="flex justify-between mt-2">
-                                            <button class="bg-gray-500 hover:bg-yellow-700 mr-1 text-white px-4 py-2 rounded transition duration-300 ease-in-out">
-                                                กิจกรรมนี้ ยังไม่มีการกำหนดงบประมาณ
-                                            </button>
                                         </div>
                                     @endif
                                 @else
