@@ -89,7 +89,7 @@ class EventController extends Controller
         $event = new Event();
         $event->title = $request->title;
         $event->start_date_time = $request->start_date_time;
-        $event->organizer = $request->user()->id;
+        $event->user_id = $request->user()->id;
         $event->save();
 
         return redirect()->route('events.show', [
