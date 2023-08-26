@@ -8,53 +8,53 @@
 
 ## Setup
 วิธีการติดตั้งโปรเจค
-1. clone โปรเจคนี้มาโดยใส่คำสั่งนี้ใน bash
-    ```bash
-    $ cd folder_name
-    $ git clone https://github.com/OteEnded/WebTechMidTermProject-Beats_Headphone.git
+1. clone โปรเจคนี้มาใว้บนคอมพิเตอร์โดยใส่คำสั่งนี้ใน bash
     ```
-2. กำหนด alias สำหรับคำสั่ง sail ลงใน .bashrc
-    ```bash
+    cd <ชื่อโฟล์เดอร์ที่ต้องการ>
+    ```
+    ```
+    git clone https://github.com/OteEnded/WebTechMidTermProject-Beats_Headphone.git
+    ```
+2.  [หากยังไม่ได้ตั้ง alias สำหรับคำสั่ง sail] ให้ กำหนด alias สำหรับคำสั่ง sail ลงใน .bashrc โดยใช้คำสั่ง
+    ```
     echo "alias sail='[ -f sail ] && sh sail || sh vendor/bin/sail'" >> ~/.bashrc
     ```
-3. Copy ไฟล์ .env.example ไปที่ .env
-    ```bash
+3. Copy ไฟล์ .env.example ไปที่ .env โดยใช้คำสั่ง
+    ```
     cp .env.example .env
     ```
-4. สร้าง APP_KEY ใน .env
-   ```bash
+4. สร้าง APP_KEY ใน .env โดยใช้คำสั่ง
+   ```
    sail artisan key:generate
    ```
-5. 
-    ```bash
+5. สร้าง และ start container โดยใช้คำสั่ง
+    ```
     sail up -d
     ```
-6.
+6. ติดตั้ง package ที่จำเป็นโดยใช้คำสั่ง
     ```
     sail yarn install
     ```
-7. 
-    ```
-    sail npm install -D flowbite
-    ```
-8. run ตัว dev ขึ้นมาทำให้ css ใช้งานได้
+7. run ตัว dev ขึ้นมาทำให้ css ใช้งานได้
     ```
     sail yarn dev
     ```
-9. ดึงข้อมูลจาก seeder
+8. migrate และ seed ข้อมูลเข้าไปใน database โดยใช้คำสั่ง
     ```
     sail artisan migrate:fresh --seed
     ```
-10. เข้าสู่หน้าเว็บที่ http://localhost
+9. เข้าสู่หน้าเว็บที่ http://localhost ผ่าน browser เช่น Chrome, Firefox, Edge, Safari หรืออื่นๆ
+
 ## User Examples
-| Role       | Email               | Password |
-|------------|---------------------|----------|
-| Member     | mute@example.com    | mute     |
-| Accountant | roserin@example.com | roserin  |
-| Staff      | smart@example.com   | smart    |
-* _Member คือสมาชิกที่ลงทะเบียนแล้ว สามารถสมัครกิจกรรมได้_
-* _Staff คือเจ้าหน้าที่ สามารถสร้างกิจกรรมให้สมาชิกเข้าร่วมได้_
-* _Accountant คือพนักงานการเงิน สามารถยอมรับหรือปฏิเสธคำร้องของบประมาณจากเจ้าหน้าที่ได้_
+| Email               | Password | Role       |
+|---------------------|----------|------------|
+| mute@example.com    | mute     | Member     |
+| roserin@example.com | roserin  | Accountant |
+| smart@example.com   | smart    | Staff      |
+
+* **Member** คือสมาชิกที่ลงทะเบียนแล้ว สามารถสมัครกิจกรรมได้
+* **Staff** คือเจ้าหน้าที่กิจกรรม สามารถสร้าง และจัดการกิจกรรมได้
+* **Accountant** คือพนักงานการเงิน สามารถอนุมัติหรือปฏิเสธคำร้องของบประมาณกิจกรรมได้
 
 ## Contributors
 <table>
