@@ -33,6 +33,9 @@
     ```
 6. ติดตั้ง package ที่จำเป็นโดยใช้คำสั่ง
     ```
+    sail npm install
+    ```
+    ```
     sail yarn install
     ```
 7. run ตัว dev ขึ้นมาทำให้ css ใช้งานได้
