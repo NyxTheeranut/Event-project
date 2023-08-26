@@ -1,4 +1,31 @@
-## ඞ Contributors
+# Beats Event
+ระบบจัดการอีเวนต์
+
+## Table of contents
+- [Setup](#setup)
+- [User Examples](#user-examples)
+- [ඞ Contributors](#contributors)
+
+## Setup
+วิธีการติดตั้งโปรเจค
+1. clone โปรเจคนี้มาโดยใส่คำสั่งนี้ใน bash
+    ```bash
+    $ cd folder_name
+    $ git clone https://github.com/OteEnded/WebTechMidTermProject-Beats_Headphone.git
+    ```
+2. กำหนด alias สำหรับคำสั่ง sail
+    ```bash
+    echo "alias sail='[ -f sail ] && sh sail || sh vendor/bin/sail'" >> ~/.bashrc
+    ```
+
+## User Examples
+| Role       | Email               | Password |
+|------------|---------------------|----------|
+| Member     | mute@example.com    | mute     |
+| Accountant | roserin@example.com | roserin  |
+| Staff      | smart@example.com   | smart    |
+
+## Contributors
 <table>
 <tr>
 <td align="center">
