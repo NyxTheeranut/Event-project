@@ -1,10 +1,14 @@
 # Beats Event
 ระบบจัดการอีเวนต์
 
+---
+
 ## Table of contents
 - [Setup](#setup)
 - [User Examples](#user-examples)
 - [ඞ Contributors](#contributors)
+
+---
 
 ## Setup
 วิธีการติดตั้งโปรเจค
@@ -48,6 +52,8 @@
     ```
 9. เข้าสู่หน้าเว็บที่ http://localhost ผ่าน browser เช่น Chrome, Firefox, Edge, Safari หรืออื่นๆ
 
+---
+
 ## User Examples
 | Email               | Password | Role       |
 |---------------------|----------|------------|
@@ -58,6 +64,8 @@
 * **Member** คือสมาชิกที่ลงทะเบียนแล้ว สามารถสมัครกิจกรรมได้
 * **Staff** คือเจ้าหน้าที่กิจกรรม สามารถสร้าง และจัดการกิจกรรมได้
 * **Accountant** คือพนักงานการเงิน สามารถอนุมัติหรือปฏิเสธคำร้องของบประมาณกิจกรรมได้
+
+---
 
 ## Contributors
 <table>
@@ -95,6 +103,8 @@
 </td>
 </tr>
 </table>
+
+---
 
 <h1>This project is powered by Laravel.</h1>
 
