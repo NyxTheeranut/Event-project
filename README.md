@@ -30,7 +30,7 @@
 <tr>
 <td align="center">
     <a href = "https://github.com/OteEnded">
-        <img src = "https://avatars.githubusercontent.com/u/98574548?s=50"/><br>
+        <img src = "https://avatars.githubusercontent.com/u/98574548?s=50" width="50" height="50"/><br>
         <sub><b> OteEnded </b> </sub>
     </a>
     <br>
@@ -38,7 +38,7 @@
 
 <td align="center">
     <a href = "https://github.com/0akkung">
-        <img src = "https://avatars.githubusercontent.com/u/98578165?s=50" size="50"/><br>
+        <img src = "https://avatars.githubusercontent.com/u/98578165?s=50" width="50" height="50"/><br>
         <sub><b> 0akkung </b> </sub>
     </a>
     <br>
@@ -46,7 +46,7 @@
 
 <td align="center">
     <a href = "https://github.com/NyxTheeranut">
-        <img src = "https://avatars.githubusercontent.com/u/98580582?s=50" size="50"/><br>
+        <img src = "https://avatars.githubusercontent.com/u/98580582?s=50" width="50" height="50"/><br>
         <sub><b> Nyx_Nyx </b> </sub>
     </a>
     <br>
@@ -54,7 +54,7 @@
 
 <td align="center">
     <a href = "https://github.com/carry212121">
-        <img src = "https://avatars.githubusercontent.com/u/98574257?s=50" size="50" /><br>
+        <img src = "https://avatars.githubusercontent.com/u/98574257?s=50" width="50" height="50"/><br>
         <sub><b> carry212121 </b> </sub>
     </a>
     <br>
@@ -62,7 +62,7 @@
 </tr>
 </table>
 
-
+<h1>This project is powered by Laravel.</h1>
 
 <p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400" alt="Laravel Logo"></a></p>
 
