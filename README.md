@@ -13,17 +13,48 @@
     $ cd folder_name
     $ git clone https://github.com/OteEnded/WebTechMidTermProject-Beats_Headphone.git
     ```
-2. กำหนด alias สำหรับคำสั่ง sail
+2. กำหนด alias สำหรับคำสั่ง sail ลงใน .bashrc
     ```bash
     echo "alias sail='[ -f sail ] && sh sail || sh vendor/bin/sail'" >> ~/.bashrc
     ```
-
+3. Copy ไฟล์ .env.example ไปที่ .env
+    ```bash
+    cp .env.example .env
+    ```
+4. สร้าง APP_KEY ใน .env
+   ```bash
+   sail artisan key:generate
+   ```
+5. 
+    ```bash
+    sail up -d
+    ```
+6.
+    ```
+    sail yarn install
+    ```
+7. 
+    ```
+    sail npm install -D flowbite
+    ```
+8. run ตัว dev ขึ้นมาทำให้ css ใช้งานได้
+    ```
+    sail yarn dev
+    ```
+9. ดึงข้อมูลจาก seeder
+    ```
+    sail artisan migrate:fresh --seed
+    ```
+10. เข้าสู่หน้าเว็บที่ http://localhost
 ## User Examples
 | Role       | Email               | Password |
 |------------|---------------------|----------|
 | Member     | mute@example.com    | mute     |
 | Accountant | roserin@example.com | roserin  |
 | Staff      | smart@example.com   | smart    |
+* _Member คือสมาชิกที่ลงทะเบียนแล้ว สามารถสมัครกิจกรรมได้_
+* _Staff คือเจ้าหน้าที่ สามารถสร้างกิจกรรมให้สมาชิกเข้าร่วมได้_
+* _Accountant คือพนักงานการเงิน สามารถยอมรับหรือปฏิเสธคำร้องของบประมาณจากเจ้าหน้าที่ได้_
 
 ## Contributors
 <table>
