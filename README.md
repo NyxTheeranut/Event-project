@@ -15,7 +15,7 @@
     ```
     git clone https://github.com/OteEnded/WebTechMidTermProject-Beats_Headphone.git
     ```
-2.  [หากยังไม่ได้ตั้ง alias สำหรับคำสั่ง sail] ให้ กำหนด alias สำหรับคำสั่ง sail ลงใน .bashrc โดยใช้คำสั่ง
+2.  (หากยังไม่ได้ตั้ง alias สำหรับคำสั่ง sail) ให้ กำหนด alias สำหรับคำสั่ง sail ลงใน .bashrc โดยใช้คำสั่งดังกล่าว แล้ว restart terminal
     ```
     echo "alias sail='[ -f sail ] && sh sail || sh vendor/bin/sail'" >> ~/.bashrc
     ```
